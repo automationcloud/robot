@@ -1,0 +1,19 @@
+{
+    "name": "@automationcloud/robot",
+    "version": "1.0.0",
+    "description": "API for running scripts on Automation Cloud",
+    "main": "out/main/index.js",
+    "scripts": {
+        "test": "NODE_ENV=test mocha"
+    },
+    "author": "UBIO",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/automationcloud/robot.git"
+    },
+    "bugs": {
+        "url": "https://github.com/automationcloud/robot/issues"
+    },
+    "homepage": "https://github.com/automationcloud/robot#readme"
+}

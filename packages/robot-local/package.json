@@ -1,0 +1,30 @@
+{
+    "name": "@automationcloud/robot-local",
+    "version": "1.0.0",
+    "description": "API for running scripts locally",
+    "main": "out/main/index.js",
+    "scripts": {
+        "test": "NODE_ENV=test mocha"
+    },
+    "author": "UBIO",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/automationcloud/robot.git"
+    },
+    "bugs": {
+        "url": "https://github.com/automationcloud/robot/issues"
+    },
+    "homepage": "https://github.com/automationcloud/robot#readme",
+    "dependencies": {
+        "@automationcloud/robot": "^1.0.0",
+        "@ubio/engine": "^31.8.0",
+        "inversify": "^5.0.1",
+        "uuid": "^8.2.0"
+    },
+    "devDependencies": {
+        "@types/mocha": "^8.0.0",
+        "dotenv": "^8.2.0",
+        "mocha": "^8.0.1"
+    }
+}
