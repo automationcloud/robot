@@ -10,7 +10,7 @@ export interface Job {
 
     createInput(key: string, data: any): Promise<JobInput>;
     getOutput(key: string): Promise<JobOutput | null>;
-    waitForFinish(): Promise<void>;
+    waitForCompletion(): Promise<void>;
     waitForOutputs(...keys: string[]): Promise<any[]>;
     cancel(): Promise<void>;
 

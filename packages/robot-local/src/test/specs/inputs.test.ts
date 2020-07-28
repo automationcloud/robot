@@ -51,7 +51,7 @@ describe('Inputs', () => {
                 input: {}
             });
             try {
-                await job.waitForFinish();
+                await job.waitForCompletion();
             } catch (err) {
                 assert.equal(err.name, 'InputTimeout');
                 assert.equal(err.details.key, 'value');

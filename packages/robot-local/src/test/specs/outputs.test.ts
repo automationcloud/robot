@@ -31,7 +31,7 @@ describe('Outputs', () => {
                 script,
             });
             const job = await robot.createJob();
-            await job.waitForFinish();
+            await job.waitForCompletion();
             const [someOutput] = await job.waitForOutputs('someOutput');
             assert.deepEqual(someOutput, { foo: 123 });
         });
@@ -65,7 +65,7 @@ describe('Outputs', () => {
                 script,
             });
             const job = await robot.createJob();
-            await job.waitForFinish();
+            await job.waitForCompletion();
             const someOutput = await job.getOutput('someOutput');
             assert.deepEqual(someOutput?.key, 'someOutput');
             assert.deepEqual(someOutput?.data, { foo: 123 });

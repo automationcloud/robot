@@ -83,7 +83,7 @@ export class LocalJob implements Job {
         return this.localFlow.outputs.find(_ => _.key === key) ?? null;
     }
 
-    async waitForFinish() {
+    async waitForCompletion() {
         await this.runPromise;
         this.runPromise = null;
     }
