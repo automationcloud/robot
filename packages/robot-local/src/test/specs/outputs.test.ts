@@ -48,7 +48,7 @@ describe('Outputs', () => {
     });
 
     describe('getOutput', () => {
-        it('returns null if output is not ready yet', async () => {
+        it('returns undefined if output is not ready yet', async () => {
             const robot = new LocalRobot({
                 chromePath: process.env.CHROME_PATH!,
                 script,
@@ -56,7 +56,7 @@ describe('Outputs', () => {
             });
             const job = await robot.createJob();
             const output = await job.getOutput('someOutput');
-            assert.equal(output, null);
+            assert.equal(output, undefined);
         });
 
         it('resolves output if it is produced', async () => {
@@ -67,8 +67,7 @@ describe('Outputs', () => {
             const job = await robot.createJob();
             await job.waitForCompletion();
             const someOutput = await job.getOutput('someOutput');
-            assert.deepEqual(someOutput?.key, 'someOutput');
-            assert.deepEqual(someOutput?.data, { foo: 123 });
+            assert.deepEqual(someOutput, { foo: 123 });
         });
     });
 

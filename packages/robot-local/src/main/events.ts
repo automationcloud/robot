@@ -1,4 +1,4 @@
-import { JobInput, JobOutput, JobInputObject, JobOutputMeta } from '@automationcloud/robot';
+import { JobInput, JobOutput } from '@automationcloud/robot';
 import { EventEmitter } from 'events';
 import { injectable } from 'inversify';
 

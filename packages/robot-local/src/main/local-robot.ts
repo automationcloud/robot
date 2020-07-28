@@ -1,5 +1,5 @@
 import { ChromeLauncher } from '@ubio/engine';
-import { Robot, JobCreateParams, Job } from '@automationcloud/robot';
+import { Robot, JobInitParams, Job } from '@automationcloud/robot';
 import { LocalJob, LocalScriptInit } from './local-job';
 
 export type LocalRobotConfig = LocalRobotRequiredParams & LocalRobotOptionalParams;
@@ -25,10 +25,10 @@ export class LocalRobot extends Robot {
     constructor(options: LocalRobotOptions) {
         super();
         this.config = {
-            autoRunJobs: true,
             chromePort: 9123,
             chromeHeadless: true,
             chromeAdditionalArgs: [],
+            autoRunJobs: true,
             inputTimeout: 60 * 1000,
             ...options,
         };
@@ -42,18 +42,18 @@ export class LocalRobot extends Robot {
         });
     }
 
-    async _createJob(params: JobCreateParams): Promise<Job> {
+    async _createJob(params: JobInitParams): Promise<Job> {
         await this.ensureChromeRunning();
         const { category, input } = params;
-        const { script, inputTimeout } = this.config;
+        const { script, inputTimeout, autoRunJobs } = this.config;
         const job = new LocalJob(this, {
             category,
             input,
             script,
             inputTimeout,
         });
-        if (this.config.autoRunJobs) {
-            job.run();
+        if (autoRunJobs) {
+            await job.run();
         }
         return job;
     }

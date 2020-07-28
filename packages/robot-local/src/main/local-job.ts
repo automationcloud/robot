@@ -1,4 +1,4 @@
-import { Job, JobState, JobOutput, JobInput, JobCreateParams, JobEventHandler } from '@automationcloud/robot';
+import { Job, JobState, JobOutput, JobInitParams, JobEventHandler } from '@automationcloud/robot';
 import { LocalRobot } from './local-robot';
 import { Engine, FlowService, Script, Exception, BrowserService } from '@ubio/engine';
 import { LocalFlowService } from './overrides/flow';
@@ -8,7 +8,7 @@ import { JobEvents } from './events';
 
 export type LocalScriptInit = string | object;
 
-export type LocalJobInit = JobCreateParams & {
+export type LocalJobInit = JobInitParams & {
     script: LocalScriptInit;
     inputTimeout: number;
 };
@@ -75,12 +75,12 @@ export class LocalJob implements Job {
         return this.localFlow.awaitingInputKeys[0];
     }
 
-    async createInput(key: string, data: any): Promise<JobInput> {
-        return this.localFlow.submitInput(key, data);
+    async submitInput(key: string, data: any) {
+        this.localFlow.submitInput(key, data);
     }
 
-    async getOutput(key: string): Promise<JobOutput | null> {
-        return this.localFlow.outputs.find(_ => _.key === key) ?? null;
+    async getOutput(key: string): Promise<any> {
+        return this.localFlow.outputs.find(_ => _.key === key)?.data;
     }
 
     async waitForCompletion() {

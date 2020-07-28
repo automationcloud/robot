@@ -1,22 +1,19 @@
-export interface Job {
-    // pnr: boolean;
-    // createdAt: number;
-    // updatedAt: number;
-    // finishedAt: number | null;
-    // outputs: JobOutputMeta[];
-
-    awaitingInputKey: string | null;
+export interface JobInitParams {
+    input: JobInputObject;
     category: JobCategory;
+}
 
-    createInput(key: string, data: any): Promise<JobInput>;
-    getOutput(key: string): Promise<JobOutput | null>;
+export interface Job {
+    readonly awaitingInputKey: string | null;
+    readonly category: JobCategory;
+
+    submitInput(key: string, data: any): Promise<void>;
+    getOutput(key: string): Promise<any | undefined>;
     waitForCompletion(): Promise<void>;
     waitForOutputs(...keys: string[]): Promise<any[]>;
-    cancel(): Promise<void>;
-
-    // Experimental
     onAwaitingInput(inputKey: string, fn: () => any | Promise<any>): JobEventHandler;
     onOutput(outputKey: string, fn: (data: any) => void | Promise<void>): JobEventHandler;
+    cancel(): Promise<void>;
 }
 
 export enum JobState {
@@ -36,25 +33,13 @@ export enum JobCategory {
 }
 
 export interface JobOutput {
-    id: string;
     key: string;
     data: any;
-    createdAt: number;
-    updatedAt: number;
-}
-
-export interface JobOutputMeta {
-    key: string;
-    createdAt: number;
 }
 
 export interface JobInput {
-    id: string;
     key: string;
     data: any;
-    encrypted: boolean;
-    createdAt: number;
-    updatedAt: number;
 }
 
 export interface JobInputObject {

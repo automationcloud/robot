@@ -32,13 +32,13 @@ const [products, deliveryOptions] = await job.waitForOutputs('products', 'delive
 ```
 
 Local execution is facilitated by `@automationcloud/robot-local` package which should be installed separately.
-In this example, `robot` instance creates automation jobs which are executed by its embedded [Autopilot Engine](https://github.com/automationcloud/autopilot). The Job is an interface to your automation, and makes it trivial to switch to [cloud setup](#executing-scripts-in-automation-cloud).
+In this example, `robot` instance creates automation jobs which are executed by its embedded [Autopilot Engine](https://github.com/automationcloud/autopilot). The Job is an interface to your automation, which can be switched transparently to a [cloud setup](#executing-scripts-in-automation-cloud) without amending your business logic.
 
 ### Chrome Setup
 
-Local execution requires [Chromium](https://www.chromium.org/) executable to be available, so that the Robot can start it with appropriate CLI flags (the most notable one is `--remote-debugging-port` which allows connecting to Chromium via Chrome DevTools Protocol).
+Local setup requires [Chromium](https://www.chromium.org/) executable to be available, so that the Robot can launch it with appropriate CLI flags (the most notable one is `--remote-debugging-port` which allows connecting to Chromium via Chrome DevTools Protocol).
 
-**Note:** It is strongly recommended to avoid using your regular Chrome browser for performing automations. Doing so may cause data loss (Engine automatically cleans up browsing data to avoid polluted state).
+**Note:** It is strongly recommended to avoid using your regular Chrome browser for performing automations. Doing so may cause data loss (Engine automatically cleans up browsing data to avoid polluted state) and may otherwise compromise your browsing data due to using unsafe CLI arguments. Additionally, your automation scripts will assume full control over browser lifecycle, which is simply not convenient.
 
 Use following links to download Chromium snapshots for your operating system:
 
@@ -82,7 +82,7 @@ const job = await robot.createJob({
 });
 ```
 
-### Wait for completion
+### Waiting for completion
 
 ```ts
 await job.waitForCompletion();
@@ -100,13 +100,20 @@ const [products, deliveryOptions] = await job.waitForOutputs('products', 'delive
 
 ### Deferred inputs
 
-Inputs can be supplied further in the flow (this is useful for selecting an option after available options have been delivered via an output).
+Inputs can be supplied further in the flow. For example, this can be useful for selecting an option after available options have been delivered via an output.
 
 If the script reaches `Value.getInput` and the input wasn't supplied yet, it generates an "input request" which can be handled by your applicaiton logic:
 
 ```ts
 job.onAwaitingInput('selectedDeliveryOption', async () => {
-    // Callback is asynchronous, so you can fetch data from database, send http requests or obtain job outputs.
+    // Callback is asynchronous, so you can fetch data from database,
+    // send http requests or obtain job outputs.
     return { option: 3 };
 });
+```
+
+Inputs can also be submitted individually:
+
+```ts
+await job.submitInput('selectedDeliveryOption', { option: 3 });
 ```

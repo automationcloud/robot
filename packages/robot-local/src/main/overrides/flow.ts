@@ -1,6 +1,5 @@
 import { FlowService, Exception } from '@ubio/engine';
 import { JobInput, JobOutput, JobInputObject } from '@automationcloud/robot';
-import * as uuid from 'uuid';
 import { inject } from 'inversify';
 import { JobEvents } from '../events';
 import { LocalJob } from '../local-job';
@@ -81,24 +80,11 @@ export class LocalFlowService extends FlowService {
     }
 
     protected _createInput(key: string, data: any): JobInput {
-        return {
-            id: uuid.v4(),
-            key,
-            data,
-            createdAt: Date.now(),
-            updatedAt: Date.now(),
-            encrypted: false,
-        };
+        return { key, data };
     }
 
     protected _createOutput(key: string, data: any): JobOutput {
-        return {
-            id: uuid.v4(),
-            key,
-            data,
-            createdAt: Date.now(),
-            updatedAt: Date.now(),
-        };
+        return { key, data };
     }
 
 }
