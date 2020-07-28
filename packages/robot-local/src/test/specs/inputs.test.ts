@@ -27,10 +27,7 @@ describe('Inputs', () => {
 
     context('input pre-supplied', () => {
         it('resolves input immediately', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-            });
+            const robot = new LocalRobot({ script });
             const job = await robot.createJob({
                 input: {
                     value: { foo: 1 }
@@ -43,11 +40,7 @@ describe('Inputs', () => {
 
     context('input requested, but not provided', () => {
         it('rejects after input timeout', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-                inputTimeout: 200,
-            });
+            const robot = new LocalRobot({ script, inputTimeout: 200 });
             const job = await robot.createJob();
             try {
                 await job.waitForCompletion();
@@ -60,10 +53,7 @@ describe('Inputs', () => {
 
     context('input requested and provided', () => {
         it('resolves input', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-            });
+            const robot = new LocalRobot({ script });
             const job = await robot.createJob();
             job.onAwaitingInput('value', async () => {
                 // Support async
@@ -77,11 +67,7 @@ describe('Inputs', () => {
 
     describe('submitInput', () => {
         it('adds input', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-                autoRunJobs: true,
-            });
+            const robot = new LocalRobot({ script, autoRunJobs: true });
             const job = await robot.createJob();
             job.submitInput('value', { baz: 222 });
             (job as LocalJob).run();

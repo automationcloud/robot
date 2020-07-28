@@ -26,10 +26,7 @@ describe('Outputs', () => {
 
     describe('waitForOutput', () => {
         it('resolves instantly if output is already produced', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-            });
+            const robot = new LocalRobot({ script });
             const job = await robot.createJob();
             await job.waitForCompletion();
             const [someOutput] = await job.waitForOutputs('someOutput');
@@ -37,10 +34,7 @@ describe('Outputs', () => {
         });
 
         it('resolves after output is produced', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-            });
+            const robot = new LocalRobot({ script });
             const job = await robot.createJob();
             const [someOutput] = await job.waitForOutputs('someOutput');
             assert.deepEqual(someOutput, { foo: 123 });
@@ -49,21 +43,14 @@ describe('Outputs', () => {
 
     describe('getOutput', () => {
         it('returns undefined if output is not ready yet', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-                autoRunJobs: false,
-            });
+            const robot = new LocalRobot({ script, autoRunJobs: false });
             const job = await robot.createJob();
             const output = await job.getOutput('someOutput');
             assert.equal(output, undefined);
         });
 
         it('resolves output if it is produced', async () => {
-            const robot = new LocalRobot({
-                chromePath: process.env.CHROME_PATH!,
-                script,
-            });
+            const robot = new LocalRobot({ script });
             const job = await robot.createJob();
             await job.waitForCompletion();
             const someOutput = await job.getOutput('someOutput');

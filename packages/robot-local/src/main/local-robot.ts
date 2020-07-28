@@ -1,4 +1,4 @@
-import { ChromeLauncher } from '@ubio/engine';
+import { ChromeLauncher, Exception } from '@ubio/engine';
 import { Robot, JobInitParams, Job } from '@automationcloud/robot';
 import { LocalJob, LocalScriptInit } from './local-job';
 
@@ -7,10 +7,10 @@ export type LocalRobotOptions = LocalRobotRequiredParams & Partial<LocalRobotOpt
 
 export interface LocalRobotRequiredParams {
     script: LocalScriptInit;
-    chromePath: string;
 }
 
 export interface LocalRobotOptionalParams {
+    chromePath: string;
     chromePort: number;
     chromeHeadless: boolean;
     chromeAdditionalArgs: string[];
@@ -25,13 +25,20 @@ export class LocalRobot extends Robot {
     constructor(options: LocalRobotOptions) {
         super();
         this.config = {
-            chromePort: 9123,
+            chromePath: process.env.CHROME_PATH!,
+            chromePort: parseInt(process.env.CHROME_PORT!) || 9123,
             chromeHeadless: true,
             chromeAdditionalArgs: [],
             autoRunJobs: true,
             inputTimeout: 60 * 1000,
             ...options,
         };
+        if (!this.config.chromePath) {
+            throw new Exception({
+                name: 'ChromePathNotSpecified',
+                message: 'Please specify chromePath option or CHROME_PATH env variable',
+            });
+        }
         this.launcher = new ChromeLauncher({
             chromePath: this.config.chromePath,
             chromePort: this.config.chromePort,
