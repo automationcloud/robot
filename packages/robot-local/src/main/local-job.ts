@@ -89,7 +89,7 @@ export class LocalJob implements Job {
     }
 
     async waitForOutputs(...keys: string[]): Promise<any[]> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve, _reject) => {
             // TODO reject on timeout and on finish?
             const onOutput = () => {
                 const values = this._checkOutputs(keys);
