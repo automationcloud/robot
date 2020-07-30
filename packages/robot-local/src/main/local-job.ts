@@ -14,19 +14,19 @@ export type LocalJobInit = JobInitParams & {
 };
 
 export class LocalJob implements Job {
-    protected engine: Engine;
-    protected script: Script | null = null;
-    protected runPromise: Promise<void> | null = null;
+    engine: Engine;
+    script: Script | null = null;
 
-    pnr: boolean = false;
-    createdAt: number = Date.now();
-    updatedAt: number = Date.now();
-    finishedAt: number | null = null;
+    protected currentState: JobState = JobState.CREATED;
+    protected runPromise: Promise<void> | null = null;
 
     constructor(public robot: LocalRobot, public params: LocalJobInit) {
         this.engine = new Engine();
         this.configureEngine();
         this.localFlow.initInputs(params.input);
+        this.events.on('stateChanged', newState => {
+            this.currentState = newState;
+        });
     }
 
     get events(): JobEvents {
@@ -59,16 +59,16 @@ export class LocalJob implements Job {
         const script = await this._initScript(this.params.script);
         await this.browser.connect();
         await this.browser.openNewTab();
+        this.currentState = JobState.PROCESSING;
         await script.runAll();
-    }
-
-    get state() {
-        // TODO
-        return JobState.CREATED;
     }
 
     get category() {
         return this.params.category;
+    }
+
+    get state() {
+        return this.currentState;
     }
 
     get awaitingInputKey() {
@@ -106,6 +106,64 @@ export class LocalJob implements Job {
         });
     }
 
+    onAwaitingInput(key: string, fn: () => any | Promise<any>): JobEventHandler {
+        const handler = async (requestedKey: string) => {
+            try {
+                if (requestedKey === key) {
+                    const data = await fn();
+                    this.localFlow.submitInput(key, data);
+                }
+            } catch (error) {
+                this.events.emit('error', error);
+            }
+        };
+        this.events.on('inputRequested', handler);
+        return () => this.events.off('input', handler);
+    }
+
+    onOutput(key: string, fn: (outputData: any) => void | Promise<void>): JobEventHandler {
+        const handler = async (output: JobOutput) => {
+            try {
+                if (output.key === key) {
+                    await fn(output.data);
+                }
+            } catch (error) {
+                this.events.emit('error', error);
+            }
+        };
+        this.events.on('output', handler);
+        return () => this.events.off('output', handler);
+    }
+
+    onStateChanged(fn: (state: JobState) => void | Promise<void>): JobEventHandler {
+        const handler = async (newState: JobState) => {
+            try {
+                await fn(newState);
+            } catch (error) {
+                this.events.emit('error', error);
+            }
+        };
+        this.events.on('stateChanged', handler);
+        return () => this.events.off('stateChanged', handler);
+    }
+
+    onSuccess(fn: () => void | Promise<void>): JobEventHandler {
+        return this.onStateChanged(async (newState: JobState) => {
+            if (newState === JobState.SUCCESS) {
+                await fn();
+            }
+        });
+    }
+
+    onFail(fn: (err: Error) => void | Promise<void>): JobEventHandler {
+        return this.onStateChanged(async (newState: JobState) => {
+            if (newState === JobState.FAIL) {
+                const err = this.script?.$playback.error ?? new Exception({ name: 'UnknownError' });
+                await fn(err);
+            }
+        });
+    }
+
     protected _checkOutputs(keys: string[]): any[] | null {
         const values = [];
         for (const key of keys) {
@@ -122,8 +180,10 @@ export class LocalJob implements Job {
         return null;
     }
 
-    async cancel(): Promise<void> {
-        throw new Error('Method not implemented.');
+    async cancel() {
+        if (this.script) {
+            this.script.pause();
+        }
     }
 
     protected async _initScript(scriptOrPath: any): Promise<Script> {
@@ -135,6 +195,7 @@ export class LocalJob implements Job {
                 });
                 if (spec) {
                     this.script = await Script.load(this.engine, spec);
+                    this._setupScriptListeners(this.script);
                     return this.script;
                 }
                 throw new Exception({
@@ -156,33 +217,15 @@ export class LocalJob implements Job {
         }
     }
 
-    onAwaitingInput(key: string, fn: () => any | Promise<any>): JobEventHandler {
-        const onInput = async (requestedKey: string) => {
-            try {
-                if (requestedKey === key) {
-                    const data = await fn();
-                    this.localFlow.submitInput(key, data);
-                }
-            } catch (error) {
-                this.events.emit('error', error);
-            }
-        };
-        this.events.on('inputRequested', onInput);
-        return () => this.events.off('input', onInput);
+    protected _setupScriptListeners(script: Script) {
+        script.$events.on('success', () => this._setState(JobState.SUCCESS));
+        script.$events.on('fail', () => this._setState(JobState.FAIL));
     }
 
-    onOutput(key: string, fn: (outputData: any) => void | Promise<void>): JobEventHandler {
-        const onOutput = async (output: JobOutput) => {
-            try {
-                if (output.key === key) {
-                    await fn(output.data);
-                }
-            } catch (error) {
-                this.events.emit('error', error);
-            }
-        };
-        this.events.on('output', onOutput);
-        return () => this.events.off('output', onOutput);
+    _setState(newState: JobState) {
+        const previousState = this.currentState;
+        this.currentState = newState;
+        this.events.emit('stateChanged', newState, previousState);
     }
 
 }

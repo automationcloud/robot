@@ -1,5 +1,5 @@
-import { FlowService, Exception } from '@ubio/engine';
-import { JobInput, JobOutput, JobInputObject } from '@automationcloud/robot';
+import { FlowService, Exception, Script } from '@ubio/engine';
+import { JobInput, JobOutput, JobInputObject, JobState } from '@automationcloud/robot';
 import { inject } from 'inversify';
 import { JobEvents } from '../events';
 import { LocalJob } from '../local-job';
@@ -31,7 +31,6 @@ export class LocalFlowService extends FlowService {
         if (existingInput) {
             return existingInput.data;
         }
-        this.awaitingInputKeys.push(key);
         return new Promise((resolve, reject) => {
             const timer = setTimeout(() => {
                 cleanup();
@@ -48,14 +47,31 @@ export class LocalFlowService extends FlowService {
                     resolve(input.data);
                 }
             };
-            // TODO add timeout?
-            // TODO reject if script is paused?
+            const onError = (err: Error) => {
+                cleanup();
+                reject(err);
+            };
+            const onStateChanged = (state: JobState) => {
+                if (state !== JobState.AWAITING_INPUT) {
+                    cleanup();
+                    reject(new Exception({
+                        name: 'AwaitingInputInterrupted',
+                        message: `Awaiting input was interrupted because job was switched to state ${state}`,
+                    }));
+                }
+            };
             // TODO hey, auto-reject if there's no listener for 'inputRequested'?
             const cleanup = () => {
                 clearTimeout(timer);
                 this.events.off('input', onInput);
+                this.events.off('error', onError);
+                this.events.off('stateChanged', onStateChanged);
             };
             this.events.on('input', onInput);
+            this.events.on('error', onError);
+            this.events.on('stateChanged', onStateChanged);
+            this.awaitingInputKeys.push(key);
+            this.job._setState(JobState.AWAITING_INPUT);
             this.events.emit('inputRequested', key);
         });
     }
@@ -69,6 +85,11 @@ export class LocalFlowService extends FlowService {
         const output = this._createOutput(key, data);
         this.outputs.push(output);
         this.events.emit('output', output);
+    }
+
+    async tick(script: Script) {
+        await super.tick(script);
+        this.job._setState(JobState.PROCESSING);
     }
 
     submitInput(key: string, data: any) {
