@@ -60,7 +60,7 @@ export class LocalRobot extends Robot {
             inputTimeout,
         });
         if (autoRunJobs) {
-            await job.run();
+            job.run();
         }
         return job;
     }

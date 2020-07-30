@@ -89,8 +89,7 @@ export class LocalJob implements Job {
     }
 
     async waitForOutputs(...keys: string[]): Promise<any[]> {
-        return new Promise((resolve, _reject) => {
-            // TODO reject on timeout and on finish?
+        return new Promise((resolve, reject) => {
             const onOutput = () => {
                 const values = this._checkOutputs(keys);
                 if (values) {
@@ -98,92 +97,73 @@ export class LocalJob implements Job {
                     resolve(values);
                 }
             };
+            const onSuccess = () => {
+                cleanup();
+                reject(new Exception({
+                    name: 'JobSuccessMissingOutputs',
+                    message: `Job succeded, but specified outputs were not emitted`,
+                    details: { keys },
+                }));
+            };
+            const onFail = () => {
+                cleanup();
+                reject(new Exception({
+                    name: 'JobFailMissingOutputs',
+                    message: `Job failed, and specified outputs were not emitted`,
+                    details: { keys },
+                }));
+            };
             const cleanup = () => {
                 this.events.off('output', onOutput);
+                this.events.off('success', onSuccess);
+                this.events.off('fail', onFail);
             };
             this.events.on('output', onOutput);
+            this.events.on('success', onSuccess);
+            this.events.on('fail', onFail);
             onOutput();
         });
-    }
-
-    onAwaitingInput(key: string, fn: () => any | Promise<any>): JobEventHandler {
-        const handler = async (requestedKey: string) => {
-            try {
-                if (requestedKey === key) {
-                    const data = await fn();
-                    this.localFlow.submitInput(key, data);
-                }
-            } catch (error) {
-                this.events.emit('error', error);
-            }
-        };
-        this.events.on('inputRequested', handler);
-        return () => this.events.off('input', handler);
-    }
-
-    onOutput(key: string, fn: (outputData: any) => void | Promise<void>): JobEventHandler {
-        const handler = async (output: JobOutput) => {
-            try {
-                if (output.key === key) {
-                    await fn(output.data);
-                }
-            } catch (error) {
-                this.events.emit('error', error);
-            }
-        };
-        this.events.on('output', handler);
-        return () => this.events.off('output', handler);
-    }
-
-    onStateChanged(fn: (state: JobState) => void | Promise<void>): JobEventHandler {
-        const handler = async (newState: JobState) => {
-            try {
-                await fn(newState);
-            } catch (error) {
-                this.events.emit('error', error);
-            }
-        };
-        this.events.on('stateChanged', handler);
-        return () => this.events.off('stateChanged', handler);
-    }
-
-    onSuccess(fn: () => void | Promise<void>): JobEventHandler {
-        return this.onStateChanged(async (newState: JobState) => {
-            if (newState === JobState.SUCCESS) {
-                await fn();
-            }
-        });
-    }
-
-    onFail(fn: (err: Error) => void | Promise<void>): JobEventHandler {
-        return this.onStateChanged(async (newState: JobState) => {
-            if (newState === JobState.FAIL) {
-                const err = this.script?.$playback.error ?? new Exception({ name: 'UnknownError' });
-                await fn(err);
-            }
-        });
-    }
-
-    protected _checkOutputs(keys: string[]): any[] | null {
-        const values = [];
-        for (const key of keys) {
-            const output = this.localFlow.outputs.find(o => o.key === key);
-            if (output) {
-                values.push(output.data);
-            } else {
-                break;
-            }
-        }
-        if (values.length === keys.length) {
-            return values;
-        }
-        return null;
     }
 
     async cancel() {
         if (this.script) {
             this.script.pause();
         }
+    }
+
+    onAwaitingInput(key: string, fn: () => any | Promise<any>): JobEventHandler {
+        return this._createJobEventHandler('inputRequested', async (requestedKey: string) => {
+            if (requestedKey === key) {
+                const data = await fn();
+                this.localFlow.submitInput(key, data);
+            }
+        });
+    }
+
+    onOutput(key: string, fn: (outputData: any) => void | Promise<void>): JobEventHandler {
+        return this._createJobEventHandler('output', async (output: JobOutput) => {
+            if (output.key === key) {
+                await fn(output.data);
+            }
+        });
+    }
+
+    onStateChanged(fn: (state: JobState) => void | Promise<void>): JobEventHandler {
+        return this._createJobEventHandler('stateChanged', fn);
+    }
+
+    onSuccess(fn: () => void | Promise<void>): JobEventHandler {
+        return this._createJobEventHandler('success', fn);
+    }
+
+    onFail(fn: (err: Error) => void | Promise<void>): JobEventHandler {
+        return this._createJobEventHandler('fail', fn);
+    }
+
+    _setState(newState: JobState) {
+        const previousState = this.currentState;
+        this.currentState = newState;
+        this.events.emit('stateChanged', newState, previousState);
     }
 
     protected async _initScript(scriptOrPath: any): Promise<Script> {
@@ -218,14 +198,47 @@ export class LocalJob implements Job {
     }
 
     protected _setupScriptListeners(script: Script) {
-        script.$events.on('success', () => this._setState(JobState.SUCCESS));
-        script.$events.on('fail', () => this._setState(JobState.FAIL));
+        script.$events.on('success', () => {
+            this._setState(JobState.SUCCESS);
+            this.events.emit('success');
+        });
+        script.$events.on('fail', () => {
+            this._setState(JobState.FAIL);
+            this.events.emit('fail', this.script?.$playback.error ?? new Exception({ name: 'UnknownError' }));
+        });
     }
 
-    _setState(newState: JobState) {
-        const previousState = this.currentState;
-        this.currentState = newState;
-        this.events.emit('stateChanged', newState, previousState);
+    protected _checkOutputs(keys: string[]): any[] | null {
+        const values = [];
+        for (const key of keys) {
+            const output = this.localFlow.outputs.find(o => o.key === key);
+            if (output) {
+                values.push(output.data);
+            } else {
+                break;
+            }
+        }
+        if (values.length === keys.length) {
+            return values;
+        }
+        return null;
+    }
+
+    protected _createJobEventHandler(event: 'output', fn: (output: JobOutput) => void | Promise<void>): JobEventHandler
+    protected _createJobEventHandler(event: 'inputRequested', fn: (requestedKey: string) => void | Promise<void>): JobEventHandler
+    protected _createJobEventHandler(event: 'stateChanged', fn: (newState: JobState) => void | Promise<void>): JobEventHandler
+    protected _createJobEventHandler(event: 'success', fn: () => void | Promise<void>): JobEventHandler
+    protected _createJobEventHandler(event: 'fail', fn: (error: Error) => void | Promise<void>): JobEventHandler
+    protected _createJobEventHandler(event: string, fn: (...args: any[]) => void | Promise<void>): JobEventHandler {
+        const handler = async (...args: any[]) => {
+            try {
+                await fn(...args);
+            } catch (error) {
+                this.events.emit('error', error);
+            }
+        };
+        this.events.on(event as any, handler);
+        return () => this.events.off(event, handler);
     }
 
 }

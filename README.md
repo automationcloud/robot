@@ -28,7 +28,8 @@ const job = await robot.createJob({
 });
 
 const [products, deliveryOptions] = await job.waitForOutputs('products', 'deliveryOptions');
-// ...
+
+await job.waitForCompletion();
 ```
 
 Local execution is facilitated by `@automationcloud/robot-local` package which should be installed separately.
@@ -57,14 +58,14 @@ To run your automations in the Automation Cloud, all you have to do is to change
 import { CloudRobot } from '@automationcloud/robot-cloud';
 
 const robot = new CloudRobot({
-    serviceId: 'uuid', /* Automation Cloud Service id where your script is published */
-    auth: {            /* OAuth2 settings of your application */
+    serviceId: 'uuid', // Automation Cloud Service id where your script is published
+    auth: {            // OAuth2 settings of your application
         clientId: 'your-app-client-id',
         clientSecret: process.env.CLIENT_SECRET,
     }
 });
 
-const job = await robot.createJob(/*...*/) // The Job part does not change.
+const job = await robot.createJob(/*...*/); // The Job part does not change.
 ```
 
 ## Job
