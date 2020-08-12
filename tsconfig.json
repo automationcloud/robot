@@ -2,6 +2,7 @@
     "files": [],
     "references": [
         { "path": "./packages/robot" },
-        { "path": "./packages/robot-local" },
+        { "path": "./packages/local-robot" },
+        { "path": "./packages/cloud-robot" },
     ]
 }
