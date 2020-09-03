@@ -1,7 +1,6 @@
 import { FlowService, Exception, Script } from '@ubio/engine';
 import { JobInput, JobOutput, JobInputObject, JobState } from '@automationcloud/robot';
 import { inject } from 'inversify';
-import { JobEvents } from '../events';
 import { LocalJob } from '../local-job';
 
 export class LocalFlowService extends FlowService {
@@ -13,8 +12,6 @@ export class LocalFlowService extends FlowService {
     constructor(
         @inject('Job')
         protected job: LocalJob,
-        @inject(JobEvents)
-        protected events: JobEvents
     ) {
         super();
     }
@@ -32,6 +29,7 @@ export class LocalFlowService extends FlowService {
             return existingInput.data;
         }
         return new Promise((resolve, reject) => {
+            const { inputTimeout } = this.job.robot.config;
             const timer = setTimeout(() => {
                 cleanup();
                 reject(new Exception({
@@ -39,7 +37,7 @@ export class LocalFlowService extends FlowService {
                     message: `Input timeout (key=${key})`,
                     details: { key },
                 }));
-            }, this.job.params.inputTimeout);
+            }, inputTimeout);
             const onInput = (input: JobInput) => {
                 if (input.key === key) {
                     this.awaitingInputKeys = this.awaitingInputKeys.filter(k => k !== key);
@@ -60,19 +58,19 @@ export class LocalFlowService extends FlowService {
                     }));
                 }
             };
-            // TODO hey, auto-reject if there's no listener for 'inputRequested'?
+            // TODO hey, auto-reject if there's no listener for 'awaitingInput'?
             const cleanup = () => {
                 clearTimeout(timer);
-                this.events.off('input', onInput);
-                this.events.off('error', onError);
-                this.events.off('stateChanged', onStateChanged);
+                this.job.events.off('input', onInput);
+                this.job.events.off('error', onError);
+                this.job.events.off('stateChanged', onStateChanged);
             };
-            this.events.on('input', onInput);
-            this.events.on('error', onError);
-            this.events.on('stateChanged', onStateChanged);
+            this.job.events.on('input', onInput);
+            this.job.events.on('error', onError);
+            this.job.events.on('stateChanged', onStateChanged);
             this.awaitingInputKeys.push(key);
             this.job._setState(JobState.AWAITING_INPUT);
-            this.events.emit('inputRequested', key);
+            this.job.events.emit('awaitingInput', key);
         });
     }
 
@@ -84,7 +82,7 @@ export class LocalFlowService extends FlowService {
     async sendOutputData(key: string, data: any) {
         const output = this._createOutput(key, data);
         this.outputs.push(output);
-        this.events.emit('output', output);
+        this.job.events.emit('output', output);
     }
 
     async tick(script: Script) {
@@ -96,7 +94,7 @@ export class LocalFlowService extends FlowService {
         // TODO deduplicate?
         const input = this._createInput(key, data);
         this.inputs.push(input);
-        this.events.emit(`input`, input);
+        this.job.events.emit(`input`, input);
         return input;
     }
 

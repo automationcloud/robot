@@ -1,5 +1,5 @@
 {
-    "name": "@automationcloud/robot-local",
+    "name": "@automationcloud/local-robot",
     "version": "1.0.0",
     "description": "API for running scripts locally",
     "main": "out/main/index.js",

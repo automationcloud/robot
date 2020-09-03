@@ -13,7 +13,7 @@ Robot provides a unified interface [Job](#job) for running automations both loca
 Local execution refers to a technique where the script is loaded (from file, database or other source) and executed on the same machine as your app.
 
 ```ts
-import { LocalRobot } from '@automationcloud/robot-local';
+import { LocalRobot } from '@automationcloud/local-robot';
 
 const robot = new LocalRobot({
     script: '/path/to/my/script.json',
@@ -32,7 +32,7 @@ const [products, deliveryOptions] = await job.waitForOutputs('products', 'delive
 await job.waitForCompletion();
 ```
 
-Local execution is facilitated by `@automationcloud/robot-local` package which should be installed separately.
+Local execution is facilitated by `@automationcloud/local-robot` package which should be installed separately.
 In this example, `robot` instance creates automation jobs which are executed by its embedded [Autopilot Engine](https://github.com/automationcloud/autopilot). The Job is an interface to your automation, which can be switched transparently to a [cloud setup](#executing-scripts-in-automation-cloud) without amending your business logic.
 
 ### Chrome Setup
@@ -55,7 +55,7 @@ We also maintain [our own image](https://github.com/automationcloud/chrome-image
 To run your automations in the Automation Cloud, all you have to do is to change `LocalRobot` to `CloudRobot`:
 
 ```ts
-import { CloudRobot } from '@automationcloud/robot-cloud';
+import { CloudRobot } from '@automationcloud/cloud-robot';
 
 const robot = new CloudRobot({
     serviceId: 'uuid', // Automation Cloud Service id where your script is published

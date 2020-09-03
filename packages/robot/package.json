@@ -3,8 +3,7 @@
     "version": "1.0.0",
     "description": "API for running scripts on Automation Cloud",
     "main": "out/main/index.js",
-    "scripts": {
-    },
+    "scripts": {},
     "author": "UBIO",
     "license": "ISC",
     "repository": {
@@ -18,5 +17,8 @@
     "devDependencies": {
         "@types/mocha": "^8.0.0",
         "mocha": "^8.0.1"
+    },
+    "dependencies": {
+        "eventemitter3": "^4.0.4"
     }
 }

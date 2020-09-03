@@ -1,0 +1,10 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "references": [
+        { "path": "../robot" }
+    ],
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./out"
+    }
+}
