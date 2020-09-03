@@ -69,7 +69,7 @@ describe('Inputs', () => {
         it('adds input', async () => {
             const robot = new LocalRobot({ script, autoRunJobs: true });
             const job = await robot.createJob();
-            job.submitInput('value', { baz: 222 });
+            await job.submitInput('value', { baz: 222 });
             (job as LocalJob).run();
             const [echo] = await job.waitForOutputs('echo');
             assert.deepEqual(echo, { baz: 222 });

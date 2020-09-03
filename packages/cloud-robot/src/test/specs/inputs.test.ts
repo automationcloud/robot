@@ -38,27 +38,31 @@ describe('Inputs', () => {
         });
     });
 
-    context.skip('input requested and provided', () => {
+    context('input requested and provided', () => {
         it('resolves input', async () => {
             const robot = mock.createRobot();
             const job = await robot.createJob();
+            mock.requestInput('value');
             job.onAwaitingInput('value', async () => {
-                // Support async
                 await Promise.resolve();
                 return { bar: 2 };
             });
-            const [echo] = await job.waitForOutputs('echo');
-            assert.deepEqual(echo, { bar: 2 });
+            mock.success();
+            await job.waitForCompletion();
+            const input = mock.inputs.find(_ => _.key === 'value');
+            assert.deepEqual(input?.data, { bar: 2 });
         });
     });
 
-    describe.skip('submitInput', () => {
+    describe('submitInput', () => {
         it('adds input', async () => {
             const robot = mock.createRobot();
             const job = await robot.createJob();
-            job.submitInput('value', { baz: 222 });
-            const [echo] = await job.waitForOutputs('echo');
-            assert.deepEqual(echo, { baz: 222 });
+            await job.submitInput('value', { baz: 222 });
+            mock.success();
+            await job.waitForCompletion();
+            const input = mock.inputs.find(_ => _.key === 'value');
+            assert.deepEqual(input?.data, { baz: 222 });
         });
     });
 
