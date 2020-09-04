@@ -4,12 +4,11 @@ import { JobState } from '@automationcloud/robot';
 
 describe('Events', () => {
 
-    const script = {
-        id: 'my-script',
-        contexts: [
-            {
-                type: 'main',
-                children: [
+    describe('onStateChanged', () => {
+        describe('AWAITING_INPUT', () => {
+            it('emits on awaiting input', async () => {
+                let called = false;
+                const script = getScript([
                     {
                         type: 'Flow.output',
                         outputKey: 'echo',
@@ -20,15 +19,7 @@ describe('Events', () => {
                             }
                         ]
                     }
-                ]
-            }
-        ]
-    };
-
-    describe('onStateChanged', () => {
-        describe('AWAITING_INPUT', () => {
-            it('emits on awaiting input', async () => {
-                let called = false;
+                ]);
                 const robot = new LocalRobot({ script });
                 const job = await robot.createJob();
                 job.onStateChanged(async state => {
@@ -46,8 +37,9 @@ describe('Events', () => {
         describe('SUCCESS', () => {
             it('emits on success', async () => {
                 let called = false;
+                const script = getScript();
                 const robot = new LocalRobot({ script });
-                const job = await robot.createJob({ input: { value: '123' } });
+                const job = await robot.createJob();
                 job.onStateChanged(async state => {
                     if (state === JobState.SUCCESS) {
                         called = true;
@@ -61,11 +53,14 @@ describe('Events', () => {
         describe('FAIL', () => {
             it('emits on fail', async () => {
                 let called = false;
+                const script = getScript([
+                    {
+                        type: 'Flow.fail',
+                        errorCode: 'Boo'
+                    }
+                ]);
                 const robot = new LocalRobot({ script });
                 const job = await robot.createJob();
-                job.onAwaitingInput('value', () => {
-                    throw new Error('boo');
-                });
                 job.onStateChanged(async state => {
                     if (state === JobState.FAIL) {
                         called = true;
@@ -79,6 +74,18 @@ describe('Events', () => {
         describe('integration', () => {
             it('emits a sequence of state transitions', async () => {
                 const states: JobState[] = [];
+                const script = getScript([
+                    {
+                        type: 'Flow.output',
+                        outputKey: 'echo',
+                        pipeline: [
+                            {
+                                type: 'Value.getInput',
+                                inputKey: 'value'
+                            }
+                        ]
+                    }
+                ]);
                 const robot = new LocalRobot({ script });
                 const job = await robot.createJob();
                 job.onStateChanged(async state => {
@@ -96,8 +103,9 @@ describe('Events', () => {
     describe('onSuccess', () => {
         it('emits when job finishes successfully', async () => {
             let called = false;
+            const script = getScript();
             const robot = new LocalRobot({ script });
-            const job = await robot.createJob({ input: { value: '123' }});
+            const job = await robot.createJob();
             job.onSuccess(async () => {
                 called = true;
             });
@@ -109,17 +117,34 @@ describe('Events', () => {
     describe('onFail', () => {
         it('emits when job fails', async () => {
             let error: any = null;
+            const script = getScript([
+                {
+                    type: 'Flow.fail',
+                    errorCode: 'Boo',
+                }
+            ]);
             const robot = new LocalRobot({ script });
             const job = await robot.createJob();
             job.onFail(async err => {
                 error = err;
             });
-            job.onAwaitingInput('value', () => {
-                throw new Error('boo');
-            });
             await job.waitForCompletion().catch(() => {});
-            assert.equal(error?.message, 'boo');
+            assert.equal(error?.code, 'Boo');
         });
     });
 
 });
+
+function getScript(actions: any[] = [
+    { type: 'Flow.group' }
+]) {
+    return {
+        id: 'my-script',
+        contexts: [
+            {
+                type: 'main',
+                children: actions
+            }
+        ]
+    };
+}

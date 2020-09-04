@@ -167,7 +167,7 @@ export class CloudJob extends Job {
         return this._state;
     }
 
-    getError() {
+    getErrorInfo() {
         return this._error;
     }
 

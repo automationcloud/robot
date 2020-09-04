@@ -63,7 +63,7 @@ export class LocalJob extends Job {
         return this._state;
     }
 
-    getError() {
+    getErrorInfo() {
         return this._error;
     }
 
@@ -87,7 +87,6 @@ export class LocalJob extends Job {
     async cancel() {
         if (this.script) {
             this.script.pause();
-            // TODO should also cancel waiting for inputs
         }
     }
 

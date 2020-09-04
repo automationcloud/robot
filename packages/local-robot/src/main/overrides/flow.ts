@@ -45,10 +45,6 @@ export class LocalFlowService extends FlowService {
                     resolve(input.data);
                 }
             };
-            const onError = (err: Error) => {
-                cleanup();
-                reject(err);
-            };
             const onStateChanged = (state: JobState) => {
                 if (state !== JobState.AWAITING_INPUT) {
                     cleanup();
@@ -58,15 +54,12 @@ export class LocalFlowService extends FlowService {
                     }));
                 }
             };
-            // TODO hey, auto-reject if there's no listener for 'awaitingInput'?
             const cleanup = () => {
                 clearTimeout(timer);
                 this.job.events.off('input', onInput);
-                this.job.events.off('error', onError);
                 this.job.events.off('stateChanged', onStateChanged);
             };
             this.job.events.on('input', onInput);
-            this.job.events.on('error', onError);
             this.job.events.on('stateChanged', onStateChanged);
             this.awaitingInputKeys.push(key);
             this.job._setState(JobState.AWAITING_INPUT);
