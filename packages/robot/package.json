@@ -5,7 +5,7 @@
     "main": "out/main/index.js",
     "scripts": {},
     "author": "UBIO",
-    "license": "ISC",
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
         "url": "git://github.com/automationcloud/robot.git"
@@ -14,6 +14,10 @@
         "url": "https://github.com/automationcloud/robot/issues"
     },
     "homepage": "https://github.com/automationcloud/robot#readme",
+    "files": [
+        "package.json",
+        "out/main/*"
+    ],
     "devDependencies": {
         "@types/mocha": "^8.0.0",
         "mocha": "^8.0.1"

@@ -10,7 +10,7 @@
         "test": "lerna run test --stream --concurrency 1"
     },
     "author": "UBIO",
-    "license": "ISC",
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
         "url": "git://github.com/automationcloud/robot.git"

@@ -12,6 +12,8 @@ Principally, there are two different ways of running automations:
 
 Robot provides a unified [Job](#job) interface for running automations both locally and in the cloud. This approach encapsulates the complexity of setting up the Automation Engine, establishing connectivity to Chrome and wiring the code with different script lifecycle events, and allows switching transparently from local to cloud setup without modifying much of the business logic.
 
+![Choosing Robot API Diagram](diagram.png)
+
 ## Usage
 
 ### Running locally
@@ -164,3 +166,7 @@ Note 1: All callbacks are asynchronous. Exception thrown inside a callback will 
 Note 2: It is advisable to not depend on the order of the events, because they can vary between different engine versions, between scripts and even within one script (i.e. depending on some script logic).
 
 Note 3: As with all event-based APIs it is possible to miss the event if the subscription is done after the event has already emitted.
+
+## License
+
+See [LICENSE](LICENSE.md).
