@@ -21,7 +21,7 @@
         "out/main/*"
     ],
     "dependencies": {
-        "@automationcloud/robot": "^1.0.0",
+        "@automationcloud/robot": "^1.0.0-rc.2",
         "@ubio/engine": "^31.8.0",
         "inversify": "^5.0.1",
         "uuid": "^8.2.0"
