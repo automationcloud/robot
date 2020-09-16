@@ -21,7 +21,7 @@
         "out/main/*"
     ],
     "dependencies": {
-        "@automationcloud/request": "^1.3.0",
+        "@automationcloud/request": "^2.0.2",
         "@automationcloud/robot": "^1.0.0-rc.3"
     },
     "devDependencies": {

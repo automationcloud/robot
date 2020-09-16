@@ -12,11 +12,12 @@
     },
     "homepage": "https://github.com/automationcloud/robot#readme",
     "scripts": {
+        "init": "npm i && lerna clean -y && lerna bootstrap && npm run clean && npm run compile",
+        "bootstrap": "npm i && lerna bootstrap --ci",
         "clean": "lerna exec -- rm -rf *.tsbuildinfo out/ && lerna run clean",
         "dev": "tsc -b -w",
         "compile": "tsc -b",
         "lint": "eslint ./packages --ext=.js,.ts --cache",
-        "bootstrap": "npm i && lerna bootstrap --ci",
         "test": "lerna run test --stream --concurrency 1",
         "release": "lerna version --no-push --force-publish -y && lerna publish from-git -y",
         "preversion": "npm run lint && npm run clean && npm run compile"

@@ -25,8 +25,8 @@ export class AcApi {
         this.request = new Request({
             baseUrl: params.apiUrl,
             auth,
-            onRetry: this.onRetry.bind(this),
         });
+        this.request.on('retry', this.onRetry.bind(this));
     }
 
     async createJob(params: {
@@ -83,8 +83,8 @@ export class AcApi {
         await this.request.post(`/jobs/${jobId}/cancel`);
     }
 
-    protected onRetry(error: Error) {
-        this.params.logger.warn('Request failed, retrying', { error });
+    protected onRetry(error: Error, info: any) {
+        this.params.logger.warn('Request failed, retrying', { error, info });
     }
 
 }
