@@ -1,6 +1,6 @@
 {
     "name": "@automationcloud/cloud-robot",
-    "version": "1.0.0-rc.3",
+    "version": "1.0.0-rc.4",
     "description": "API for running scripts using Automation Cloud API",
     "main": "out/main/index.js",
     "scripts": {
@@ -22,7 +22,7 @@
     ],
     "dependencies": {
         "@automationcloud/request": "^2.0.2",
-        "@automationcloud/robot": "^1.0.0-rc.3"
+        "@automationcloud/robot": "^1.0.0-rc.4"
     },
     "devDependencies": {
         "@types/mocha": "^8.0.1",
