@@ -5,5 +5,7 @@
         "**/dist": true,
         "**/.tmp": true,
         "**/static/build": true
-    }
+    },
+    "licenser.license": "AL2",
+    "licenser.author": "UBIO Limited"
 }
