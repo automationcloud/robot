@@ -1,6 +1,6 @@
 {
     "name": "@automationcloud/local-robot",
-    "version": "1.0.0-rc.4",
+    "version": "1.0.0-rc.5",
     "description": "API for running scripts locally",
     "main": "out/main/index.js",
     "scripts": {
@@ -21,7 +21,7 @@
         "out/main/*"
     ],
     "dependencies": {
-        "@automationcloud/robot": "^1.0.0-rc.4",
+        "@automationcloud/robot": "^1.0.0-rc.5",
         "@ubio/engine": "^31.8.0",
         "inversify": "^5.0.1",
         "uuid": "^8.2.0"
