@@ -14,6 +14,7 @@
 
 import { Robot, Job, JobInitParams } from '@automationcloud/robot';
 import { CloudJob } from './cloud-job';
+import { CloudCache } from './cloud-cache';
 
 export type CloudRobotConfig = CloudRobotRequiredParams & CloudRobotOptionalParams;
 export type CloudRobotOptions = CloudRobotRequiredParams & Partial<CloudRobotOptionalParams>;
@@ -36,6 +37,7 @@ export interface CloudRobotOptionalParams {
 
 export class CloudRobot extends Robot {
     config: CloudRobotConfig;
+    public cache: CloudCache;
 
     constructor(params: CloudRobotOptions) {
         super();
@@ -45,6 +47,8 @@ export class CloudRobot extends Robot {
             pollInterval: 1000,
             ...params,
         };
+
+        this.cache = new CloudCache(this, this.config);
     }
 
     protected async _createJob(params: JobInitParams): Promise<Job> {
@@ -52,5 +56,4 @@ export class CloudRobot extends Robot {
         await job.start();
         return job;
     }
-
 }

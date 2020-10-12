@@ -34,6 +34,7 @@ export class AcMock {
         'GET /jobs/*/events': (params, id) => this.getJobEvents(id, Number(params.query.get('offset')) || 0),
         'GET /jobs/*/outputs/*': (_params, id, key) => this.getJobOutput(id, key),
         'POST /jobs/*/inputs': (params, id) => this.createInput(id, params.body.key, params.body.data),
+        'POST /services/*/previous-job-outputs': (params, serviceId) => this.getPreviousJobOutput(serviceId, params.query.get('key')!, params.body.data),
     };
 
     protected _inputTimeoutTimer: any;
@@ -191,6 +192,14 @@ export class AcMock {
         if (this.job?.id !== jobId) {
             return { status: 404 };
         }
+        const output = this.outputs.find(_ => _.key === key);
+        return output ? {
+            status: 200,
+            body: output
+        } : { status: 404 };
+    }
+
+    protected async getPreviousJobOutput(serviceId: string, key: string, inputs: AcJobInput[]) {
         const output = this.outputs.find(_ => _.key === key);
         return output ? {
             status: 200,

@@ -101,6 +101,14 @@ export class AcApi {
         this.params.logger.warn('Request failed, retrying', { error, info });
     }
 
+    async getPreviousJobOutput(serviceId: string, key: string, inputs: JobInputObject[]): Promise<AcJobOutput | null> {
+        return await this.request.post(`/services/${serviceId}/previous-job-outputs?key=${key}`, {
+            body: {
+                inputs: inputs || []
+            }
+        });
+    }
+
 }
 
 export interface AcJob {
