@@ -101,6 +101,17 @@ export class AcApi {
         this.params.logger.warn('Request failed, retrying', { error, info });
     }
 
+    async queryPreviousOutputs(serviceId: string, key?: string, inputs: JobInputObject[] = []): Promise<AcPreviousJobOutput[]> {
+        const { data } = await this.request.post(`/services/${serviceId}/previous-job-outputs`, {
+            body: {
+                inputs
+            },
+            query: {
+                key
+            }
+        });
+        return data;
+    }
 }
 
 export interface AcJob {
@@ -132,4 +143,11 @@ export interface AcJobOutput {
     jobId: string;
     key: string;
     data: any;
+}
+
+export interface AcPreviousJobOutput {
+    jobId: string;
+    key: string;
+    data: any;
+    variability: number;
 }

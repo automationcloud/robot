@@ -12,29 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Server, createServer, IncomingMessage, ServerResponse } from 'http';
+import * as http from 'http';
 import { AcJob, AcJobEvent, AcJobEventName, AcJobOutput, AcJobInput } from '../main/ac-api';
 import { JobState, JobInputObject, JobError } from '@automationcloud/robot';
 import { CloudRobot } from '../main';
+import Koa from 'koa';
+import Router from 'koa-router2';
+import bodyParser from 'koa-body';
 
 const PORT = Number(process.env.TEST_PORT) || 3008;
 
 export class AcMock {
     config: MockConfig;
-    server: Server;
+    app: Koa;
+    server: http.Server;
+    router: Router;
 
     job: AcJob | null = null;
     inputs: AcJobInput[] = [];
     outputs: AcJobOutput[] = [];
     events: AcJobEvent[] = [];
-
-    routes: Record<string, RouteHandler> = {
-        'POST /jobs': params => this.createJob(params.body),
-        'GET /jobs/*': (_params, id) => this.getJob(id),
-        'GET /jobs/*/events': (params, id) => this.getJobEvents(id, Number(params.query.get('offset')) || 0),
-        'GET /jobs/*/outputs/*': (_params, id, key) => this.getJobOutput(id, key),
-        'POST /jobs/*/inputs': (params, id) => this.createInput(id, params.body.key, params.body.data),
-    };
 
     protected _inputTimeoutTimer: any;
 
@@ -44,7 +41,26 @@ export class AcMock {
             inputTimeout: 100,
             ...options,
         };
-        this.server = createServer((req, res) => this.dispatch(req, res));
+        this.app = new Koa();
+        this.router = new Router();
+        this.router.post('/jobs', ctx => this.createJob(ctx));
+        this.router.get('/jobs/:id', ctx => this.getJob(ctx));
+        this.router.get('/jobs/:id/events', ctx => this.getJobEvents(ctx));
+        this.router.get('/jobs/:id/outputs/:outputKey', ctx => this.getJobOutput(ctx));
+        this.router.post('/jobs/:id/inputs', ctx => this.createInput(ctx));
+        this.router.post('/services/:id/previous-job-outputs', ctx => this.queryPreviousOutputs(ctx));
+        this.app.use(async (ctx, next) => {
+            try {
+                ctx.body = {};
+                await next();
+            } catch (err) {
+                ctx.status = 500;
+                ctx.body = { ...err };
+            }
+        });
+        this.app.use(bodyParser({ json: true }));
+        this.app.use(this.router.routes());
+        this.server = http.createServer(this.app.callback());
     }
 
     reset() {
@@ -152,107 +168,82 @@ export class AcMock {
 
     // Routes
 
-    protected async createJob(body: any): Promise<MockResponse> {
+    protected async createJob(ctx: Koa.Context) {
         this.job = {
             id: randomId(),
             awaitingInputKey: null,
-            category: body.category || 'test',
+            category: ctx.request.body.category || 'test',
             state: JobState.PROCESSING,
             error: null,
-            serviceId: body.serviceId,
+            serviceId: ctx.request.body.serviceId,
         };
-        this.addInputObject(body.input);
-        return {
-            status: 200,
-            body: this.job,
+        this.addInputObject(ctx.request.body.input);
+        ctx.status = 200;
+        ctx.body = this.job;
+    }
+
+    protected async getJob(ctx: Koa.Context) {
+        if (this.job?.id !== ctx.params.id) {
+            ctx.status = 404;
+            return;
+        }
+        ctx.status = 200;
+        ctx.body = this.job;
+    }
+
+    protected async getJobEvents(ctx: Koa.Context) {
+        if (this.job?.id !== ctx.params.id) {
+            ctx.status = 404;
+            return;
+        }
+        ctx.status = 200;
+        ctx.body = {
+            data: this.events.slice(Number(ctx.query.offset) || 0)
         };
     }
 
-    protected async getJob(jobId: string): Promise<MockResponse> {
-        if (this.job?.id !== jobId) {
-            return { status: 404 };
+    protected async getJobOutput(ctx: Koa.Context) {
+        if (this.job?.id !== ctx.params.id) {
+            ctx.status = 404;
+            return;
         }
-        return { status: 200, body: this.job };
+        const output = this.outputs.find(_ => _.key === ctx.params.outputKey);
+        if (output) {
+            ctx.status = 200;
+            ctx.body = output;
+        } else {
+            ctx.status = 404;
+        }
     }
 
-    protected async getJobEvents(jobId: string, offset: number = 0): Promise<MockResponse> {
-        if (this.job?.id !== jobId) {
-            return { status: 404 };
+    protected async createInput(ctx: Koa.Context) {
+        if (this.job?.id !== ctx.params.id) {
+            ctx.status = 404;
+            return;
         }
-        return {
-            status: 200,
-            body: {
-                data: this.events.slice(offset)
-            },
-        };
-    }
-
-    protected async getJobOutput(jobId: string, key: string) {
-        if (this.job?.id !== jobId) {
-            return { status: 404 };
-        }
-        const output = this.outputs.find(_ => _.key === key);
-        return output ? {
-            status: 200,
-            body: output
-        } : { status: 404 };
-    }
-
-    protected async createInput(jobId: string, key: string, data: any) {
-        if (this.job?.id !== jobId) {
-            return { status: 404 };
-        }
+        const { key, data } = ctx.request.body;
         this.addInputObject({ [key]: data });
-        if (this.job.awaitingInputKey === key) {
+        if (this.job?.awaitingInputKey === key) {
             clearTimeout(this._inputTimeoutTimer);
             this.setState(JobState.PROCESSING);
         }
-        return { status: 201 };
+        ctx.status = 201;
     }
 
-    // Request handling
-
-    protected async route(params: MockRequestParams): Promise<MockResponse> {
-        // console.log(params.method, params.path);
-        for (const [expr, handler] of Object.entries(this.routes)) {
-            const regexp = new RegExp('^' +
-                expr.replace(/\//g, '\\/').replace(/\*/g, '([^\\/]+?)') +
-                '\\/?$');
-            const match = regexp.exec(`${params.method} ${params.path}`);
-            if (!match) {
-                continue;
-            }
-            const pathArgs = [].slice.call(match, 1);
-            return handler(params, ...pathArgs);
-        }
-        return { status: 404 };
-    }
-
-    protected async dispatch(req: IncomingMessage, res: ServerResponse) {
-        try {
-            const chunks: Buffer[] = [];
-            for await (const chunk of req) {
-                chunks.push(chunk);
-            }
-            const payload = Buffer.concat(chunks).toString('utf-8').trim();
-            const json = payload ? JSON.parse(payload) : null;
-            const url = new URL(req.url!, this.url);
-            const params: MockRequestParams = {
-                method: req.method!.toUpperCase(),
-                path: url.pathname,
-                headers: req.headers as Record<string, string>,
-                query: new URLSearchParams(url.search),
-                body: json,
-            };
-            const response = await this.route(params);
-            res.writeHead(response.status).end(JSON.stringify(response.body || {}));
-        } catch (err) {
-            res.writeHead(400, 'Malformed request')
-                .end(JSON.stringify({
-                    name: 'MalformedRequest',
-                    message: err.message,
-                }));
-        }
+    protected async queryPreviousOutputs(ctx: Koa.Context) {
+        const data = this.outputs
+            .filter(_ => _.key === ctx.query.key)
+            .map(output => {
+                return {
+                    ...output,
+                    variability: 1
+                };
+            });
+        ctx.status = 200;
+        ctx.body = {
+            object: 'list',
+            data,
+        };
     }
 
 }
@@ -261,22 +252,7 @@ function randomId() {
     return Math.random().toString(36).substring(2);
 }
 
-interface MockRequestParams {
-    method: string;
-    path: string;
-    headers: Record<string, string>;
-    query: URLSearchParams;
-    body: any;
-}
-
-interface MockResponse {
-    status: number;
-    body?: any;
-}
-
 interface MockConfig {
     port: number;
     inputTimeout: number;
 }
-
-type RouteHandler = (params: MockRequestParams, ...pathArgs: string[]) => Promise<MockResponse>;

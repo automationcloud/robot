@@ -14,6 +14,7 @@
 
 import { Robot, Job, JobInitParams } from '@automationcloud/robot';
 import { CloudJob } from './cloud-job';
+import { AcApi, AcJobInput, AcPreviousJobOutput } from './ac-api';
 
 export type CloudRobotConfig = CloudRobotRequiredParams & CloudRobotOptionalParams;
 export type CloudRobotOptions = CloudRobotRequiredParams & Partial<CloudRobotOptionalParams>;
@@ -36,6 +37,7 @@ export interface CloudRobotOptionalParams {
 
 export class CloudRobot extends Robot {
     config: CloudRobotConfig;
+    api: AcApi;
 
     constructor(params: CloudRobotOptions) {
         super();
@@ -45,6 +47,12 @@ export class CloudRobot extends Robot {
             pollInterval: 1000,
             ...params,
         };
+        this.api = new AcApi({
+            apiTokenUrl: this.config.apiTokenUrl,
+            apiUrl: this.config.apiUrl,
+            auth: this.config.auth,
+            logger: this.logger,
+        });
     }
 
     protected async _createJob(params: JobInitParams): Promise<Job> {
@@ -53,4 +61,8 @@ export class CloudRobot extends Robot {
         return job;
     }
 
+    async queryPreviousOutput(key: string, inputs: AcJobInput[] = []): Promise<AcPreviousJobOutput | null> {
+        const outputs = await this.api.queryPreviousOutputs(this.config.serviceId, key, inputs);
+        return outputs.length ? outputs[0] : null;
+    }
 }

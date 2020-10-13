@@ -31,7 +31,7 @@ describe('Outputs', () => {
                 mock.success();
                 await job.waitForCompletion();
                 const [someOutput] = await job.waitForOutputs('someOutput');
-                assert.deepEqual(someOutput, { foo: 123 });
+                assert.deepStrictEqual(someOutput, { foo: 123 });
             });
         });
 
@@ -43,7 +43,7 @@ describe('Outputs', () => {
                     mock.addOutput('someOutput', { foo: 123 });
                 }, 100);
                 const [someOutput] = await job.waitForOutputs('someOutput');
-                assert.deepEqual(someOutput, { foo: 123 });
+                assert.deepStrictEqual(someOutput, { foo: 123 });
                 mock.success();
                 await job.waitForCompletion();
             });
@@ -58,7 +58,7 @@ describe('Outputs', () => {
                     await job.waitForOutputs('someOutput', 'someOtherOutput');
                     throw new Error();
                 } catch (err) {
-                    assert.equal(err.name, 'JobSuccessMissingOutputs');
+                    assert.strictEqual(err.name, 'JobSuccessMissingOutputs');
                 }
             });
         });
@@ -72,7 +72,7 @@ describe('Outputs', () => {
                     await job.waitForOutputs('someOutput');
                     throw new Error();
                 } catch (err) {
-                    assert.equal(err.name, 'JobFailMissingOutputs');
+                    assert.strictEqual(err.name, 'JobFailMissingOutputs');
                 } finally {
                     // Mute unhandled rejection
                     await job.waitForCompletion().catch(() => {});
@@ -86,7 +86,7 @@ describe('Outputs', () => {
             const robot = mock.createRobot();
             const job = await robot.createJob();
             const output = await job.getOutput('someOutput');
-            assert.equal(output, undefined);
+            assert.strictEqual(output, undefined);
             mock.success();
             await job.waitForCompletion();
         });
@@ -96,7 +96,7 @@ describe('Outputs', () => {
             const job = await robot.createJob();
             mock.addOutput('someOutput', { foo: 123 });
             const someOutput = await job.getOutput('someOutput');
-            assert.deepEqual(someOutput, { foo: 123 });
+            assert.deepStrictEqual(someOutput, { foo: 123 });
             mock.success();
             await job.waitForCompletion();
         });
