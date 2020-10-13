@@ -38,7 +38,7 @@ describe('Basics', () => {
                 await job.waitForCompletion();
                 throw new Error();
             } catch (err) {
-                assert.equal(err.name, 'UhOhError');
+                assert.strictEqual(err.name, 'UhOhError');
             }
         });
     });

@@ -48,7 +48,7 @@ export class AcMock {
         this.router.get('/jobs/:id/events', ctx => this.getJobEvents(ctx));
         this.router.get('/jobs/:id/outputs/:outputKey', ctx => this.getJobOutput(ctx));
         this.router.post('/jobs/:id/inputs', ctx => this.createInput(ctx));
-        this.router.post('/services/:id/previous-job-outputs', ctx => this.getPreviousJobOutput(ctx));
+        this.router.post('/services/:id/previous-job-outputs', ctx => this.queryPreviousOutputs(ctx));
         this.app.use(async (ctx, next) => {
             try {
                 ctx.body = {};
@@ -230,14 +230,20 @@ export class AcMock {
         ctx.status = 201;
     }
 
-    protected async getPreviousJobOutput(ctx: Koa.Context) {
-        const output = this.outputs.find(_ => _.key === ctx.query.key);
-        if (output) {
-            ctx.status = 200;
-            ctx.body = output;
-        } else {
-            ctx.status = 404;
-        }
+    protected async queryPreviousOutputs(ctx: Koa.Context) {
+        const data = this.outputs
+            .filter(_ => _.key === ctx.query.key)
+            .map(output => {
+                return {
+                    ...output,
+                    variability: 1
+                };
+            });
+        ctx.status = 200;
+        ctx.body = {
+            object: 'list',
+            data,
+        };
     }
 
 }

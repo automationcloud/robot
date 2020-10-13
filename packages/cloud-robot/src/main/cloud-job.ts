@@ -14,10 +14,9 @@
 
 import { Job, JobInitParams, JobState, JobOutput, JobInput, JobError, Exception } from '@automationcloud/robot';
 import { CloudRobot } from './cloud-robot';
-import { AcApi, AcJobEvent } from './ac-api';
+import { AcJobEvent } from './ac-api';
 
 export class CloudJob extends Job {
-    api: AcApi;
     awaitingInputKey: string | null = null;
     inputsMap: Map<string, JobInput> = new Map();
     outputsMap: Map<string, JobOutput> = new Map();
@@ -34,12 +33,10 @@ export class CloudJob extends Job {
         public params: JobInitParams,
     ) {
         super();
-        this.api = new AcApi({
-            apiTokenUrl: robot.config.apiTokenUrl,
-            apiUrl: robot.config.apiUrl,
-            auth: robot.config.auth,
-            logger: robot.logger,
-        });
+    }
+
+    get api() {
+        return this.robot.api;
     }
 
     get jobId(): string {

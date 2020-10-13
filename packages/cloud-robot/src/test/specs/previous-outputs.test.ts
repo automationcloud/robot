@@ -15,24 +15,26 @@
 import { AcMock } from '../ac-mock';
 import assert from 'assert';
 
-describe('Cache', () => {
+describe('queryPreviousOutputs', () => {
 
     const mock = new AcMock();
 
     beforeEach(() => mock.start());
     afterEach(() => mock.stop());
 
-    describe('getPreviousJobOutputs', () => {
-        context('output already produced', () => {
-            it('resolves instantly', async () => {
-                const robot = mock.createRobot();
-                const job = await robot.createJob();
-                mock.addOutput('someOutput', { foo: 123 });
-                mock.success();
-                await job.waitForCompletion();
-                const someOutput = await robot.cache.getPreviousJobOutput('someOutput', []);
-                assert.deepEqual(someOutput, { foo: 123 });
-            });
+    context('outputs exist', () => {
+        it('resolves a list of outputs', async () => {
+            const robot = mock.createRobot();
+            const job = await robot.createJob();
+            mock.addOutput('someOutput', { foo: 123 });
+            mock.addOutput('someOtherOutput', { bar: 345 });
+            mock.success();
+            await job.waitForCompletion();
+            const someOutput = await robot.queryPreviousOutput('someOutput');
+            assert.ok(someOutput);
+            assert.strictEqual(someOutput.key, 'someOutput');
+            assert.deepStrictEqual(someOutput.data, { foo: 123 });
         });
     });
+
 });

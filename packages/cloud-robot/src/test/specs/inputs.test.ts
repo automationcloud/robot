@@ -34,7 +34,7 @@ describe('Inputs', () => {
             await job.waitForCompletion();
             const input = mock.inputs.find(_ => _.key === 'value');
             assert.ok(input);
-            assert.equal(input.data.foo, 1);
+            assert.strictEqual(input.data.foo, 1);
         });
     });
 
@@ -46,8 +46,8 @@ describe('Inputs', () => {
             try {
                 await job.waitForCompletion();
             } catch (err) {
-                assert.equal(err.name, 'InputTimeout');
-                assert.equal(err.details.key, 'value');
+                assert.strictEqual(err.name, 'InputTimeout');
+                assert.strictEqual(err.details.key, 'value');
             }
         });
     });
