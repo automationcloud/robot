@@ -31,6 +31,7 @@ export class CloudCache {
     }
 
     async getPreviousJobOutput(key: string, inputs: AcJobInput[]): Promise<any> {
-        return await this.api.getPreviousJobOutput(this.serviceId, key, inputs);
+        const output = await this.api.getPreviousJobOutput(this.serviceId, key, inputs);
+        return output?.data;
     }
 }

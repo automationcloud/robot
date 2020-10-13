@@ -34,7 +34,7 @@ export class AcMock {
         'GET /jobs/*/events': (params, id) => this.getJobEvents(id, Number(params.query.get('offset')) || 0),
         'GET /jobs/*/outputs/*': (_params, id, key) => this.getJobOutput(id, key),
         'POST /jobs/*/inputs': (params, id) => this.createInput(id, params.body.key, params.body.data),
-        'POST /services/*/previous-job-outputs': (params, serviceId) => this.getPreviousJobOutput(serviceId, params.query.get('key')!, params.body.data),
+        'POST /services/*/previous-job-outputs': (params, serviceId, key) => this.getPreviousJobOutput(serviceId, params.query.get('key')!, params.body.data),
     };
 
     protected _inputTimeoutTimer: any;

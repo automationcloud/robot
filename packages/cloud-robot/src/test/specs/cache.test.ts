@@ -26,9 +26,11 @@ describe('Cache', () => {
         context('output already produced', () => {
             it('resolves instantly', async () => {
                 const robot = mock.createRobot();
-                await robot.createJob();
+                const job = await robot.createJob();
                 mock.addOutput('someOutput', { foo: 123 });
-                const [someOutput] = await robot.cache.getPreviousJobOutput('someOutput', []);
+                mock.success();
+                await job.waitForCompletion();
+                const someOutput = await robot.cache.getPreviousJobOutput('someOutput', []);
                 assert.deepEqual(someOutput, { foo: 123 });
             });
         });
