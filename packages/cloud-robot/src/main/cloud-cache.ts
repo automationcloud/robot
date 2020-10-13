@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { AcApi, AcJobInput, AcJobOutput } from './ac-api';
+import { AcApi, AcJobInput } from './ac-api';
 import { CloudRobot, CloudRobotOptions } from './cloud-robot';
 
 export class CloudCache {

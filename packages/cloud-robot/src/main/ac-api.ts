@@ -104,14 +104,13 @@ export class AcApi {
     async getPreviousJobOutput(serviceId: string, key: string, inputs: JobInputObject[]): Promise<AcJobOutput | null> {
         return await this.request.post(`/services/${serviceId}/previous-job-outputs`, {
             body: {
-                inputs: inputs || []
+                inputs
             },
             query: {
                 key
             }
         });
     }
-
 }
 
 export interface AcJob {
