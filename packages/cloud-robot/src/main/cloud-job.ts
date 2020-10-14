@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Job, JobInitParams, JobState, JobOutput, JobInput, JobError, Exception } from '@automationcloud/robot';
+import { Job, JobInitParams, JobState, JobOutput, JobInput, JobError, Exception, JobCategory } from '@automationcloud/robot';
 import { CloudRobot } from './cloud-robot';
 import { AcJobEvent } from './ac-api';
 
@@ -21,6 +21,7 @@ export class CloudJob extends Job {
     inputsMap: Map<string, JobInput> = new Map();
     outputsMap: Map<string, JobOutput> = new Map();
 
+    protected _initParams: JobInitParams;
     protected _state: JobState = JobState.CREATED;
     protected _error: JobError | null = null;
     protected _tracking: boolean = false;
@@ -30,9 +31,14 @@ export class CloudJob extends Job {
 
     constructor(
         public robot: CloudRobot,
-        public params: JobInitParams,
+        params: Partial<JobInitParams> = {},
     ) {
         super();
+        this._initParams = {
+            category: JobCategory.TEST,
+            input: {},
+            ...params,
+        };
     }
 
     get api() {
@@ -49,14 +55,22 @@ export class CloudJob extends Job {
         return this._jobId;
     }
 
+    /**
+     * Starts a new job by sending a POST /jobs request to Automation Cloud API
+     * and begin tracking its events.
+     *
+     * This method is internal. Use `await robot.createJob()` for starting new jobs.
+     *
+     * @internal
+     */
     async start() {
         if (this._jobId) {
             throw new Exception({
                 name: 'JobAlreadyStarted',
-                message: `Job ${this._jobId} already started; use track() to follow its progress`,
+                message: `Job ${this._jobId} alreade initialized; use track() to follow its progress`,
             });
         }
-        const { category, input } = this.params;
+        const { category, input } = this._initParams;
         const { serviceId } = this.robot.config;
         const { id, state } = await this.api.createJob({ serviceId, category, input });
         this._jobId = id;
@@ -64,6 +78,27 @@ export class CloudJob extends Job {
         for (const [key, data] of Object.entries(input)) {
             this.inputsMap.set(key, { key, data });
         }
+        this.track();
+    }
+
+    /**
+     * Tracks the job that was previosly created.
+     *
+     * This method is internal. Use `await robot.getJob()` for tracking existing jobs.
+     *
+     * @internal
+     */
+    async trackExisting(jobId: string) {
+        if (this._jobId) {
+            throw new Exception({
+                name: 'JobAlreadyStarted',
+                message: `Job ${this._jobId} alreade initialized; use track() to follow its progress`,
+            });
+        }
+        const { state, category } = await this.api.getJob(jobId);
+        this._jobId = jobId;
+        this._initParams.category = category;
+        this._setState(state);
         this.track();
     }
 

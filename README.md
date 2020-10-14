@@ -85,7 +85,7 @@ Job is a high level abstraction that allows you to think about your automations 
 ```ts
 const job = await robot.createJob({
     category: 'test' | 'live', // optional, used to filter test jobs in dashboard
-    input: {                  // optional, starts the job with pre-supplied inputs
+    input: {                   // optional, starts the job with pre-supplied inputs
         foo: { arbitrary: 'data' }
     },
 });
