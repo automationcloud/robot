@@ -16,25 +16,6 @@ import { Robot, Job, JobInitParams } from '@automationcloud/robot';
 import { CloudJob } from './cloud-job';
 import { AcApi, AcJobInput, AcPreviousJobOutput } from './ac-api';
 
-export type CloudRobotConfig = CloudRobotRequiredParams & CloudRobotOptionalParams;
-export type CloudRobotOptions = CloudRobotRequiredParams & Partial<CloudRobotOptionalParams>;
-
-export type CloudRobotAuthParams = string | {
-    clientId: string;
-    clientSecret: string;
-}
-
-export interface CloudRobotRequiredParams {
-    serviceId: string;
-    auth: CloudRobotAuthParams;
-}
-
-export interface CloudRobotOptionalParams {
-    apiUrl: string;
-    apiTokenUrl: string;
-    pollInterval: number;
-}
-
 export class CloudRobot extends Robot {
     config: CloudRobotConfig;
     api: AcApi;
@@ -61,8 +42,33 @@ export class CloudRobot extends Robot {
         return job;
     }
 
+    async getJob(jobId: string): Promise<Job> {
+        const job = new CloudJob(this);
+        await job.trackExisting(jobId);
+        return job;
+    }
+
     async queryPreviousOutput(key: string, inputs: AcJobInput[] = []): Promise<AcPreviousJobOutput | null> {
         const outputs = await this.api.queryPreviousOutputs(this.config.serviceId, key, inputs);
         return outputs.length ? outputs[0] : null;
     }
+}
+
+export type CloudRobotConfig = CloudRobotRequiredParams & CloudRobotOptionalParams;
+export type CloudRobotOptions = CloudRobotRequiredParams & Partial<CloudRobotOptionalParams>;
+
+export type CloudRobotAuthParams = string | {
+    clientId: string;
+    clientSecret: string;
+}
+
+export interface CloudRobotRequiredParams {
+    serviceId: string;
+    auth: CloudRobotAuthParams;
+}
+
+export interface CloudRobotOptionalParams {
+    apiUrl: string;
+    apiTokenUrl: string;
+    pollInterval: number;
 }
