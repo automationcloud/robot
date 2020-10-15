@@ -40,7 +40,6 @@ export class AcApi {
             baseUrl: params.apiUrl,
             auth,
         });
-        this.request.on('retry', this.onRetry.bind(this));
     }
 
     async createJob(params: {
@@ -95,10 +94,6 @@ export class AcApi {
 
     async cancelJob(jobId: string) {
         await this.request.post(`/jobs/${jobId}/cancel`);
-    }
-
-    protected onRetry(error: Error, info: any) {
-        this.params.logger.warn('Request failed, retrying', { error, info });
     }
 
     async queryPreviousOutputs(serviceId: string, key?: string, inputs: JobInputObject[] = []): Promise<AcPreviousJobOutput[]> {

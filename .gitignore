@@ -9,6 +9,7 @@ yarn.lock
 !.env.test
 
 out/
+dist/
 .tmp*
 plaintext.*
 *.tsbuildinfo
