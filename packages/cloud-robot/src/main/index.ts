@@ -12,5 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export * from '@automationcloud/request';
+export * from '@automationcloud/robot';
 export * from './cloud-robot';
 export * from './cloud-job';

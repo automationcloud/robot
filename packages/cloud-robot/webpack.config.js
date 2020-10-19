@@ -17,5 +17,7 @@ module.exports = {
     output: {
         filename: 'robot.js',
         path: path.resolve(__dirname, 'dist'),
+        library: 'AutomationCloud',
+        libraryTarget: 'umd',
     },
 };
