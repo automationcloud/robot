@@ -66,11 +66,34 @@ export class LocalJob extends Job {
     }
 
     protected async _run() {
-        const script = await this._initScript(this.robot.config.script);
+        try {
+            const script = await this._initScript(this.robot.config.script);
+            await this._initialize();
+            await script.runAll();
+        } finally {
+            await this._finalize();
+        }
+    }
+
+    protected async _initialize() {
         await this.browser.connect();
         await this.browser.openNewTab();
+        await this.engine.startSession();
         this._state = JobState.PROCESSING;
-        await script.runAll();
+    }
+
+    protected async _finalize() {
+        try {
+            if (this.robot.config.closeAllTabs) {
+                this.browser.closeAllTabs();
+            } else if (this.browser.isAttached()) {
+                this.browser.page.close();
+            }
+            this.browser.detach();
+            await this.engine.finishSession();
+        } catch (error) {
+            this.robot.logger.warn(`Job finalization failed`, { ...error });
+        }
     }
 
     getState() {

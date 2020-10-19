@@ -32,6 +32,7 @@ export interface LocalRobotOptionalParams {
     chromeAdditionalArgs: string[];
     autoRunJobs: boolean;
     inputTimeout: number;
+    closeAllTabs: boolean;
 }
 
 export class LocalRobot extends Robot {
@@ -47,6 +48,7 @@ export class LocalRobot extends Robot {
             chromeAdditionalArgs: [],
             autoRunJobs: true,
             inputTimeout: 60 * 1000,
+            closeAllTabs: false,
             ...options,
         };
         if (!this.config.chromePath) {
