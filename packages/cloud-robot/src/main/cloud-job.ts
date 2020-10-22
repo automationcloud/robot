@@ -76,7 +76,8 @@ export class CloudJob extends Job {
         this._jobId = id;
         this._setState(state);
         for (const [key, data] of Object.entries(input)) {
-            this.inputsMap.set(key, { key, data });
+            const timestamp = new Date().getTime();
+            this.inputsMap.set(key, { key, data, timestamp });
         }
         this.track();
     }
@@ -156,7 +157,8 @@ export class CloudJob extends Job {
                 const jobOutput = await this.api.getJobOutputData(this.jobId, key);
                 if (jobOutput) {
                     const data = jobOutput.data;
-                    this.outputsMap.set(key, { key, data });
+                    const timestamp = new Date().getTime();
+                    this.outputsMap.set(key, { key, data, timestamp });
                     this._events.emit('output', { key, data });
                 }
             } break;
@@ -218,8 +220,10 @@ export class CloudJob extends Job {
     }
 
     async submitInput(key: string, data: any) {
+        await this._resetIfNeeded(key);
         await this.api.sendJobInput(this.jobId, key, data);
-        this.inputsMap.set(key, { key, data });
+        const timestamp = new Date().getTime();
+        this.inputsMap.set(key, { key, data, timestamp });
     }
 
     async getOutput(key: string): Promise<any> {
@@ -237,6 +241,22 @@ export class CloudJob extends Job {
 
     async cancel() {
         await this.api.cancelJob(this.jobId);
+    }
+
+    async reset(fromInputKey: string, preserveOutputs: string[]) {
+        await this.api.resetJob(fromInputKey, preserveOutputs);
+    }
+
+    async _resetIfNeeded(inputKey: string) {
+        const previousInput = this.inputMap.get(inputKey);
+        if (previousInput) {
+            // preserve all of the outputs before this key was inputted
+            const preserveOutputs = [...this.outputsMap.values()].filter(output => {
+                return output.timestamp < previousInput.timestamp;
+            });
+            const preserveOutputKeys = preserveOutputs.map(output => output.key);
+            await this.reset(inputKey, preserveOutputKeys);
+        }
     }
 
     protected _setState(newState: JobState) {

@@ -112,6 +112,16 @@ export class AcApi {
         });
         return data;
     }
+
+    async resetJob(jobId: string, fromInputKey: string, preserveOutputs: string[]) {
+        const { data } = await this.request.post(`/jobs/${jobId}/reset`, {
+            body: {
+                fromInputKey,
+                preserveOutputs
+            }
+        });
+        return data;
+    }
 }
 
 export interface AcJob {
