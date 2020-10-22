@@ -220,6 +220,12 @@ export class CloudJob extends Job {
     }
 
     async submitInput(key: string, data: any) {
+        await this.api.sendJobInput(this.jobId, key, data);
+        const timestamp = new Date().getTime();
+        this.inputsMap.set(key, { key, data, timestamp });
+    }
+
+    async resubmitInput(key: string, data: any) {
         await this._resetIfNeeded(key);
         await this.api.sendJobInput(this.jobId, key, data);
         const timestamp = new Date().getTime();
