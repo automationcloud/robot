@@ -159,7 +159,7 @@ export class CloudJob extends Job {
                     const data = jobOutput.data;
                     const timestamp = new Date().getTime();
                     this.outputsMap.set(key, { key, data, timestamp });
-                    this._events.emit('output', { key, data });
+                    this._events.emit('output', { key, data, timestamp });
                 }
             } break;
             case 'processing': {
@@ -244,11 +244,11 @@ export class CloudJob extends Job {
     }
 
     async reset(fromInputKey: string, preserveOutputs: string[]) {
-        await this.api.resetJob(fromInputKey, preserveOutputs);
+        await this.api.resetJob(this.jobId, fromInputKey, preserveOutputs);
     }
 
     async _resetIfNeeded(inputKey: string) {
-        const previousInput = this.inputMap.get(inputKey);
+        const previousInput = this.inputsMap.get(inputKey);
         if (previousInput) {
             // preserve all of the outputs before this key was inputted
             const preserveOutputs = [...this.outputsMap.values()].filter(output => {
