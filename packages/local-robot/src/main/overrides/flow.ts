@@ -33,7 +33,8 @@ export class LocalFlowService extends FlowService {
     initInputs(inputObject: JobInputObject) {
         this.inputs = [];
         for (const [key, data] of Object.entries(inputObject)) {
-            this.inputs.push(this._createInput(key, data));
+            const timestamp = new Date().getTime();
+            this.inputs.push(this._createInput(key, data, timestamp));
         }
     }
 
@@ -87,7 +88,8 @@ export class LocalFlowService extends FlowService {
     }
 
     async sendOutputData(key: string, data: any) {
-        const output = this._createOutput(key, data);
+        const timestamp = new Date().getTime();
+        const output = this._createOutput(key, data, timestamp);
         this.outputs.push(output);
         this.job.events.emit('output', output);
     }
@@ -99,18 +101,19 @@ export class LocalFlowService extends FlowService {
 
     submitInput(key: string, data: any) {
         // TODO deduplicate?
-        const input = this._createInput(key, data);
+        const timestamp = new Date().getTime();
+        const input = this._createInput(key, data, timestamp);
         this.inputs.push(input);
         this.job.events.emit(`input`, input);
         return input;
     }
 
-    protected _createInput(key: string, data: any): JobInput {
-        return { key, data };
+    protected _createInput(key: string, data: any, timestamp: number): JobInput {
+        return { key, data, timestamp };
     }
 
-    protected _createOutput(key: string, data: any): JobOutput {
-        return { key, data };
+    protected _createOutput(key: string, data: any, timestamp: number): JobOutput {
+        return { key, data, timestamp };
     }
 
 }

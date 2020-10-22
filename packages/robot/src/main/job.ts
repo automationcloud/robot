@@ -274,11 +274,13 @@ export interface JobError {
 export interface JobOutput {
     key: string;
     data: any;
+    timestamp: number;
 }
 
 export interface JobInput {
     key: string;
     data: any;
+    timestamp: number;
 }
 
 export interface JobInputObject {
