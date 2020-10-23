@@ -16,13 +16,11 @@ import { Request, BasicAuthAgent, OAuth2Agent } from '@automationcloud/request';
 import { CloudRobotAuthParams } from './cloud-robot';
 import { JobInputObject, JobCategory, JobState, Logger, JobError } from '@automationcloud/robot';
 
-export interface AcApiParams {
-    apiUrl: string;
-    apiTokenUrl: string;
-    auth: CloudRobotAuthParams;
-    logger: Logger,
-}
-
+/**
+ * Automation Cloud HTTP client adapter.
+ *
+ * @internal
+ */
 export class AcApi {
     request: Request;
 
@@ -109,6 +107,9 @@ export class AcApi {
     }
 }
 
+/**
+ * @internal
+ */
 export interface AcJob {
     id: string;
     serviceId: string;
@@ -118,6 +119,9 @@ export interface AcJob {
     error: JobError | null;
 }
 
+/**
+ * @internal
+ */
 export interface AcJobEvent {
     id: string;
     name: AcJobEventName;
@@ -125,8 +129,14 @@ export interface AcJobEvent {
     createdAt: number;
 }
 
+/**
+ * @internal
+ */
 export type AcJobEventName = 'awaitingInput' | 'createOutput' | 'success' | 'fail' | 'tdsStart' | 'tdsFinish' | 'restart' | 'processing';
 
+/**
+ * @internal
+ */
 export interface AcJobInput {
     jobId: string;
     key: string;
@@ -134,15 +144,31 @@ export interface AcJobInput {
     encrypted: boolean;
 }
 
+/**
+ * @internal
+ */
 export interface AcJobOutput {
     jobId: string;
     key: string;
     data: any;
 }
 
+/**
+ * @internal
+ */
 export interface AcPreviousJobOutput {
     jobId: string;
     key: string;
     data: any;
     variability: number;
+}
+
+/**
+ * @internal
+ */
+export interface AcApiParams {
+    apiUrl: string;
+    apiTokenUrl: string;
+    auth: CloudRobotAuthParams;
+    logger: Logger,
 }

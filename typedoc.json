@@ -1,0 +1,11 @@
+{
+    "mode": "file",
+    "out": "docs",
+    "name": "Automation Cloud Robot API Reference",
+    "excludeExternals": true,
+    "excludeNotExported": true,
+    "excludeProtected": true,
+    "excludePrivate": true,
+    "stripInternal": true,
+    "theme": "minimal"
+}

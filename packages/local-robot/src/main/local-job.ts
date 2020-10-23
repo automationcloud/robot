@@ -14,19 +14,53 @@
 
 import { Job, JobState, JobInitParams, JobError } from '@automationcloud/robot';
 import { LocalRobot } from './local-robot';
-import { Engine, FlowService, Script, Exception, BrowserService } from '@ubio/engine';
+import { Engine, FlowService, Script, Exception, BrowserService } from '@automationcloud/engine';
 import { LocalFlowService } from './overrides/flow';
 import path from 'path';
 import { promises as fs } from 'fs';
 
+/**
+ * LocalJob represents the state of the locally running automation.
+ *
+ * Each job sets up a new `Engine` instance which manages the connection to Chromium browser,
+ * alongside all the state associated with running a script.
+ *
+ * Note: running multiple jobs in parallel on the same Chromium browser is technically possible,
+ * but can be a subject to various limitations:
+ *
+ *  - scripts gain an access to an entire browser instance, not just some specific tabs,
+ *    so jobs can interfere with each other, depending on functionality being used by both
+ *    (for example, it is possible for a script to close all the tabs, therefore preventing other
+ *    job from executing normally)
+ *  - Chrome can put inactive tabs to background process, which can cause some issues (for example,
+ *    some users reported not being able to execute JavaScript)
+ *  - when taking screenshots or changing emulation settings the tab needs to be activated; this can also
+ *    cause problems with adjacent jobs executed in parallel.
+ */
 export class LocalJob extends Job {
+    /**
+     * The embedded Engine instance.
+     * @internal
+     */
     engine: Engine;
+
+    /**
+     * The embedded Script instance.
+     * @internal
+     */
     script: Script | null = null;
 
     protected _state: JobState = JobState.CREATED;
     protected _error: JobError | null = null;
     protected _runPromise: Promise<void> | null = null;
 
+    /**
+     * Job constructor should not be used directly; use `robot.createJob()` to run the scripts.
+     *
+     * @internal
+     * @param robot
+     * @param params
+     */
     constructor(public robot: LocalRobot, public params: JobInitParams) {
         super();
         this.engine = new Engine();
@@ -37,24 +71,40 @@ export class LocalJob extends Job {
         });
     }
 
+    /**
+     * @internal
+     */
     get events() {
         return this._events;
     }
 
+    /**
+     * @internal
+     */
     get localFlow(): LocalFlowService {
         return this.engine.container.get(LocalFlowService);
     }
 
+    /**
+     * @internal
+     */
     get browser(): BrowserService {
         return this.engine.container.get(BrowserService);
     }
 
+    /**
+     * Configures the Engine instance by specifying overrides for engine services.
+     * @internal
+     */
     protected configureEngine() {
         this.engine.container.bind('Job').toConstantValue(this);
         this.engine.container.bind(LocalFlowService).toSelf().inSingletonScope();
         this.engine.container.rebind(FlowService).toService(LocalFlowService);
     }
 
+    /**
+     * @internal
+     */
     run() {
         if (this._runPromise) {
             return;
@@ -65,6 +115,9 @@ export class LocalJob extends Job {
             });
     }
 
+    /**
+     * @internal
+     */
     protected async _run() {
         try {
             const script = await this._initScript(this.robot.config.script);
@@ -75,6 +128,9 @@ export class LocalJob extends Job {
         }
     }
 
+    /**
+     * @internal
+     */
     protected async _initialize() {
         await this.browser.connect();
         await this.browser.openNewTab();
@@ -82,11 +138,14 @@ export class LocalJob extends Job {
         this._state = JobState.PROCESSING;
     }
 
+    /**
+     * @internal
+     */
     protected async _finalize() {
         try {
             if (this.robot.config.closeAllTabs) {
                 this.browser.closeAllTabs();
-            } else if (this.browser.isAttached()) {
+            } else if (this.robot.config.closeActiveTab && this.browser.isAttached()) {
                 this.browser.page.close();
             }
             this.browser.detach();
@@ -103,11 +162,6 @@ export class LocalJob extends Job {
     getErrorInfo() {
         return this._error;
     }
-
-    // Note: this is not a part of the Job interface just yet, kept for reference
-    // getAwaitingInputKey() {
-    //     return this.localFlow.awaitingInputKeys[0] ?? null;
-    // }
 
     async submitInput(key: string, data: any) {
         this.localFlow.submitInput(key, data);
@@ -127,12 +181,18 @@ export class LocalJob extends Job {
         }
     }
 
+    /**
+     * @internal
+     */
     _setState(newState: JobState) {
         const previousState = this._state;
         this._state = newState;
         this.events.emit('stateChanged', newState, previousState);
     }
 
+    /**
+    * @internal
+    */
     protected async _initScript(scriptOrPath: any): Promise<Script> {
         switch (typeof scriptOrPath) {
             case 'object': {
@@ -164,6 +224,9 @@ export class LocalJob extends Job {
         }
     }
 
+    /**
+    * @internal
+    */
     protected _setupScriptListeners(script: Script) {
         script.$events.on('success', () => {
             this._setState(JobState.SUCCESS);
@@ -175,6 +238,9 @@ export class LocalJob extends Job {
         });
     }
 
+    /**
+    * @internal
+    */
     protected _checkOutputs(keys: string[]): any[] | null {
         const values = [];
         for (const key of keys) {
