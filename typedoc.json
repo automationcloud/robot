@@ -7,5 +7,5 @@
     "excludeProtected": true,
     "excludePrivate": true,
     "stripInternal": true,
-    "theme": "minimal"
+    "theme": "default"
 }
