@@ -19,6 +19,9 @@ export interface ExceptionSpec {
     details?: object;
 }
 
+/**
+ * An error with formalized code and optional details.
+ */
 export class Exception extends Error {
     code: string;
     details?: any;

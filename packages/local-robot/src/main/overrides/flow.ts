@@ -12,11 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { FlowService, Exception, Script } from '@ubio/engine';
+import { FlowService, Exception, Script } from '@automationcloud/engine';
 import { JobInput, JobOutput, JobInputObject, JobState } from '@automationcloud/robot';
 import { inject } from 'inversify';
 import { LocalJob } from '../local-job';
 
+/**
+ * An adapter to Egnine `FlowService` which manages inputs and outputs
+ * in the scope of `Job` instance.
+ *
+ * This is essentially a "glue" between `Job` and `Egnine` instance which is running a script.
+ *
+ * @internal
+ */
 export class LocalFlowService extends FlowService {
 
     inputs: JobInput[] = [];

@@ -12,29 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { ChromeLauncher, Exception } from '@ubio/engine';
+import { ChromeLauncher, Exception } from '@automationcloud/engine';
 import { Robot, JobInitParams, Job } from '@automationcloud/robot';
 import { LocalJob } from './local-job';
 
-export type LocalRobotConfig = LocalRobotRequiredParams & LocalRobotOptionalParams;
-export type LocalRobotOptions = LocalRobotRequiredParams & Partial<LocalRobotOptionalParams>;
-
-export interface LocalRobotRequiredParams {
-    script: LocalScriptInit;
-}
-
-export type LocalScriptInit = string | object;
-
-export interface LocalRobotOptionalParams {
-    chromePath: string;
-    chromePort: number;
-    chromeHeadless: boolean;
-    chromeAdditionalArgs: string[];
-    autoRunJobs: boolean;
-    inputTimeout: number;
-    closeAllTabs: boolean;
-}
-
+/**
+ * A Robot API instance which is used to execute a particular script
+ * with embedded Engine using local Chromium instance.
+ *
+ * @see {@link Robot}
+ */
 export class LocalRobot extends Robot {
     launcher: ChromeLauncher;
     config: LocalRobotConfig;
@@ -49,6 +36,7 @@ export class LocalRobot extends Robot {
             autoRunJobs: true,
             inputTimeout: 60 * 1000,
             closeAllTabs: false,
+            closeActiveTab: true,
             ...options,
         };
         if (!this.config.chromePath) {
@@ -67,6 +55,9 @@ export class LocalRobot extends Robot {
         });
     }
 
+    /**
+     * @internal
+     */
     async _createJob(params: JobInitParams): Promise<Job> {
         await this.ensureChromeRunning();
         const { autoRunJobs } = this.config;
@@ -77,6 +68,9 @@ export class LocalRobot extends Robot {
         return job;
     }
 
+    /**
+     * @internal
+     */
     async ensureChromeRunning() {
         // TODO consider downloading chrome as an option
         try {
@@ -86,4 +80,62 @@ export class LocalRobot extends Robot {
         }
     }
 
+}
+
+/**
+ * Local robot configuration, includes mandatory `script` which can be
+ * either a path to local file containing a script created an Autopilot, or the JSON object
+ * representing the serialized script.
+ */
+export type LocalRobotConfig = LocalRobotRequiredParams & LocalRobotOptionalParams;
+export type LocalRobotOptions = LocalRobotRequiredParams & Partial<LocalRobotOptionalParams>;
+
+export interface LocalRobotRequiredParams {
+    script: LocalScriptInit;
+}
+
+export type LocalScriptInit = string | object;
+
+/**
+ * Optional configuration parameters for local robot.
+ */
+export interface LocalRobotOptionalParams {
+    /**
+     * Local path to Chromium executable.
+     * Default is taken from `CHROME_PATH` environment variable.
+     */
+    chromePath: string;
+    /**
+     * Chrome CDP port, as specified in `--remote-debugging-port` command line parameter.
+     * Default: `9123`
+     */
+    chromePort: number;
+    /**
+     * Indicates whether `--headless` command line parameter will be used to launch Chromium.
+     * Default: `false`.
+     */
+    chromeHeadless: boolean;
+    /**
+     * An array with additional arguments used to launch Chromium. Default: `[]`.
+     */
+    chromeAdditionalArgs: string[];
+    /**
+     * Specifies whether the jobs will be run automatically after they are created. Default: `true`.
+     */
+    autoRunJobs: boolean;
+    /**
+     * The duration in milliseconds of waiting for the requested input before failing the job
+     * with `InputTimeout` error. Default: `60000` (1 minute).
+     */
+    inputTimeout: number;
+    /**
+     * Whether to close all existing tabs after the job is finished. Default: `false`.
+     */
+    closeAllTabs: boolean;
+    /**
+     * Whether to close the active tab after the job is finished.
+     * Leaving the tab open can be handy for debugging, but not so much for automating on scale.
+     * Default: `true`.
+     */
+    closeActiveTab: boolean;
 }

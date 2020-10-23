@@ -16,9 +16,32 @@ import { Job, JobInitParams, JobState, JobOutput, JobInput, JobError, Exception,
 import { CloudRobot } from './cloud-robot';
 import { AcJobEvent } from './ac-api';
 
+/**
+ * Cloud job instance reflects the Job created in Automation Cloud.
+ *
+ * When the job is created it is automatically tracked, which results in mirroring the
+ * state of the remote jobs and emitting appropriate lifecycle events when outputs are emitted,
+ * inputs are requested, job finishes successfully, job fails, etc.
+ *
+ * The exact job state is not guaranteed to be precise due to polling delays and network latencies.
+ *
+ * Note: cloud jobs are not subject to the concurrency limitations described in `LocalJob` because
+ * Automation Cloud will run them in isolated runners.
+ *
+ * With `CloudRobot` it is also possible to resume tracking existing jobs using `robot.getJob` method.
+ */
 export class CloudJob extends Job {
+    /**
+     * @internal
+     */
     awaitingInputKey: string | null = null;
+    /**
+     * @internal
+     */
     inputsMap: Map<string, JobInput> = new Map();
+    /**
+     * @internal
+     */
     outputsMap: Map<string, JobOutput> = new Map();
 
     protected _initParams: JobInitParams;
@@ -29,6 +52,12 @@ export class CloudJob extends Job {
     protected _jobId: string | null = null;
     protected _jobEventOffset: number = 0;
 
+    /**
+     * Job constructor should not be used directly; use `robot.createJob()` to run the scripts.
+     *
+     * @param robot
+     * @param params
+     */
     constructor(
         public robot: CloudRobot,
         params: Partial<JobInitParams> = {},
@@ -41,10 +70,19 @@ export class CloudJob extends Job {
         };
     }
 
+    /**
+     * @internal
+     */
     get api() {
         return this.robot.api;
     }
 
+    /**
+     * The `jobId` of the AutomationCloud job. Can be used to resume tracking of existing job
+     * using `const job = await robot.getJob(jobId)`.
+     *
+     * Note: this method is Cloud-only, so the job instance must be cast to `CloudJob` to access `jobId`.
+     */
     get jobId(): string {
         if (!this._jobId) {
             throw new Exception({
@@ -102,6 +140,9 @@ export class CloudJob extends Job {
         this.track();
     }
 
+    /**
+     * @internal
+     */
     track() {
         if (this._trackPromise) {
             return;
@@ -113,6 +154,9 @@ export class CloudJob extends Job {
             });
     }
 
+    /**
+     * @internal
+     */
     protected async _track() {
         while (this._tracking) {
             const { pollInterval } = this.robot.config;
@@ -144,6 +188,9 @@ export class CloudJob extends Job {
         }
     }
 
+    /**
+     * @internal
+     */
     protected async _processJobEvent(jobEvent: AcJobEvent) {
         const key = jobEvent.key!;
         switch (jobEvent.name) {
@@ -193,6 +240,9 @@ export class CloudJob extends Job {
         }
     }
 
+    /**
+     * @internal
+     */
     protected _checkOutputs(keys: string[]): any[] | null {
         const values = [];
         for (const key of keys) {
@@ -235,10 +285,17 @@ export class CloudJob extends Job {
         await this._trackPromise;
     }
 
+    /**
+     * Cancels the remote Job which results in `JobCancelled` error (if the job was still running).
+     */
     async cancel() {
         await this.api.cancelJob(this.jobId);
     }
 
+    /**
+     * @param newState
+     * @internal
+     */
     protected _setState(newState: JobState) {
         const previousState = this._state;
         this._state = newState;

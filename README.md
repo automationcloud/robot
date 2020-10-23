@@ -12,7 +12,7 @@ Principally, there are two different ways of running automations:
 
 Robot provides a unified [Job](#job) interface for running automations both locally and in the cloud. This approach encapsulates the complexity of setting up the Automation Engine, establishing connectivity to Chrome and wiring the code with different script lifecycle events, and allows switching transparently from local to cloud setup without modifying much of the business logic.
 
-![Choosing Robot API Diagram](diagram.png)
+![Choosing Robot API Diagram](https://raw.githubusercontent.com/automationcloud/robot/main/resources/diagram.png)
 
 ## Usage
 
@@ -106,7 +106,7 @@ await job.waitForCompletion();
 // The promise is rejected if the error occurs.
 ```
 
-Note: to prevent unhandled promise rejections, always make sure to `await` that promise.
+**Note**: always make sure to include `await job.waitForCompletion()` to prevent dangling promises or unhandled promise rejections.
 
 ### Waiting for outputs
 
@@ -159,6 +159,14 @@ job.onFail(async err => { ...});
 job.onOutput(outputKey, async outputData => { ... });
 job.onAnyOutput(async (outputKey, outputData) => { ... });
 job.onStateChanged(async newState => { ... });
+```
+
+To unsubscribe for event:
+
+```ts
+const unsubscribe = job.onSuccess(() => { ... });
+// ...
+unsubscribe();
 ```
 
 Note 1: All callbacks are asynchronous. Exception thrown inside a callback will result in an unhandled rejection.
