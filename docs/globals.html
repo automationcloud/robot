@@ -228,6 +228,14 @@
     <span class="hljs-comment">// send http requests or obtain job outputs.</span>
     <span class="hljs-keyword">return</span> { <span class="hljs-attr">option</span>: <span class="hljs-number">3</span> };
 });</code></pre>
+			<p>A special <code>*</code> key can be used to subscribe to all requested inputs with a single handler:</p>
+			<pre><code class="language-ts">job.onAwaitingInput(<span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-function"><span class="hljs-params">requestedInputKey</span> =&gt;</span> {
+    <span class="hljs-comment">// ...</span>
+});</code></pre>
+			<p>If the handler doesn&#39;t return a value, the input is not submitted:</p>
+			<pre><code class="language-ts">job.onAwaitingInput(<span class="hljs-string">&#x27;selectedDeliveryOption&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// No return, so input submission does not occur</span>
+});</code></pre>
 			<p>Inputs can also be submitted individually at any point in time whilst the job is still running:</p>
 			<pre><code class="language-ts"><span class="hljs-keyword">await</span> job.submitInput(<span class="hljs-string">&#x27;selectedDeliveryOption&#x27;</span>, { <span class="hljs-attr">option</span>: <span class="hljs-number">3</span> });</code></pre>
 			<a href="#events" id="events" style="color: inherit; text-decoration: none;">

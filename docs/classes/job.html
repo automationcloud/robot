@@ -51,6 +51,9 @@
 						<a href="job.html#cancel" class="tsd-kind-icon">cancel</a>
 					</li>
 					<li class=" tsd-kind-method tsd-parent-kind-class">
+						<a href="job.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a>
+					</li>
+					<li class=" tsd-kind-method tsd-parent-kind-class">
 						<a href="job.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a>
 					</li>
 					<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -186,6 +189,7 @@
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#cancel" class="tsd-kind-icon">cancel</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getoutput" class="tsd-kind-icon">get<wbr>Output</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getstate" class="tsd-kind-icon">get<wbr>State</a></li>
@@ -215,7 +219,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L87">packages/robot/src/main/job.ts:87</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L95">packages/robot/src/main/job.ts:95</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -230,6 +234,29 @@
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="getawaitinginputkey" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Awaiting<wbr>Input<wbr>Key</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L58">packages/robot/src/main/job.ts:58</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>If job is waiting for input (i.e. due to input request by script and not yet submitted),
+								then this method returns the requested input key, otherwise <code>null</code> is returned.</p>
+							</div>
+						</div>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="geterrorinfo" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Error<wbr>Info</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -239,7 +266,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L50">packages/robot/src/main/job.ts:50</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L50">packages/robot/src/main/job.ts:50</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -262,7 +289,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L68">packages/robot/src/main/job.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L76">packages/robot/src/main/job.ts:76</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -294,7 +321,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L41">packages/robot/src/main/job.ts:41</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L41">packages/robot/src/main/job.ts:41</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -317,7 +344,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L191">packages/robot/src/main/job.ts:191</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L204">packages/robot/src/main/job.ts:204</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -364,21 +391,23 @@
 				<a name="onawaitinginput" class="tsd-anchor"></a>
 				<h3>on<wbr>Awaiting<wbr>Input</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Awaiting<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+					<li class="tsd-signature tsd-kind-icon">on<wbr>Awaiting<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L159">packages/robot/src/main/job.ts:159</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L170">packages/robot/src/main/job.ts:170</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Subscribes to <code>awaitingInput</code> event for specified input key.</p>
+								<p>Subscribes to <code>awaitingInput</code> event for specified input key and optionally fulfills
+								the input request with data returned by handler funciton.</p>
 							</div>
-							<p>When input with specified <code>key</code> is requested by script, the supplied <code>fn</code> handler is invoked.
-							The result of the handler is sent as input data for that key, fulfilling the input request.</p>
+							<p>When input with specified <code>key</code> is requested by script, the supplied <code>fn</code> handler is invoked.</p>
+							<p>Unless the handler returns <code>undefined</code>, the result value is sent as input data for that key,
+							fulfilling the input request.</p>
 							<p>Use this to handle deferred inputs.</p>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -386,11 +415,11 @@
 							<li>
 								<h5>key: <span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>requested input key</p>
+									<p>requested input key, <code>*</code> to receive all events.</p>
 								</div>
 							</li>
 							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>fn: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>handler callback, can be either synchronous or asynchronous; the return value is
 									submitted as input data for specified input <code>key</code></p>
@@ -398,10 +427,16 @@
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>key: <span class="tsd-signature-type">string</span></h5>
+													</li>
+												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
@@ -423,7 +458,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L224">packages/robot/src/main/job.ts:224</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L237">packages/robot/src/main/job.ts:237</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -473,7 +508,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L176">packages/robot/src/main/job.ts:176</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L189">packages/robot/src/main/job.ts:189</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -529,7 +564,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L202">packages/robot/src/main/job.ts:202</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L215">packages/robot/src/main/job.ts:215</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -578,7 +613,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L213">packages/robot/src/main/job.ts:213</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L226">packages/robot/src/main/job.ts:226</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -622,7 +657,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L59">packages/robot/src/main/job.ts:59</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L67">packages/robot/src/main/job.ts:67</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -659,7 +694,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L77">packages/robot/src/main/job.ts:77</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L85">packages/robot/src/main/job.ts:85</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -682,7 +717,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/robot/src/main/job.ts#L110">packages/robot/src/main/job.ts:110</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L118">packages/robot/src/main/job.ts:118</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

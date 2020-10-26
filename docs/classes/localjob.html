@@ -60,6 +60,9 @@
 						<a href="localjob.html#cancel" class="tsd-kind-icon">cancel</a>
 					</li>
 					<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<a href="localjob.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a>
+					</li>
+					<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<a href="localjob.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a>
 					</li>
 					<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
@@ -210,6 +213,7 @@
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="localjob.html#cancel" class="tsd-kind-icon">cancel</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="localjob.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="localjob.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="localjob.html#getoutput" class="tsd-kind-icon">get<wbr>Output</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="localjob.html#getstate" class="tsd-kind-icon">get<wbr>State</a></li>
@@ -235,7 +239,7 @@
 				<div class="tsd-signature tsd-kind-icon">params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">JobInitParams</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L64">packages/local-robot/src/main/local-job.ts:64</a></li>
+						<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L64">packages/local-robot/src/main/local-job.ts:64</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -249,7 +253,7 @@
 				<div class="tsd-signature tsd-kind-icon">robot<span class="tsd-signature-symbol">:</span> <a href="localrobot.html" class="tsd-signature-type">LocalRobot</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L64">packages/local-robot/src/main/local-job.ts:64</a></li>
+						<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L64">packages/local-robot/src/main/local-job.ts:64</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -267,10 +271,28 @@
 						<aside class="tsd-sources">
 							<p>Overrides Job.cancel</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L178">packages/local-robot/src/main/local-job.ts:178</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L182">packages/local-robot/src/main/local-job.ts:182</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<a name="getawaitinginputkey" class="tsd-anchor"></a>
+				<h3>get<wbr>Awaiting<wbr>Input<wbr>Key</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Overrides Job.getAwaitingInputKey</p>
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L166">packages/local-robot/src/main/local-job.ts:166</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -285,7 +307,7 @@
 						<aside class="tsd-sources">
 							<p>Overrides Job.getErrorInfo</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L162">packages/local-robot/src/main/local-job.ts:162</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L162">packages/local-robot/src/main/local-job.ts:162</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">JobError</span></h4>
@@ -303,7 +325,7 @@
 						<aside class="tsd-sources">
 							<p>Overrides Job.getOutput</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L170">packages/local-robot/src/main/local-job.ts:170</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L174">packages/local-robot/src/main/local-job.ts:174</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -327,7 +349,7 @@
 						<aside class="tsd-sources">
 							<p>Overrides Job.getState</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L158">packages/local-robot/src/main/local-job.ts:158</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L158">packages/local-robot/src/main/local-job.ts:158</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></h4>
@@ -345,7 +367,7 @@
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#onanyoutput">onAnyOutput</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:115</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:125</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -392,22 +414,24 @@
 				<a name="onawaitinginput" class="tsd-anchor"></a>
 				<h3>on<wbr>Awaiting<wbr>Input</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Awaiting<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+					<li class="tsd-signature tsd-kind-icon">on<wbr>Awaiting<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#onawaitinginput">onAwaitingInput</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:98</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:108</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Subscribes to <code>awaitingInput</code> event for specified input key.</p>
+								<p>Subscribes to <code>awaitingInput</code> event for specified input key and optionally fulfills
+								the input request with data returned by handler funciton.</p>
 							</div>
-							<p>When input with specified <code>key</code> is requested by script, the supplied <code>fn</code> handler is invoked.
-							The result of the handler is sent as input data for that key, fulfilling the input request.</p>
+							<p>When input with specified <code>key</code> is requested by script, the supplied <code>fn</code> handler is invoked.</p>
+							<p>Unless the handler returns <code>undefined</code>, the result value is sent as input data for that key,
+							fulfilling the input request.</p>
 							<p>Use this to handle deferred inputs.</p>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -415,11 +439,11 @@
 							<li>
 								<h5>key: <span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>requested input key</p>
+									<p>requested input key, <code>*</code> to receive all events.</p>
 								</div>
 							</li>
 							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>fn: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>handler callback, can be either synchronous or asynchronous; the return value is
 									submitted as input data for specified input <code>key</code></p>
@@ -427,10 +451,16 @@
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>key: <span class="tsd-signature-type">string</span></h5>
+													</li>
+												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
@@ -453,7 +483,7 @@
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#onfail">onFail</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:137</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:147</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -504,7 +534,7 @@
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#onoutput">onOutput</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:107</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:117</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -561,7 +591,7 @@
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#onstatechanged">onStateChanged</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:121</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:131</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -611,7 +641,7 @@
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#onsuccess">onSuccess</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:129</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:139</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -656,7 +686,7 @@
 						<aside class="tsd-sources">
 							<p>Overrides Job.submitInput</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L166">packages/local-robot/src/main/local-job.ts:166</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L170">packages/local-robot/src/main/local-job.ts:170</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -683,7 +713,7 @@
 						<aside class="tsd-sources">
 							<p>Overrides Job.waitForCompletion</p>
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/4ab6ee5/packages/local-robot/src/main/local-job.ts#L174">packages/local-robot/src/main/local-job.ts:174</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/local-robot/src/main/local-job.ts#L178">packages/local-robot/src/main/local-job.ts:178</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -701,7 +731,7 @@
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="cloudjob.html">CloudJob</a>.<a href="cloudjob.html#waitforoutputs">waitForOutputs</a></p>
 							<ul>
-								<li>Defined in packages/robot/out/main/job.d.ts:85</li>
+								<li>Defined in packages/robot/out/main/job.d.ts:92</li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
