@@ -64,7 +64,7 @@ describe('Inputs', () => {
             mock.success();
             await job.waitForCompletion();
             const input = mock.inputs.find(_ => _.key === 'value');
-            assert.deepEqual(input?.data, { bar: 2 });
+            assert.deepStrictEqual(input?.data, { bar: 2 });
         });
     });
 
@@ -76,7 +76,7 @@ describe('Inputs', () => {
             mock.success();
             await job.waitForCompletion();
             const input = mock.inputs.find(_ => _.key === 'value');
-            assert.deepEqual(input?.data, { baz: 222 });
+            assert.deepStrictEqual(input?.data, { baz: 222 });
         });
     });
 

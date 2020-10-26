@@ -50,6 +50,14 @@ export abstract class Job {
     abstract getErrorInfo(): JobError | null;
 
     /**
+     * If job is waiting for input (i.e. due to input request by script and not yet submitted),
+     * then this method returns the requested input key, otherwise `null` is returned.
+     *
+     * @public
+     */
+    abstract getAwaitingInputKey(): string | null;
+
+    /**
      * Submits an input with specified `key` and `data`.
      *
      * @param key input key
@@ -145,22 +153,27 @@ export abstract class Job {
     }
 
     /**
-     * Subscribes to `awaitingInput` event for specified input key.
+     * Subscribes to `awaitingInput` event for specified input key and optionally fulfills
+     * the input request with data returned by handler funciton.
      *
      * When input with specified `key` is requested by script, the supplied `fn` handler is invoked.
-     * The result of the handler is sent as input data for that key, fulfilling the input request.
+     *
+     * Unless the handler returns `undefined`, the result value is sent as input data for that key,
+     * fulfilling the input request.
      *
      * Use this to handle deferred inputs.
      *
-     * @param key requested input key
+     * @param key requested input key, `*` to receive all events.
      * @param fn handler callback, can be either synchronous or asynchronous; the return value is
      *  submitted as input data for specified input `key`
      */
-    onAwaitingInput(key: string, fn: () => any | Promise<any>): JobEventHandler {
+    onAwaitingInput(key: string, fn: (key: string) => any | Promise<any>): JobEventHandler {
         return this._createJobEventHandler('awaitingInput', async (requestedKey: string) => {
-            if (requestedKey === key) {
-                const data = await fn();
-                await this.submitInput(key, data);
+            if (key === '*' || requestedKey === key) {
+                const data = await fn(requestedKey);
+                if (data !== undefined) {
+                    await this.submitInput(key, data);
+                }
             }
         });
     }

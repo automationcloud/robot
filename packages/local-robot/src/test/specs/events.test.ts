@@ -43,8 +43,8 @@ describe('Events', () => {
                     }
                 });
                 await job.waitForCompletion();
-                assert.equal(called, true);
-                assert.deepEqual(await job.getOutput('echo'), { foo: 1 });
+                assert.strictEqual(called, true);
+                assert.deepStrictEqual(await job.getOutput('echo'), { foo: 1 });
             });
         });
 
@@ -60,7 +60,7 @@ describe('Events', () => {
                     }
                 });
                 await job.waitForCompletion();
-                assert.equal(called, true);
+                assert.strictEqual(called, true);
             });
         });
 
@@ -81,7 +81,7 @@ describe('Events', () => {
                     }
                 });
                 await job.waitForCompletion().catch(() => {});
-                assert.equal(called, true);
+                assert.strictEqual(called, true);
             });
         });
 
@@ -109,7 +109,7 @@ describe('Events', () => {
                     return { foo: 1 };
                 });
                 await job.waitForCompletion();
-                assert.deepEqual(states, [JobState.PROCESSING, JobState.AWAITING_INPUT, JobState.SUCCESS]);
+                assert.deepStrictEqual(states, [JobState.PROCESSING, JobState.AWAITING_INPUT, JobState.SUCCESS]);
             });
         });
     });
@@ -124,7 +124,7 @@ describe('Events', () => {
                 called = true;
             });
             await job.waitForCompletion();
-            assert.equal(called, true);
+            assert.strictEqual(called, true);
         });
     });
 
@@ -143,7 +143,7 @@ describe('Events', () => {
                 error = err;
             });
             await job.waitForCompletion().catch(() => {});
-            assert.equal(error?.code, 'Boo');
+            assert.strictEqual(error?.code, 'Boo');
         });
     });
 

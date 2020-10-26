@@ -48,7 +48,7 @@ describe('Inputs', () => {
                 }
             });
             const [echo] = await job.waitForOutputs('echo');
-            assert.deepEqual(echo, { foo: 1 });
+            assert.deepStrictEqual(echo, { foo: 1 });
         });
     });
 
@@ -59,8 +59,8 @@ describe('Inputs', () => {
             try {
                 await job.waitForCompletion();
             } catch (err) {
-                assert.equal(err.name, 'InputTimeout');
-                assert.equal(err.details.key, 'value');
+                assert.strictEqual(err.name, 'InputTimeout');
+                assert.strictEqual(err.details.key, 'value');
             }
         });
     });
@@ -75,7 +75,7 @@ describe('Inputs', () => {
                 return { bar: 2 };
             });
             const [echo] = await job.waitForOutputs('echo');
-            assert.deepEqual(echo, { bar: 2 });
+            assert.deepStrictEqual(echo, { bar: 2 });
         });
     });
 
@@ -86,7 +86,7 @@ describe('Inputs', () => {
             await job.submitInput('value', { baz: 222 });
             (job as LocalJob).run();
             const [echo] = await job.waitForOutputs('echo');
-            assert.deepEqual(echo, { baz: 222 });
+            assert.deepStrictEqual(echo, { baz: 222 });
         });
     });
 

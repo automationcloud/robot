@@ -31,22 +31,24 @@ import { AcJobEvent } from './ac-api';
  * With `CloudRobot` it is also possible to resume tracking existing jobs using `robot.getJob` method.
  */
 export class CloudJob extends Job {
+
     /**
      * @internal
-     */
-    awaitingInputKey: string | null = null;
-    /**
-     * @internal
+     * @deprecated This will be replaced with input keys tracking and will be switched to protected,
+     *  so avoid using it.
      */
     inputsMap: Map<string, JobInput> = new Map();
+
     /**
      * @internal
+     * @deprecated This will be switched to protected, so avoid using it.
      */
     outputsMap: Map<string, JobOutput> = new Map();
 
     protected _initParams: JobInitParams;
     protected _state: JobState = JobState.CREATED;
     protected _error: JobError | null = null;
+    protected _awaitingInputKey: string | null = null;
     protected _tracking: boolean = false;
     protected _trackPromise: Promise<void> | null = null;
     protected _jobId: string | null = null;
@@ -196,7 +198,7 @@ export class CloudJob extends Job {
         switch (jobEvent.name) {
             case 'awaitingInput': {
                 this._setState(JobState.AWAITING_INPUT);
-                this.awaitingInputKey = key;
+                this._awaitingInputKey = key;
                 this._events.emit('awaitingInput', key);
             } break;
             case 'createOutput': {
@@ -265,6 +267,10 @@ export class CloudJob extends Job {
 
     getErrorInfo() {
         return this._error;
+    }
+
+    getAwaitingInputKey() {
+        return this._awaitingInputKey;
     }
 
     async submitInput(key: string, data: any) {

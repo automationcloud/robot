@@ -26,7 +26,7 @@ describe('Outputs', () => {
                 const job = await robot.createJob();
                 await job.waitForCompletion();
                 const [someOutput] = await job.waitForOutputs('someOutput');
-                assert.deepEqual(someOutput, { foo: 123 });
+                assert.deepStrictEqual(someOutput, { foo: 123 });
             });
         });
 
@@ -35,7 +35,7 @@ describe('Outputs', () => {
                 const robot = new LocalRobot({ script });
                 const job = await robot.createJob();
                 const [someOutput] = await job.waitForOutputs('someOutput');
-                assert.deepEqual(someOutput, { foo: 123 });
+                assert.deepStrictEqual(someOutput, { foo: 123 });
             });
         });
 
@@ -47,7 +47,7 @@ describe('Outputs', () => {
                     await job.waitForOutputs('someOutput', 'someOtherOutput');
                     throw new Error();
                 } catch (err) {
-                    assert.equal(err.name, 'JobSuccessMissingOutputs');
+                    assert.strictEqual(err.name, 'JobSuccessMissingOutputs');
                 }
             });
         });
@@ -61,7 +61,7 @@ describe('Outputs', () => {
                     await job.waitForOutputs('someOutput');
                     throw new Error();
                 } catch (err) {
-                    assert.equal(err.name, 'JobFailMissingOutputs');
+                    assert.strictEqual(err.name, 'JobFailMissingOutputs');
                 } finally {
                     // Mute unhandled rejection
                     await job.waitForCompletion().catch(() => {});
@@ -75,7 +75,7 @@ describe('Outputs', () => {
             const robot = new LocalRobot({ script, autoRunJobs: false });
             const job = await robot.createJob();
             const output = await job.getOutput('someOutput');
-            assert.equal(output, undefined);
+            assert.strictEqual(output, undefined);
         });
 
         it('resolves output if it is produced', async () => {
@@ -83,7 +83,7 @@ describe('Outputs', () => {
             const job = await robot.createJob();
             await job.waitForCompletion();
             const someOutput = await job.getOutput('someOutput');
-            assert.deepEqual(someOutput, { foo: 123 });
+            assert.deepStrictEqual(someOutput, { foo: 123 });
         });
     });
 
