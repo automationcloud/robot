@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="minimal no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{model.name}} | {{project.name}}</title>
+    <meta name="description" content="{{project.name}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:wght@400;600&display=fallback"
+        rel="stylesheet"/>
+    <link rel="stylesheet" href="{{relativeURL "assets/css/main.css"}}"/>
+    <link rel="stylesheet" href="{{relativeURL "assets/css/icons.css"}}"/>
+    <link rel="stylesheet" href="{{relativeURL "assets/css/hljs.css"}}"/>
+    <link rel="shortcut icon" href="{{relativeURL "assets/favicon.ico"}}"/>
+</head>
+<body>
+
+{{> header}}
+
+<div class="tsd-page">
+    <nav class="tsd-navigation">
+        <ul>
+            {{#each toc.children}}
+                {{> toc}}
+            {{/each}}
+        </ul>
+    </nav>
+
+    <main class="tsd-main">
+        {{#if model.readme}}
+            <div class="tsd-panel tsd-typography">
+                {{#markdown}}{{{model.readme}}}{{/markdown}}
+            </div>
+
+        {{else}}
+            {{#if model.name}}
+            <h1>{{ model.name }}</h1>
+            {{/if}}
+            {{{contents}}}
+        {{/if}}
+    </main>
+</div>
+
+</body>
+</html>

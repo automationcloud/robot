@@ -7,5 +7,6 @@
     "excludeProtected": true,
     "excludePrivate": true,
     "stripInternal": true,
-    "theme": "default"
+    "hideGenerator": true,
+    "theme": "./resources/theme"
 }
