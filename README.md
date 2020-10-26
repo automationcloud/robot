@@ -143,6 +143,22 @@ job.onAwaitingInput('selectedDeliveryOption', async () => {
 });
 ```
 
+A special `*` key can be used to subscribe to all requested inputs with a single handler:
+
+```ts
+job.onAwaitingInput('*', requestedInputKey => {
+    // ...
+});
+```
+
+If the handler doesn't return a value, the input is not submitted:
+
+```ts
+job.onAwaitingInput('selectedDeliveryOption', () => {
+    // No return, so input submission does not occur
+});
+```
+
 Inputs can also be submitted individually at any point in time whilst the job is still running:
 
 ```ts

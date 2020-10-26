@@ -163,6 +163,10 @@ export class LocalJob extends Job {
         return this._error;
     }
 
+    getAwaitingInputKey() {
+        return this.localFlow.awaitingInputKeys.find(_ => _ != null) || null;
+    }
+
     async submitInput(key: string, data: any) {
         this.localFlow.submitInput(key, data);
     }
