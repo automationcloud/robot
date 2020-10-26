@@ -19,8 +19,8 @@
         "compile": "tsc -b",
         "lint": "eslint ./packages --ext=.js,.ts --cache",
         "test": "lerna run test --stream --concurrency 1",
-        "docs": "typedoc --tsconfig ./tsconfig.base.json packages/*/src/main",
-        "release": "lerna version --no-push --force-publish -y && lerna publish from-git -y",
+        "docs": "typedoc --tsconfig ./tsconfig.base.json packages/*/src/main && git add docs/",
+        "release": "npm run preversion && lerna version --no-push --force-publish -y && lerna publish from-git -y",
         "preversion": "npm run lint && npm run clean && npm run compile && npm run docs"
     },
     "pre-commit": [
