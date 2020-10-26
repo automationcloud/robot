@@ -74,6 +74,12 @@ pre {
     min-width: auto;
 }
 
+@media (max-width: 640px) {
+    .tsd-page {
+        display: block;
+    }
+}
+
 .tsd-navigation {
     flex: 0 0 240px;
     background: rgba(0,0,0,.025);
