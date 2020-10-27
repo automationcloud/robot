@@ -280,6 +280,245 @@ unsubscribe();</code></pre>
 					</a>
 					<p>See <a href="LICENSE.md">LICENSE</a>.</p>
 				</div>
+				<h1>Automation Cloud Robot API Reference</h1>
+				<section class="tsd-panel-group tsd-index-group">
+					<h2>Index</h2>
+					<section class="tsd-panel tsd-index-panel">
+						<div class="tsd-index-content">
+							<section class="tsd-index-section ">
+								<h3>Enumerations</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-enum"><a href="enums/jobcategory.html" class="tsd-kind-icon">Job<wbr>Category</a></li>
+									<li class="tsd-kind-enum"><a href="enums/jobstate.html" class="tsd-kind-icon">Job<wbr>State</a></li>
+								</ul>
+							</section>
+							<section class="tsd-index-section ">
+								<h3>Classes</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-class"><a href="classes/cloudjob.html" class="tsd-kind-icon">Cloud<wbr>Job</a></li>
+									<li class="tsd-kind-class"><a href="classes/cloudrobot.html" class="tsd-kind-icon">Cloud<wbr>Robot</a></li>
+									<li class="tsd-kind-class"><a href="classes/exception.html" class="tsd-kind-icon">Exception</a></li>
+									<li class="tsd-kind-class"><a href="classes/job.html" class="tsd-kind-icon">Job</a></li>
+									<li class="tsd-kind-class"><a href="classes/localjob.html" class="tsd-kind-icon">Local<wbr>Job</a></li>
+									<li class="tsd-kind-class"><a href="classes/localrobot.html" class="tsd-kind-icon">Local<wbr>Robot</a></li>
+									<li class="tsd-kind-class"><a href="classes/robot.html" class="tsd-kind-icon">Robot</a></li>
+									<li class="tsd-kind-class"><a href="classes/vault.html" class="tsd-kind-icon">Vault</a></li>
+								</ul>
+							</section>
+							<section class="tsd-index-section ">
+								<h3>Interfaces</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-interface"><a href="interfaces/cloudrobotoptionalparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Optional<wbr>Params</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/cloudrobotrequiredparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Required<wbr>Params</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/exceptionspec.html" class="tsd-kind-icon">Exception<wbr>Spec</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/joberror.html" class="tsd-kind-icon">Job<wbr>Error</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/jobinitparams.html" class="tsd-kind-icon">Job<wbr>Init<wbr>Params</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/jobinput.html" class="tsd-kind-icon">Job<wbr>Input</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/jobinputobject.html" class="tsd-kind-icon">Job<wbr>Input<wbr>Object</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/joboutput.html" class="tsd-kind-icon">Job<wbr>Output</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/localrobotoptionalparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Optional<wbr>Params</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/localrobotrequiredparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Required<wbr>Params</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/logger.html" class="tsd-kind-icon">Logger</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/paymentiframecustomizedfield.html" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Customized<wbr>Field</a></li>
+									<li class="tsd-kind-interface"><a href="interfaces/paymentiframeoptions.html" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Options</a></li>
+								</ul>
+							</section>
+							<section class="tsd-index-section ">
+								<h3>Type aliases</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-type-alias"><a href="globals.html#cloudrobotauthparams" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#cloudrobotconfig" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Config</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#cloudrobotoptions" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Options</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#jobeventhandler" class="tsd-kind-icon">Job<wbr>Event<wbr>Handler</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#localrobotconfig" class="tsd-kind-icon">Local<wbr>Robot<wbr>Config</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#localrobotoptions" class="tsd-kind-icon">Local<wbr>Robot<wbr>Options</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#localscriptinit" class="tsd-kind-icon">Local<wbr>Script<wbr>Init</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#paymentiframebrand" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Brand</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#paymentiframefield" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Field</a></li>
+									<li class="tsd-kind-type-alias"><a href="globals.html#paymentiframefieldname" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Field<wbr>Name</a></li>
+								</ul>
+							</section>
+							<section class="tsd-index-section ">
+								<h3>Functions</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-function"><a href="globals.html#fieldtostring" class="tsd-kind-icon">field<wbr>ToString</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+				</section>
+				<section class="tsd-panel-group tsd-member-group ">
+					<h2>Type aliases</h2>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="cloudrobotauthparams" class="tsd-anchor"></a>
+						<h3>Cloud<wbr>Robot<wbr>Auth<wbr>Params</h3>
+						<div class="tsd-signature tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>clientSecret<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/cloud-robot.ts#L115">packages/cloud-robot/src/main/cloud-robot.ts:115</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Automation Cloud Authentication. Use <code>string</code> form for legacy authentication (aka &quot;client secret key&quot;),
+									otherwise provide the OAuth2 details as an object (you can obtain them by creating a new Application in
+								Automation Cloud dashboard).</p>
+							</div>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="cloudrobotconfig" class="tsd-anchor"></a>
+						<h3>Cloud<wbr>Robot<wbr>Config</h3>
+						<div class="tsd-signature tsd-kind-icon">Cloud<wbr>Robot<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/cloudrobotrequiredparams.html" class="tsd-signature-type">CloudRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/cloudrobotoptionalparams.html" class="tsd-signature-type">CloudRobotOptionalParams</a></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/cloud-robot.ts#L107">packages/cloud-robot/src/main/cloud-robot.ts:107</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Cloud robot configuration, consists of required and optional parameters.</p>
+							</div>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="cloudrobotoptions" class="tsd-anchor"></a>
+						<h3>Cloud<wbr>Robot<wbr>Options</h3>
+						<div class="tsd-signature tsd-kind-icon">Cloud<wbr>Robot<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="interfaces/cloudrobotrequiredparams.html" class="tsd-signature-type">CloudRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/cloudrobotoptionalparams.html" class="tsd-signature-type">CloudRobotOptionalParams</a><span class="tsd-signature-symbol">&gt;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/cloud-robot.ts#L108">packages/cloud-robot/src/main/cloud-robot.ts:108</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="jobeventhandler" class="tsd-anchor"></a>
+						<h3>Job<wbr>Event<wbr>Handler</h3>
+						<div class="tsd-signature tsd-kind-icon">Job<wbr>Event<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/robot/src/main/job.ts#L369">packages/robot/src/main/job.ts:369</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Event subscription methods like <code>onOutput</code> return handlers which can subsequently be invoked
+								with zero arguments to unsubscribe from the event.</p>
+							</div>
+							<pre><code class="language-ts"><span class="hljs-keyword">const</span> unsubscribe = job.onOutput(<span class="hljs-string">&#x27;someKey&#x27;</span>, <span class="hljs-keyword">async</span> data =&gt; { ... });
+<span class="hljs-comment">// ...</span>
+unsubscribe();</code></pre>
+						</div>
+						<div class="tsd-type-declaration">
+							<h4>Type declaration</h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-signature">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="localrobotconfig" class="tsd-anchor"></a>
+						<h3>Local<wbr>Robot<wbr>Config</h3>
+						<div class="tsd-signature tsd-kind-icon">Local<wbr>Robot<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/localrobotrequiredparams.html" class="tsd-signature-type">LocalRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/localrobotoptionalparams.html" class="tsd-signature-type">LocalRobotOptionalParams</a></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/local-robot/src/main/local-robot.ts#L90">packages/local-robot/src/main/local-robot.ts:90</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Local robot configuration, includes mandatory <code>script</code> which can be
+									either a path to local file containing a script created an Autopilot, or the JSON object
+								representing the serialized script.</p>
+							</div>
+						</div>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="localrobotoptions" class="tsd-anchor"></a>
+						<h3>Local<wbr>Robot<wbr>Options</h3>
+						<div class="tsd-signature tsd-kind-icon">Local<wbr>Robot<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="interfaces/localrobotrequiredparams.html" class="tsd-signature-type">LocalRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/localrobotoptionalparams.html" class="tsd-signature-type">LocalRobotOptionalParams</a><span class="tsd-signature-symbol">&gt;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/local-robot/src/main/local-robot.ts#L91">packages/local-robot/src/main/local-robot.ts:91</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="localscriptinit" class="tsd-anchor"></a>
+						<h3>Local<wbr>Script<wbr>Init</h3>
+						<div class="tsd-signature tsd-kind-icon">Local<wbr>Script<wbr>Init<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/local-robot/src/main/local-robot.ts#L97">packages/local-robot/src/main/local-robot.ts:97</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="paymentiframebrand" class="tsd-anchor"></a>
+						<h3>Payment<wbr>Iframe<wbr>Brand</h3>
+						<div class="tsd-signature tsd-kind-icon">Payment<wbr>Iframe<wbr>Brand<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"visa"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"mastercard"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"amex"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"discover"</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L141">packages/cloud-robot/src/main/vault.ts:141</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="paymentiframefield" class="tsd-anchor"></a>
+						<h3>Payment<wbr>Iframe<wbr>Field</h3>
+						<div class="tsd-signature tsd-kind-icon">Payment<wbr>Iframe<wbr>Field<span class="tsd-signature-symbol">:</span> <a href="globals.html#paymentiframefieldname" class="tsd-signature-type">PaymentIframeFieldName</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/paymentiframecustomizedfield.html" class="tsd-signature-type">PaymentIframeCustomizedField</a></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L139">packages/cloud-robot/src/main/vault.ts:139</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-type-alias">
+						<a name="paymentiframefieldname" class="tsd-anchor"></a>
+						<h3>Payment<wbr>Iframe<wbr>Field<wbr>Name</h3>
+						<div class="tsd-signature tsd-kind-icon">Payment<wbr>Iframe<wbr>Field<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"name"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pan"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"expiry"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"expiry-yy"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"expiry-select"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cvv"</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L140">packages/cloud-robot/src/main/vault.ts:140</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section class="tsd-panel-group tsd-member-group ">
+					<h2>Functions</h2>
+					<section class="tsd-panel tsd-member tsd-kind-function">
+						<a name="fieldtostring" class="tsd-anchor"></a>
+						<h3>field<wbr>ToString</h3>
+						<ul class="tsd-signatures tsd-kind-function">
+							<li class="tsd-signature tsd-kind-icon">field<wbr>ToString<span class="tsd-signature-symbol">(</span>field<span class="tsd-signature-symbol">: </span><a href="globals.html#paymentiframefield" class="tsd-signature-type">PaymentIframeField</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L148">packages/cloud-robot/src/main/vault.ts:148</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>field: <a href="globals.html#paymentiframefield" class="tsd-signature-type">PaymentIframeField</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
 			</div>
 		</main>
 	</div>
