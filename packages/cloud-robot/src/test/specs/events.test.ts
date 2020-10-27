@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { AcMock } from '../ac-mock';import assert from 'assert';
+import { AcMock } from '../ac-mock';
+import assert from 'assert';
 import { JobState } from '@automationcloud/robot';
 
 describe('Events', () => {

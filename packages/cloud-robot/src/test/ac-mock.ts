@@ -32,6 +32,7 @@ export class AcMock {
     inputs: AcJobInput[] = [];
     outputs: AcJobOutput[] = [];
     events: AcJobEvent[] = [];
+    otp: string | null = null;
 
     protected _inputTimeoutTimer: any;
 
@@ -49,6 +50,8 @@ export class AcMock {
         this.router.get('/jobs/:id/outputs/:outputKey', ctx => this.getJobOutput(ctx));
         this.router.post('/jobs/:id/inputs', ctx => this.createInput(ctx));
         this.router.post('/services/:id/previous-job-outputs', ctx => this.queryPreviousOutputs(ctx));
+        this.router.post('/~vault/otp', ctx => this.createOtp(ctx));
+        this.router.post('/~vault/pan', ctx => this.createPanToken(ctx));
         this.app.use(async (ctx, next) => {
             try {
                 ctx.body = {};
@@ -76,6 +79,7 @@ export class AcMock {
             auth: 'secret-key',
             pollInterval: 10,
             apiUrl: this.url,
+            vaultUrl: this.url + '/~vault'
         });
     }
 
@@ -244,6 +248,28 @@ export class AcMock {
             object: 'list',
             data,
         };
+    }
+
+    protected async createOtp(ctx: Koa.Context) {
+        this.otp = randomId();
+        ctx.status = 201;
+        ctx.body = { id: this.otp };
+    }
+
+    protected async createPanToken(ctx: Koa.Context) {
+        const { otp, pan } = ctx.request.body;
+        if (otp !== this.otp) {
+            ctx.status = 403;
+            return;
+        }
+        // Primitive PAN validation
+        if (typeof pan !== 'string' || pan.length !== 16) {
+            ctx.status = 400;
+            return;
+        }
+        this.otp = null;
+        ctx.status = 201;
+        ctx.body = { key: 'some-decryption-key', panToken: 'some-pan-token' };
     }
 
 }

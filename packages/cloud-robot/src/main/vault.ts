@@ -21,7 +21,7 @@ import { Request, BasicAuthAgent, OAuth2Agent } from '@automationcloud/request';
  * The typical usage involves:
  *
  * - obtaining a one-time password: `const otp = await robot.vault.createOtp()`
- * - putting the card number into the vault: `const panToken = await robot.vault.createPanToken({ pan, otp })`;
+ * - putting the card number into the vault: `const panToken = await robot.vault.createPanToken(pan, otp)`;
  * - using the obtained token as part of Job input
  */
 export class Vault {
@@ -60,9 +60,8 @@ export class Vault {
      *
      * If `otp` is not provided, it will be automatically created.
      */
-    async createPanToken(params: { pan: string, otp?: string }): Promise<string> {
-        const otp = params.otp ?? await this.createOtp();
-        const { pan } = params;
+    async createPanToken(pan: string, existingOtp?: string): Promise<string> {
+        const otp = existingOtp ?? await this.createOtp();
         const { panToken } = await this.request.post('/pan', {
             body: { otp, pan },
         });
