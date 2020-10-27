@@ -149,5 +149,7 @@ function fieldToString(field: PaymentIframeField): string {
     if (typeof field === 'string') {
         return field;
     }
-    return `${field.name}_${field.label.replace(/_/g, '')}_${field.placeholder.replace(/_/g, '')}`;
+    return [field.name, field.label, field.placeholder]
+        .map(_ => _.replace(/_/g, ''))
+        .join('_');
 }
