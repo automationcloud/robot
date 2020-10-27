@@ -14,8 +14,8 @@
 	<link rel="shortcut icon" href="../assets/favicon.ico"/>
 </head>
 <body>
-<header>
-	<div class="tsd-header">
+<div class="tsd-layout">
+	<header class="tsd-header">
 		<img class="tsd-logo"
 		src="../assets/images/ac-logo.svg"
 		alt=""
@@ -24,149 +24,154 @@
 		<a class="tsd-header-link" href="../index.html">
 			Robot API Reference
 		</a>
-	</div>
-</header>
-<div class="tsd-page">
-	<nav class="tsd-navigation">
-		<ul>
-			<li class="current tsd-kind-enum">
-				<a href="jobcategory.html" class="tsd-kind-icon">Job<wbr>Category</a>
-				<ul>
-					<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-						<a href="jobcategory.html#live" class="tsd-kind-icon">LIVE</a>
-					</li>
-					<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-						<a href="jobcategory.html#test" class="tsd-kind-icon">TEST</a>
-					</li>
-				</ul>
-			</li>
-			<li class=" tsd-kind-enum">
-				<a href="jobstate.html" class="tsd-kind-icon">Job<wbr>State</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/cloudjob.html" class="tsd-kind-icon">Cloud<wbr>Job</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/cloudrobot.html" class="tsd-kind-icon">Cloud<wbr>Robot</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/exception.html" class="tsd-kind-icon">Exception</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/job.html" class="tsd-kind-icon">Job</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/localjob.html" class="tsd-kind-icon">Local<wbr>Job</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/localrobot.html" class="tsd-kind-icon">Local<wbr>Robot</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="../classes/robot.html" class="tsd-kind-icon">Robot</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/cloudrobotoptionalparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Optional<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/cloudrobotrequiredparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Required<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/exceptionspec.html" class="tsd-kind-icon">Exception<wbr>Spec</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/joberror.html" class="tsd-kind-icon">Job<wbr>Error</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/jobinitparams.html" class="tsd-kind-icon">Job<wbr>Init<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/jobinput.html" class="tsd-kind-icon">Job<wbr>Input</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/jobinputobject.html" class="tsd-kind-icon">Job<wbr>Input<wbr>Object</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/joboutput.html" class="tsd-kind-icon">Job<wbr>Output</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/localrobotoptionalparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Optional<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/localrobotrequiredparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Required<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/logger.html" class="tsd-kind-icon">Logger</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#cloudrobotauthparams" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#cloudrobotconfig" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Config</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#cloudrobotoptions" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Options</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#jobeventhandler" class="tsd-kind-icon">Job<wbr>Event<wbr>Handler</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#localrobotconfig" class="tsd-kind-icon">Local<wbr>Robot<wbr>Config</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#localrobotoptions" class="tsd-kind-icon">Local<wbr>Robot<wbr>Options</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#localscriptinit" class="tsd-kind-icon">Local<wbr>Script<wbr>Init</a>
-			</li>
-		</ul>
-	</nav>
-	<main class="tsd-main">
-		<h1>JobCategory</h1>
-		<section class="tsd-panel tsd-comment">
-			<div class="tsd-comment tsd-typography">
-				<div class="lead">
-					<p>Indicates whether the job is live or test, useful for filtering jobs in dashboard.</p>
-				</div>
-			</div>
-		</section>
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Enumeration members</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="jobcategory.html#live" class="tsd-kind-icon">LIVE</a></li>
-							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="jobcategory.html#test" class="tsd-kind-icon">TEST</a></li>
-						</ul>
+	</header>
+	<div class="tsd-page">
+		<nav class="tsd-navigation">
+			<ul>
+				<li class="current tsd-kind-enum">
+					<a href="jobcategory.html" class="tsd-kind-icon">Job<wbr>Category</a>
+					<ul>
+						<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+							<a href="jobcategory.html#live" class="tsd-kind-icon">LIVE</a>
+						</li>
+						<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+							<a href="jobcategory.html#test" class="tsd-kind-icon">TEST</a>
+						</li>
+					</ul>
+				</li>
+				<li class=" tsd-kind-enum">
+					<a href="jobstate.html" class="tsd-kind-icon">Job<wbr>State</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/cloudjob.html" class="tsd-kind-icon">Cloud<wbr>Job</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/cloudrobot.html" class="tsd-kind-icon">Cloud<wbr>Robot</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/exception.html" class="tsd-kind-icon">Exception</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/job.html" class="tsd-kind-icon">Job</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/localjob.html" class="tsd-kind-icon">Local<wbr>Job</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/localrobot.html" class="tsd-kind-icon">Local<wbr>Robot</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/robot.html" class="tsd-kind-icon">Robot</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="../classes/vault.html" class="tsd-kind-icon">Vault</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/cloudrobotoptionalparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Optional<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/cloudrobotrequiredparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Required<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/exceptionspec.html" class="tsd-kind-icon">Exception<wbr>Spec</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/joberror.html" class="tsd-kind-icon">Job<wbr>Error</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/jobinitparams.html" class="tsd-kind-icon">Job<wbr>Init<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/jobinput.html" class="tsd-kind-icon">Job<wbr>Input</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/jobinputobject.html" class="tsd-kind-icon">Job<wbr>Input<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/joboutput.html" class="tsd-kind-icon">Job<wbr>Output</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/localrobotoptionalparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Optional<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/localrobotrequiredparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Required<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/logger.html" class="tsd-kind-icon">Logger</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#cloudrobotauthparams" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#cloudrobotconfig" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Config</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#cloudrobotoptions" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#jobeventhandler" class="tsd-kind-icon">Job<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#localrobotconfig" class="tsd-kind-icon">Local<wbr>Robot<wbr>Config</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#localrobotoptions" class="tsd-kind-icon">Local<wbr>Robot<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#localscriptinit" class="tsd-kind-icon">Local<wbr>Script<wbr>Init</a>
+				</li>
+			</ul>
+		</nav>
+		<main class="tsd-main">
+			<div class="tsd-content-wrap">
+				<h1>JobCategory</h1>
+				<section class="tsd-panel tsd-comment">
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates whether the job is live or test, useful for filtering jobs in dashboard.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel-group tsd-index-group">
+					<h2>Index</h2>
+					<section class="tsd-panel tsd-index-panel">
+						<div class="tsd-index-content">
+							<section class="tsd-index-section ">
+								<h3>Enumeration members</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="jobcategory.html#live" class="tsd-kind-icon">LIVE</a></li>
+									<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="jobcategory.html#test" class="tsd-kind-icon">TEST</a></li>
+								</ul>
+							</section>
+						</div>
 					</section>
-				</div>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Enumeration members</h2>
-			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-				<a name="live" class="tsd-anchor"></a>
-				<h3>LIVE</h3>
-				<div class="tsd-signature tsd-kind-icon">LIVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;live&quot;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L294">packages/robot/src/main/job.ts:294</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-				<a name="test" class="tsd-anchor"></a>
-				<h3>TEST</h3>
-				<div class="tsd-signature tsd-kind-icon">TEST<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;test&quot;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L295">packages/robot/src/main/job.ts:295</a></li>
-					</ul>
-				</aside>
-			</section>
-		</section>
-	</main>
+				</section>
+				<section class="tsd-panel-group tsd-member-group ">
+					<h2>Enumeration members</h2>
+					<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+						<a name="live" class="tsd-anchor"></a>
+						<h3>LIVE</h3>
+						<div class="tsd-signature tsd-kind-icon">LIVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;live&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L294">packages/robot/src/main/job.ts:294</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+						<a name="test" class="tsd-anchor"></a>
+						<h3>TEST</h3>
+						<div class="tsd-signature tsd-kind-icon">TEST<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;test&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L295">packages/robot/src/main/job.ts:295</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+			</div>
+		</main>
+	</div>
 </div>
 </body>
 </html>

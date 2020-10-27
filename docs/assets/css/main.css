@@ -68,18 +68,6 @@ pre {
     font-weight: 600;
 }
 
-.tsd-page {
-    display: flex;
-    flex-flow: row nowrap;
-    min-width: auto;
-}
-
-@media (max-width: 640px) {
-    .tsd-page {
-        display: block;
-    }
-}
-
 .tsd-navigation {
     flex: 0 0 240px;
     background: rgba(0,0,0,.025);
@@ -98,6 +86,33 @@ pre {
     margin-left: var(--gap);
     flex: 1;
     min-width: 0;
+}
+
+@media (min-width: 640px) {
+    .tsd-layout {
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100vh;
+    }
+
+    .tsd-header {
+        flex: 0 0 auto;
+    }
+
+    .tsd-page {
+        flex: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .tsd-navigation, .tsd-main {
+        min-width: 0;
+        overflow-y: auto;
+    }
+}
+.tsd-content-wrap {
     max-width: 640px;
 }
 
