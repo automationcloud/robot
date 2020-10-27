@@ -67,6 +67,9 @@
 						<li class=" tsd-kind-method tsd-parent-kind-class">
 							<a href="vault.html#createpantoken" class="tsd-kind-icon">create<wbr>Pan<wbr>Token</a>
 						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="vault.html#getpaymentiframeurl" class="tsd-kind-icon">get<wbr>Payment<wbr>Iframe<wbr>Url</a>
+						</li>
 					</ul>
 				</li>
 				<li class=" tsd-kind-interface">
@@ -102,6 +105,12 @@
 				<li class=" tsd-kind-interface">
 					<a href="../interfaces/logger.html" class="tsd-kind-icon">Logger</a>
 				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/paymentiframecustomizedfield.html" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Customized<wbr>Field</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/paymentiframeoptions.html" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Options</a>
+				</li>
 				<li class=" tsd-kind-type-alias">
 					<a href="../globals.html#cloudrobotauthparams" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params</a>
 				</li>
@@ -122,6 +131,18 @@
 				</li>
 				<li class=" tsd-kind-type-alias">
 					<a href="../globals.html#localscriptinit" class="tsd-kind-icon">Local<wbr>Script<wbr>Init</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#paymentiframebrand" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Brand</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#paymentiframefield" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Field</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#paymentiframefieldname" class="tsd-kind-icon">Payment<wbr>Iframe<wbr>Field<wbr>Name</a>
+				</li>
+				<li class=" tsd-kind-function">
+					<a href="../globals.html#fieldtostring" class="tsd-kind-icon">field<wbr>ToString</a>
 				</li>
 			</ul>
 		</nav>
@@ -164,6 +185,7 @@
 								<ul class="tsd-index-list">
 									<li class="tsd-kind-method tsd-parent-kind-class"><a href="vault.html#createotp" class="tsd-kind-icon">create<wbr>Otp</a></li>
 									<li class="tsd-kind-method tsd-parent-kind-class"><a href="vault.html#createpantoken" class="tsd-kind-icon">create<wbr>Pan<wbr>Token</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="vault.html#getpaymentiframeurl" class="tsd-kind-icon">get<wbr>Payment<wbr>Iframe<wbr>Url</a></li>
 								</ul>
 							</section>
 						</div>
@@ -181,7 +203,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/6a5fe7d/packages/cloud-robot/src/main/vault.ts#L28">packages/cloud-robot/src/main/vault.ts:28</a></li>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/103005d/packages/cloud-robot/src/main/vault.ts#L28">packages/cloud-robot/src/main/vault.ts:28</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -207,7 +229,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/6a5fe7d/packages/cloud-robot/src/main/vault.ts#L52">packages/cloud-robot/src/main/vault.ts:52</a></li>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/103005d/packages/cloud-robot/src/main/vault.ts#L52">packages/cloud-robot/src/main/vault.ts:52</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -229,7 +251,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/6a5fe7d/packages/cloud-robot/src/main/vault.ts#L63">packages/cloud-robot/src/main/vault.ts:63</a></li>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/103005d/packages/cloud-robot/src/main/vault.ts#L63">packages/cloud-robot/src/main/vault.ts:63</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -249,6 +271,44 @@
 									</li>
 								</ul>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="getpaymentiframeurl" class="tsd-anchor"></a>
+						<h3>get<wbr>Payment<wbr>Iframe<wbr>Url</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">get<wbr>Payment<wbr>Iframe<wbr>Url<span class="tsd-signature-symbol">(</span>otp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/paymentiframeoptions.html" class="tsd-signature-type">PaymentIframeOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/103005d/packages/cloud-robot/src/main/vault.ts#L79">packages/cloud-robot/src/main/vault.ts:79</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Constructs a payment iframe URL hosted by Automation Cloud Vault.</p>
+									</div>
+									<p>See <a href="https://docs.automationcloud.net/docs/vaulting-payment-card">https://docs.automationcloud.net/docs/vaulting-payment-card</a> for more information</p>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>otp: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>one-time password, must be obtained via <code>await robot.vault.createOtp()</code></p>
+										</div>
+									</li>
+									<li>
+										<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/paymentiframeoptions.html" class="tsd-signature-type">PaymentIframeOptions</a><span class="tsd-signature-symbol"> = {}</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>iframe customization options, see <a href="../interfaces/paymentiframeoptions.html">PaymentIframeOptions</a> for more info</p>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							</li>
 						</ul>
 					</section>
