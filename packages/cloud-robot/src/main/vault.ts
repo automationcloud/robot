@@ -68,4 +68,74 @@ export class Vault {
         return panToken;
     }
 
+    /**
+     * Constructs a payment iframe URL hosted by Automation Cloud Vault.
+     *
+     * See https://docs.automationcloud.net/docs/vaulting-payment-card for more information
+     *
+     * @param otp one-time password, must be obtained via `await robot.vault.createOtp()`
+     * @param options iframe customization options, see {@link PaymentIframeOptions} for more info
+     */
+    getPaymentIframeUrl(otp: string, options: PaymentIframeOptions = {}): string {
+        const qs = [
+            ['otp', otp],
+            ['css', options.cssUrl],
+            ['name', options.name],
+            ['fields', options.fields?.join(',')],
+            ['brands', options.brands?.join(',')],
+            ['validateOnInput', options.validateOnInput === true ? 'on' : undefined],
+        ].filter(_ => _[1] != null);
+        const baseUrl = options.iframeUrl ?? 'https://vault.automationcloud.net/forms/index.html';
+        return baseUrl + '?' + qs.map(_ => `${_[0]}=${encodeURIComponent(_[1] ?? '')}`).join('&');
+    }
+
 }
+
+/**
+ * Additional configuration of secure payment iframe.
+ * See https://docs.automationcloud.net/docs/vaulting-payment-card for more info.
+ */
+export interface PaymentIframeOptions {
+    /**
+     * The URL of payment iframe. Default: `https://vault.automationcloud.net/forms/index.html`
+     */
+    iframeUrl?: string;
+
+    /**
+     * The CSS to use. Default: `https://vault.automationcloud.net/forms/index.css`
+     */
+    cssUrl?: string;
+
+    /**
+     * If specified, restricts the rendered fields.
+     * Additionally, field labels and placeholders can be customized as per
+     * https://docs.automationcloud.net/docs/vaulting-payment-card#customised-label-and-placeholder
+     *
+     * Default: `['pan', 'name', 'expiry-select', 'cvv']`
+     */
+    fields?: PaymentIframeField[];
+
+    /**
+     * If specifies, restrict the choice of card brands.
+     *
+     * Default: `['visa', 'mastercard', 'amex', 'discover']`
+     */
+    brands?: PaymentIframeBrand[];
+
+    /**
+     * If specified, the "name" form field will be pre-filled with specified value.
+     */
+    name?: string
+
+    /**
+     * If enabled, the iframe will emit validation events for each field using `vault.validation` messages.
+     * See https://docs.automationcloud.net/docs/vaulting-payment-card#validateoninput-optional for more info.
+     *
+     * Default: `false`
+     */
+    validateOnInput?: boolean;
+}
+
+export type PaymentIframeField = 'name' | 'pan' | 'expiry' | 'expiry-yy' | 'expiry-select' | 'cvv' | string;
+
+export type PaymentIframeBrand = 'visa' | 'mastercard' | 'amex' | 'discover';
