@@ -81,7 +81,7 @@ export class Vault {
             ['otp', otp],
             ['css', options.cssUrl],
             ['name', options.name],
-            ['fields', options.fields?.join(',')],
+            ['fields', options.fields?.map(fieldToString).join(',')],
             ['brands', options.brands?.join(',')],
             ['validateOnInput', options.validateOnInput === true ? 'on' : undefined],
         ].filter(_ => _[1] != null);
@@ -136,6 +136,18 @@ export interface PaymentIframeOptions {
     validateOnInput?: boolean;
 }
 
-export type PaymentIframeField = 'name' | 'pan' | 'expiry' | 'expiry-yy' | 'expiry-select' | 'cvv' | string;
-
+export type PaymentIframeField = PaymentIframeFieldName | PaymentIframeCustomizedField;
+export type PaymentIframeFieldName = 'name' | 'pan' | 'expiry' | 'expiry-yy' | 'expiry-select' | 'cvv';
 export type PaymentIframeBrand = 'visa' | 'mastercard' | 'amex' | 'discover';
+export interface PaymentIframeCustomizedField {
+    name: PaymentIframeFieldName;
+    label: string;
+    placeholder: string;
+}
+
+function fieldToString(field: PaymentIframeField): string {
+    if (typeof field === 'string') {
+        return field;
+    }
+    return `${field.name}_${field.label.replace(/_/g, '')}_${field.placeholder.replace(/_/g, '')}`;
+}
