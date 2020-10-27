@@ -15,6 +15,7 @@
 import { Robot, Job, JobInitParams } from '@automationcloud/robot';
 import { CloudJob } from './cloud-job';
 import { AcApi, AcJobInput, AcPreviousJobOutput } from './ac-api';
+import { Vault } from './vault';
 
 /**
  * Robot API used to execute automations remotely on Automation Cloud
@@ -31,12 +32,19 @@ import { AcApi, AcJobInput, AcPreviousJobOutput } from './ac-api';
  * @see {@link Robot}
  */
 export class CloudRobot extends Robot {
+
     /**
      * Robot instance configuration.
      *
      * @see {@link CloudRobotConfig}
      */
     config: CloudRobotConfig;
+
+    /**
+     * Provides access to Automation Cloud Vault functionality.
+     */
+    vault: Vault;
+
     /**
      * @internal
      */
@@ -47,6 +55,7 @@ export class CloudRobot extends Robot {
         this.config = {
             apiUrl: 'https://api.automationcloud.net',
             apiTokenUrl: 'https://auth.automationcloud.net/auth/realms/automationcloud/protocol/openid-connect/token',
+            vaultUrl: 'https://vault.automationcloud.net',
             pollInterval: 1000,
             ...params,
         };
@@ -56,6 +65,7 @@ export class CloudRobot extends Robot {
             auth: this.config.auth,
             logger: this.logger,
         });
+        this.vault = new Vault(this);
     }
 
     /**
@@ -128,6 +138,7 @@ export interface CloudRobotRequiredParams {
 export interface CloudRobotOptionalParams {
     apiUrl: string;
     apiTokenUrl: string;
+    vaultUrl: string;
     /**
      * Poll interval in milliseconds for job state synchronization. Default: `1000` (1 second).
      */

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Robot | Automation Cloud Robot API Reference</title>
+	<title>Vault | Automation Cloud Robot API Reference</title>
 	<meta name="description" content="Automation Cloud Robot API Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:wght@400;600&display=fallback"
@@ -52,19 +52,22 @@
 				<li class=" tsd-kind-class">
 					<a href="localrobot.html" class="tsd-kind-icon">Local<wbr>Robot</a>
 				</li>
-				<li class="current tsd-kind-class">
+				<li class=" tsd-kind-class">
 					<a href="robot.html" class="tsd-kind-icon">Robot</a>
+				</li>
+				<li class="current tsd-kind-class">
+					<a href="vault.html" class="tsd-kind-icon">Vault</a>
 					<ul>
-						<li class=" tsd-kind-property tsd-parent-kind-class">
-							<a href="robot.html#logger" class="tsd-kind-icon">logger</a>
+						<li class=" tsd-kind-constructor tsd-parent-kind-class">
+							<a href="vault.html#constructor" class="tsd-kind-icon">constructor</a>
 						</li>
 						<li class=" tsd-kind-method tsd-parent-kind-class">
-							<a href="robot.html#createjob" class="tsd-kind-icon">create<wbr>Job</a>
+							<a href="vault.html#createotp" class="tsd-kind-icon">create<wbr>Otp</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="vault.html#createpantoken" class="tsd-kind-icon">create<wbr>Pan<wbr>Token</a>
 						</li>
 					</ul>
-				</li>
-				<li class=" tsd-kind-class">
-					<a href="vault.html" class="tsd-kind-icon">Vault</a>
 				</li>
 				<li class=" tsd-kind-interface">
 					<a href="../interfaces/cloudrobotoptionalparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Optional<wbr>Params</a>
@@ -124,22 +127,25 @@
 		</nav>
 		<main class="tsd-main">
 			<div class="tsd-content-wrap">
-				<h1>Robot</h1>
+				<h1>Vault</h1>
 				<section class="tsd-panel tsd-comment">
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A Robot API instance which is used to execute a particular script.</p>
+							<p>Vault is used to store sensitive information like payment card number (PAN).</p>
 						</div>
-						<p>Robot instance is scoped to a script or service and can be used
-							to create multiple jobs with the same configuration.
-						For creating jobs that execute different scripts, separate Robot instances should be created.</p>
+						<p>The typical usage involves:</p>
+						<ul>
+							<li>obtaining a one-time password: <code>const otp = await robot.vault.createOtp()</code></li>
+							<li>putting the card number into the vault: <code>const panToken = await robot.vault.createPanToken(pan, otp)</code>;</li>
+							<li>using the obtained token as part of Job input</li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-hierarchy">
 					<h3>Hierarchy</h3>
 					<ul class="tsd-hierarchy">
 						<li>
-							<span class="target">Robot</span>
+							<span class="target">Vault</span>
 						</li>
 					</ul>
 				</section>
@@ -148,77 +154,101 @@
 					<section class="tsd-panel tsd-index-panel">
 						<div class="tsd-index-content">
 							<section class="tsd-index-section ">
-								<h3>Properties</h3>
+								<h3>Constructors</h3>
 								<ul class="tsd-index-list">
-									<li class="tsd-kind-property tsd-parent-kind-class"><a href="robot.html#logger" class="tsd-kind-icon">logger</a></li>
+									<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="vault.html#constructor" class="tsd-kind-icon">constructor</a></li>
 								</ul>
 							</section>
 							<section class="tsd-index-section ">
 								<h3>Methods</h3>
 								<ul class="tsd-index-list">
-									<li class="tsd-kind-method tsd-parent-kind-class"><a href="robot.html#createjob" class="tsd-kind-icon">create<wbr>Job</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="vault.html#createotp" class="tsd-kind-icon">create<wbr>Otp</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="vault.html#createpantoken" class="tsd-kind-icon">create<wbr>Pan<wbr>Token</a></li>
 								</ul>
 							</section>
 						</div>
 					</section>
 				</section>
 				<section class="tsd-panel-group tsd-member-group ">
-					<h2>Properties</h2>
-					<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-						<a name="logger" class="tsd-anchor"></a>
-						<h3>logger</h3>
-						<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="../interfaces/logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> = console</span></div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/robot.ts#L26">packages/robot/src/main/robot.ts:26</a></li>
-							</ul>
-						</aside>
-					</section>
-				</section>
-				<section class="tsd-panel-group tsd-member-group ">
-					<h2>Methods</h2>
-					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-						<a name="createjob" class="tsd-anchor"></a>
-						<h3>create<wbr>Job</h3>
-						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-							<li class="tsd-signature tsd-kind-icon">create<wbr>Job<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jobinitparams.html" class="tsd-signature-type">JobInitParams</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<h2>Constructors</h2>
+					<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+						<a name="constructor" class="tsd-anchor"></a>
+						<h3>constructor</h3>
+						<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">new <wbr>Vault<span class="tsd-signature-symbol">(</span>robot<span class="tsd-signature-symbol">: </span><a href="cloudrobot.html" class="tsd-signature-type">CloudRobot</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vault.html" class="tsd-signature-type">Vault</a></li>
 						</ul>
 						<ul class="tsd-descriptions">
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/robot.ts#L49">packages/robot/src/main/robot.ts:49</a></li>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/cloud-robot/src/main/vault.ts#L28">packages/cloud-robot/src/main/vault.ts:28</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>robot: <a href="cloudrobot.html" class="tsd-signature-type">CloudRobot</a></h5>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="vault.html" class="tsd-signature-type">Vault</a></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel-group tsd-member-group ">
+					<h2>Methods</h2>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="createotp" class="tsd-anchor"></a>
+						<h3>create<wbr>Otp</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">create<wbr>Otp<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/cloud-robot/src/main/vault.ts#L52">packages/cloud-robot/src/main/vault.ts:52</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Creates a new job which conceptually results in starting an automation
-											and starts tracking its lifecycle events (i.e. emitted outputs, requested inputs, success,
-										failures, etc.)</p>
+										<p>Creates one time password (OTP) which can subsequently be used to put data to vault.</p>
 									</div>
-									<p>The exact behaviour depends on the underlying mechanism:</p>
+								</div>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="createpantoken" class="tsd-anchor"></a>
+						<h3>create<wbr>Pan<wbr>Token</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">create<wbr>Pan<wbr>Token<span class="tsd-signature-symbol">(</span>pan<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, existingOtp<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
 									<ul>
-										<li><code>LocalRobot</code> will run a provided script using the embedded <code>Engine</code>
-										connected to a local Chromium instance;</li>
-										<li><code>CloudRobot</code> submits a new job to Automation Cloud API and starts tracking it
-										by polling its state.</li>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/cloud-robot/src/main/vault.ts#L63">packages/cloud-robot/src/main/vault.ts:63</a></li>
 									</ul>
-									<p>The job is automatically tracked after creation. The tracking stops after the job
-										reaches one of the final states (<code>success</code>, <code>fail</code>). For this reason it is recommended
-										that <code>await job.waitForCompletion()</code> is always included to prevent dangling promises
-									and unhandled promise rejections.</p>
-									<p>Please refer to specific implementations for more details.</p>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Exchanges payment card number (PAN) to a pan token which can be safely passed around
+										(i.e. used as part of inputs).</p>
+									</div>
+									<p>If <code>otp</code> is not provided, it will be automatically created.</p>
 								</div>
 								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
 									<li>
-										<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jobinitparams.html" class="tsd-signature-type">JobInitParams</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
-										<div class="tsd-comment tsd-typography">
-											<p>Job initilalization parameters (includes <code>category</code> and <code>input</code>).</p>
-										</div>
+										<h5>pan: <span class="tsd-signature-type">string</span></h5>
+									</li>
+									<li>
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> existingOtp: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									</li>
 								</ul>
-								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="job.html" class="tsd-signature-type">Job</a><span class="tsd-signature-symbol">&gt;</span></h4>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							</li>
 						</ul>
 					</section>

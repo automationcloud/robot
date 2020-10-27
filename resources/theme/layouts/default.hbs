@@ -15,30 +15,34 @@
 </head>
 <body>
 
-{{> header}}
+<div class="tsd-layout">
+    {{> header}}
 
-<div class="tsd-page">
-    <nav class="tsd-navigation">
-        <ul>
-            {{#each toc.children}}
-                {{> toc}}
-            {{/each}}
-        </ul>
-    </nav>
+    <div class="tsd-page">
+        <nav class="tsd-navigation">
+            <ul>
+                {{#each toc.children}}
+                    {{> toc}}
+                {{/each}}
+            </ul>
+        </nav>
 
-    <main class="tsd-main">
-        {{#if model.readme}}
-            <div class="tsd-panel tsd-typography">
-                {{#markdown}}{{{model.readme}}}{{/markdown}}
+        <main class="tsd-main">
+            <div class="tsd-content-wrap">
+                {{#if model.readme}}
+                    <div class="tsd-panel tsd-typography">
+                        {{#markdown}}{{{model.readme}}}{{/markdown}}
+                    </div>
+
+                {{else}}
+                    {{#if model.name}}
+                    <h1>{{ model.name }}</h1>
+                    {{/if}}
+                    {{{contents}}}
+                {{/if}}
             </div>
-
-        {{else}}
-            {{#if model.name}}
-            <h1>{{ model.name }}</h1>
-            {{/if}}
-            {{{contents}}}
-        {{/if}}
-    </main>
+        </main>
+    </div>
 </div>
 
 </body>

@@ -14,8 +14,8 @@
 	<link rel="shortcut icon" href="../assets/favicon.ico"/>
 </head>
 <body>
-<header>
-	<div class="tsd-header">
+<div class="tsd-layout">
+	<header class="tsd-header">
 		<img class="tsd-logo"
 		src="../assets/images/ac-logo.svg"
 		alt=""
@@ -24,725 +24,730 @@
 		<a class="tsd-header-link" href="../index.html">
 			Robot API Reference
 		</a>
-	</div>
-</header>
-<div class="tsd-page">
-	<nav class="tsd-navigation">
-		<ul>
-			<li class=" tsd-kind-enum">
-				<a href="../enums/jobcategory.html" class="tsd-kind-icon">Job<wbr>Category</a>
-			</li>
-			<li class=" tsd-kind-enum">
-				<a href="../enums/jobstate.html" class="tsd-kind-icon">Job<wbr>State</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="cloudjob.html" class="tsd-kind-icon">Cloud<wbr>Job</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="cloudrobot.html" class="tsd-kind-icon">Cloud<wbr>Robot</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="exception.html" class="tsd-kind-icon">Exception</a>
-			</li>
-			<li class="current tsd-kind-class">
-				<a href="job.html" class="tsd-kind-icon">Job</a>
-				<ul>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#cancel" class="tsd-kind-icon">cancel</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#getoutput" class="tsd-kind-icon">get<wbr>Output</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#getstate" class="tsd-kind-icon">get<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#onanyoutput" class="tsd-kind-icon">on<wbr>Any<wbr>Output</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#onawaitinginput" class="tsd-kind-icon">on<wbr>Awaiting<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#onfail" class="tsd-kind-icon">on<wbr>Fail</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#onoutput" class="tsd-kind-icon">on<wbr>Output</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#onstatechanged" class="tsd-kind-icon">on<wbr>State<wbr>Changed</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#onsuccess" class="tsd-kind-icon">on<wbr>Success</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#submitinput" class="tsd-kind-icon">submit<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#waitforcompletion" class="tsd-kind-icon">wait<wbr>For<wbr>Completion</a>
-					</li>
-					<li class=" tsd-kind-method tsd-parent-kind-class">
-						<a href="job.html#waitforoutputs" class="tsd-kind-icon">wait<wbr>For<wbr>Outputs</a>
-					</li>
-				</ul>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="localjob.html" class="tsd-kind-icon">Local<wbr>Job</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="localrobot.html" class="tsd-kind-icon">Local<wbr>Robot</a>
-			</li>
-			<li class=" tsd-kind-class">
-				<a href="robot.html" class="tsd-kind-icon">Robot</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/cloudrobotoptionalparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Optional<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/cloudrobotrequiredparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Required<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/exceptionspec.html" class="tsd-kind-icon">Exception<wbr>Spec</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/joberror.html" class="tsd-kind-icon">Job<wbr>Error</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/jobinitparams.html" class="tsd-kind-icon">Job<wbr>Init<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/jobinput.html" class="tsd-kind-icon">Job<wbr>Input</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/jobinputobject.html" class="tsd-kind-icon">Job<wbr>Input<wbr>Object</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/joboutput.html" class="tsd-kind-icon">Job<wbr>Output</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/localrobotoptionalparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Optional<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/localrobotrequiredparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Required<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-interface">
-				<a href="../interfaces/logger.html" class="tsd-kind-icon">Logger</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#cloudrobotauthparams" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#cloudrobotconfig" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Config</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#cloudrobotoptions" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Options</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#jobeventhandler" class="tsd-kind-icon">Job<wbr>Event<wbr>Handler</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#localrobotconfig" class="tsd-kind-icon">Local<wbr>Robot<wbr>Config</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#localrobotoptions" class="tsd-kind-icon">Local<wbr>Robot<wbr>Options</a>
-			</li>
-			<li class=" tsd-kind-type-alias">
-				<a href="../globals.html#localscriptinit" class="tsd-kind-icon">Local<wbr>Script<wbr>Init</a>
-			</li>
-		</ul>
-	</nav>
-	<main class="tsd-main">
-		<h1>Job</h1>
-		<section class="tsd-panel tsd-comment">
-			<div class="tsd-comment tsd-typography">
-				<div class="lead">
-					<p>Unified interface for running Autopilot scripts.</p>
-				</div>
-				<p>This class has two standard implementations:</p>
-				<ul>
-					<li><a href="localjob.html">LocalJob</a> runs the job using local Autopilot Engine and Chromium browser
-					and tracks its progress by subscribing to script lifecycle events.</li>
-					<li><a href="cloudjob.html">CloudJob</a> submits the job to Automation Cloud and tracks its progress
-					Automation Cloud API.</li>
-				</ul>
-				<p>The job should be created via <a href="robot.html#createjob">Robot.createJob</a>.</p>
-			</div>
-		</section>
-		<section class="tsd-panel tsd-hierarchy">
-			<h3>Hierarchy</h3>
-			<ul class="tsd-hierarchy">
-				<li>
-					<span class="target">Job</span>
+	</header>
+	<div class="tsd-page">
+		<nav class="tsd-navigation">
+			<ul>
+				<li class=" tsd-kind-enum">
+					<a href="../enums/jobcategory.html" class="tsd-kind-icon">Job<wbr>Category</a>
+				</li>
+				<li class=" tsd-kind-enum">
+					<a href="../enums/jobstate.html" class="tsd-kind-icon">Job<wbr>State</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="cloudjob.html" class="tsd-kind-icon">Cloud<wbr>Job</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="cloudrobot.html" class="tsd-kind-icon">Cloud<wbr>Robot</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="exception.html" class="tsd-kind-icon">Exception</a>
+				</li>
+				<li class="current tsd-kind-class">
+					<a href="job.html" class="tsd-kind-icon">Job</a>
+					<ul>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#cancel" class="tsd-kind-icon">cancel</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#getoutput" class="tsd-kind-icon">get<wbr>Output</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#getstate" class="tsd-kind-icon">get<wbr>State</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#onanyoutput" class="tsd-kind-icon">on<wbr>Any<wbr>Output</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#onawaitinginput" class="tsd-kind-icon">on<wbr>Awaiting<wbr>Input</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#onfail" class="tsd-kind-icon">on<wbr>Fail</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#onoutput" class="tsd-kind-icon">on<wbr>Output</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#onstatechanged" class="tsd-kind-icon">on<wbr>State<wbr>Changed</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#onsuccess" class="tsd-kind-icon">on<wbr>Success</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#submitinput" class="tsd-kind-icon">submit<wbr>Input</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#waitforcompletion" class="tsd-kind-icon">wait<wbr>For<wbr>Completion</a>
+						</li>
+						<li class=" tsd-kind-method tsd-parent-kind-class">
+							<a href="job.html#waitforoutputs" class="tsd-kind-icon">wait<wbr>For<wbr>Outputs</a>
+						</li>
+					</ul>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="localjob.html" class="tsd-kind-icon">Local<wbr>Job</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="localrobot.html" class="tsd-kind-icon">Local<wbr>Robot</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="robot.html" class="tsd-kind-icon">Robot</a>
+				</li>
+				<li class=" tsd-kind-class">
+					<a href="vault.html" class="tsd-kind-icon">Vault</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/cloudrobotoptionalparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Optional<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/cloudrobotrequiredparams.html" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Required<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/exceptionspec.html" class="tsd-kind-icon">Exception<wbr>Spec</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/joberror.html" class="tsd-kind-icon">Job<wbr>Error</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/jobinitparams.html" class="tsd-kind-icon">Job<wbr>Init<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/jobinput.html" class="tsd-kind-icon">Job<wbr>Input</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/jobinputobject.html" class="tsd-kind-icon">Job<wbr>Input<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/joboutput.html" class="tsd-kind-icon">Job<wbr>Output</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/localrobotoptionalparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Optional<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/localrobotrequiredparams.html" class="tsd-kind-icon">Local<wbr>Robot<wbr>Required<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-interface">
+					<a href="../interfaces/logger.html" class="tsd-kind-icon">Logger</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#cloudrobotauthparams" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#cloudrobotconfig" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Config</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#cloudrobotoptions" class="tsd-kind-icon">Cloud<wbr>Robot<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#jobeventhandler" class="tsd-kind-icon">Job<wbr>Event<wbr>Handler</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#localrobotconfig" class="tsd-kind-icon">Local<wbr>Robot<wbr>Config</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#localrobotoptions" class="tsd-kind-icon">Local<wbr>Robot<wbr>Options</a>
+				</li>
+				<li class=" tsd-kind-type-alias">
+					<a href="../globals.html#localscriptinit" class="tsd-kind-icon">Local<wbr>Script<wbr>Init</a>
 				</li>
 			</ul>
-		</section>
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Methods</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#cancel" class="tsd-kind-icon">cancel</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getoutput" class="tsd-kind-icon">get<wbr>Output</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getstate" class="tsd-kind-icon">get<wbr>State</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onanyoutput" class="tsd-kind-icon">on<wbr>Any<wbr>Output</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onawaitinginput" class="tsd-kind-icon">on<wbr>Awaiting<wbr>Input</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onfail" class="tsd-kind-icon">on<wbr>Fail</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onoutput" class="tsd-kind-icon">on<wbr>Output</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onstatechanged" class="tsd-kind-icon">on<wbr>State<wbr>Changed</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onsuccess" class="tsd-kind-icon">on<wbr>Success</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#submitinput" class="tsd-kind-icon">submit<wbr>Input</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#waitforcompletion" class="tsd-kind-icon">wait<wbr>For<wbr>Completion</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#waitforoutputs" class="tsd-kind-icon">wait<wbr>For<wbr>Outputs</a></li>
+		</nav>
+		<main class="tsd-main">
+			<div class="tsd-content-wrap">
+				<h1>Job</h1>
+				<section class="tsd-panel tsd-comment">
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Unified interface for running Autopilot scripts.</p>
+						</div>
+						<p>This class has two standard implementations:</p>
+						<ul>
+							<li><a href="localjob.html">LocalJob</a> runs the job using local Autopilot Engine and Chromium browser
+							and tracks its progress by subscribing to script lifecycle events.</li>
+							<li><a href="cloudjob.html">CloudJob</a> submits the job to Automation Cloud and tracks its progress
+							Automation Cloud API.</li>
+						</ul>
+						<p>The job should be created via <a href="robot.html#createjob">Robot.createJob</a>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-hierarchy">
+					<h3>Hierarchy</h3>
+					<ul class="tsd-hierarchy">
+						<li>
+							<span class="target">Job</span>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel-group tsd-index-group">
+					<h2>Index</h2>
+					<section class="tsd-panel tsd-index-panel">
+						<div class="tsd-index-content">
+							<section class="tsd-index-section ">
+								<h3>Methods</h3>
+								<ul class="tsd-index-list">
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#cancel" class="tsd-kind-icon">cancel</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getawaitinginputkey" class="tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#geterrorinfo" class="tsd-kind-icon">get<wbr>Error<wbr>Info</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getoutput" class="tsd-kind-icon">get<wbr>Output</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#getstate" class="tsd-kind-icon">get<wbr>State</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onanyoutput" class="tsd-kind-icon">on<wbr>Any<wbr>Output</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onawaitinginput" class="tsd-kind-icon">on<wbr>Awaiting<wbr>Input</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onfail" class="tsd-kind-icon">on<wbr>Fail</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onoutput" class="tsd-kind-icon">on<wbr>Output</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onstatechanged" class="tsd-kind-icon">on<wbr>State<wbr>Changed</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#onsuccess" class="tsd-kind-icon">on<wbr>Success</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#submitinput" class="tsd-kind-icon">submit<wbr>Input</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#waitforcompletion" class="tsd-kind-icon">wait<wbr>For<wbr>Completion</a></li>
+									<li class="tsd-kind-method tsd-parent-kind-class"><a href="job.html#waitforoutputs" class="tsd-kind-icon">wait<wbr>For<wbr>Outputs</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+				</section>
+				<section class="tsd-panel-group tsd-member-group ">
+					<h2>Methods</h2>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="cancel" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> cancel</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L95">packages/robot/src/main/job.ts:95</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Instructs the underlying mechanism to cancel the job.
+										This also causes <code>waitForCompletion</code> promise to reject with <code>JobCancelled</code> error.</p>
+									</div>
+									<p>Note: the job is not guaranteed to get interrupted immediately.</p>
+								</div>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
 						</ul>
 					</section>
-				</div>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Methods</h2>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="cancel" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> cancel</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L95">packages/robot/src/main/job.ts:95</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Instructs the underlying mechanism to cancel the job.
-								This also causes <code>waitForCompletion</code> promise to reject with <code>JobCancelled</code> error.</p>
-							</div>
-							<p>Note: the job is not guaranteed to get interrupted immediately.</p>
-						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="getawaitinginputkey" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Awaiting<wbr>Input<wbr>Key</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L58">packages/robot/src/main/job.ts:58</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>If job is waiting for input (i.e. due to input request by script and not yet submitted),
-								then this method returns the requested input key, otherwise <code>null</code> is returned.</p>
-							</div>
-						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="geterrorinfo" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Error<wbr>Info</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Error<wbr>Info<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/joberror.html" class="tsd-signature-type">JobError</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L50">packages/robot/src/main/job.ts:50</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>If job has failed, returns the information about the error.</p>
-							</div>
-							<p>Note: error info is not an <code>Error</code> instance — do not <code>throw</code> it.</p>
-						</div>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/joberror.html" class="tsd-signature-type">JobError</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="getoutput" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Output</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Output<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L76">packages/robot/src/main/job.ts:76</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Retrieves the data of an output with specified <code>key</code> if it was already emitted.
-								Returns <code>undefined</code> if output does not exist.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>key: <span class="tsd-signature-type">string</span></h5>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="getawaitinginputkey" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Awaiting<wbr>Input<wbr>Key</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">get<wbr>Awaiting<wbr>Input<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L58">packages/robot/src/main/job.ts:58</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>output key</p>
+									<div class="lead">
+										<p>If job is waiting for input (i.e. due to input request by script and not yet submitted),
+										then this method returns the requested input key, otherwise <code>null</code> is returned.</p>
+									</div>
 								</div>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="getstate" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>State</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>State<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L41">packages/robot/src/main/job.ts:41</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Returns the last known state of the Job.
-								See <a href="../enums/jobstate.html">JobState</a> for a list of available job states.</p>
-							</div>
-						</div>
-						<h4 class="tsd-returns-title">Returns <a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="onanyoutput" class="tsd-anchor"></a>
-				<h3>on<wbr>Any<wbr>Output</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Any<wbr>Output<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>outputKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L204">packages/robot/src/main/job.ts:204</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Subscribes to <code>output</code> event for all output keys.</p>
-							</div>
-							<p>When any output is emitted by script, the handler <code>fn</code> is invoked.</p>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span>outputKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="geterrorinfo" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Error<wbr>Info</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">get<wbr>Error<wbr>Info<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/joberror.html" class="tsd-signature-type">JobError</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L50">packages/robot/src/main/job.ts:50</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>handler callback, can be either synchronous or asynchronous</p>
+									<div class="lead">
+										<p>If job has failed, returns the information about the error.</p>
+									</div>
+									<p>Note: error info is not an <code>Error</code> instance — do not <code>throw</code> it.</p>
 								</div>
+								<h4 class="tsd-returns-title">Returns <a href="../interfaces/joberror.html" class="tsd-signature-type">JobError</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="getoutput" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>Output</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">get<wbr>Output<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L76">packages/robot/src/main/job.ts:76</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieves the data of an output with specified <code>key</code> if it was already emitted.
+										Returns <code>undefined</code> if output does not exist.</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>outputKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>outputKey: <span class="tsd-signature-type">string</span></h5>
-													</li>
-													<li>
-														<h5>outputData: <span class="tsd-signature-type">any</span></h5>
+									<li>
+										<h5>key: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>output key</p>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="getstate" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> get<wbr>State</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">get<wbr>State<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L41">packages/robot/src/main/job.ts:41</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Returns the last known state of the Job.
+										See <a href="../enums/jobstate.html">JobState</a> for a list of available job states.</p>
+									</div>
+								</div>
+								<h4 class="tsd-returns-title">Returns <a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="onanyoutput" class="tsd-anchor"></a>
+						<h3>on<wbr>Any<wbr>Output</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">on<wbr>Any<wbr>Output<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>outputKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L204">packages/robot/src/main/job.ts:204</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Subscribes to <code>output</code> event for all output keys.</p>
+									</div>
+									<p>When any output is emitted by script, the handler <code>fn</code> is invoked.</p>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>fn: <span class="tsd-signature-symbol">(</span>outputKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>handler callback, can be either synchronous or asynchronous</p>
+										</div>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>outputKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-parameters-title">Parameters</h4>
+														<ul class="tsd-parameters">
+															<li>
+																<h5>outputKey: <span class="tsd-signature-type">string</span></h5>
+															</li>
+															<li>
+																<h5>outputData: <span class="tsd-signature-type">any</span></h5>
+															</li>
+														</ul>
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="onawaitinginput" class="tsd-anchor"></a>
-				<h3>on<wbr>Awaiting<wbr>Input</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Awaiting<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L170">packages/robot/src/main/job.ts:170</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Subscribes to <code>awaitingInput</code> event for specified input key and optionally fulfills
-								the input request with data returned by handler funciton.</p>
-							</div>
-							<p>When input with specified <code>key</code> is requested by script, the supplied <code>fn</code> handler is invoked.</p>
-							<p>Unless the handler returns <code>undefined</code>, the result value is sent as input data for that key,
-							fulfilling the input request.</p>
-							<p>Use this to handle deferred inputs.</p>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>key: <span class="tsd-signature-type">string</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="onawaitinginput" class="tsd-anchor"></a>
+						<h3>on<wbr>Awaiting<wbr>Input</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">on<wbr>Awaiting<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L170">packages/robot/src/main/job.ts:170</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>requested input key, <code>*</code> to receive all events.</p>
+									<div class="lead">
+										<p>Subscribes to <code>awaitingInput</code> event for specified input key and optionally fulfills
+										the input request with data returned by handler funciton.</p>
+									</div>
+									<p>When input with specified <code>key</code> is requested by script, the supplied <code>fn</code> handler is invoked.</p>
+									<p>Unless the handler returns <code>undefined</code>, the result value is sent as input data for that key,
+									fulfilling the input request.</p>
+									<p>Use this to handle deferred inputs.</p>
 								</div>
-							</li>
-							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>handler callback, can be either synchronous or asynchronous; the return value is
-									submitted as input data for specified input <code>key</code></p>
-								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<li>
+										<h5>key: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>requested input key, <code>*</code> to receive all events.</p>
+										</div>
+									</li>
+									<li>
+										<h5>fn: <span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>handler callback, can be either synchronous or asynchronous; the return value is
+											submitted as input data for specified input <code>key</code></p>
+										</div>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-parameters-title">Parameters</h4>
+														<ul class="tsd-parameters">
+															<li>
+																<h5>key: <span class="tsd-signature-type">string</span></h5>
+															</li>
+														</ul>
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="onfail" class="tsd-anchor"></a>
-				<h3>on<wbr>Fail</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Fail<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="exception.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L237">packages/robot/src/main/job.ts:237</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Subscribes to <code>fail</code> event.</p>
-							</div>
-							<p>When the job fails the handler <code>fn</code> is invoked with error info passed as a parameter.</p>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="exception.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="onfail" class="tsd-anchor"></a>
+						<h3>on<wbr>Fail</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">on<wbr>Fail<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="exception.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L237">packages/robot/src/main/job.ts:237</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>handler callback, can be either synchronous or asynchronous</p>
+									<div class="lead">
+										<p>Subscribes to <code>fail</code> event.</p>
+									</div>
+									<p>When the job fails the handler <code>fn</code> is invoked with error info passed as a parameter.</p>
 								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="exception.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>err: <a href="exception.html#error" class="tsd-signature-type">Error</a></h5>
+									<li>
+										<h5>fn: <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="exception.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>handler callback, can be either synchronous or asynchronous</p>
+										</div>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="exception.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-parameters-title">Parameters</h4>
+														<ul class="tsd-parameters">
+															<li>
+																<h5>err: <a href="exception.html#error" class="tsd-signature-type">Error</a></h5>
+															</li>
+														</ul>
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="onoutput" class="tsd-anchor"></a>
-				<h3>on<wbr>Output</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Output<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L189">packages/robot/src/main/job.ts:189</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Subscribes to <code>output</code> event for specified output <code>key</code>.</p>
-							</div>
-							<p>When output with specified <code>key</code> is emitted by script, the handler <code>fn</code> is invoked.</p>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>key: <span class="tsd-signature-type">string</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="onoutput" class="tsd-anchor"></a>
+						<h3>on<wbr>Output</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">on<wbr>Output<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L189">packages/robot/src/main/job.ts:189</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>output key</p>
+									<div class="lead">
+										<p>Subscribes to <code>output</code> event for specified output <code>key</code>.</p>
+									</div>
+									<p>When output with specified <code>key</code> is emitted by script, the handler <code>fn</code> is invoked.</p>
 								</div>
-							</li>
-							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span>outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>handler callback, can be either synchronous or asynchronous</p>
-								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>outputData: <span class="tsd-signature-type">any</span></h5>
+									<li>
+										<h5>key: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>output key</p>
+										</div>
+									</li>
+									<li>
+										<h5>fn: <span class="tsd-signature-symbol">(</span>outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>handler callback, can be either synchronous or asynchronous</p>
+										</div>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>outputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-parameters-title">Parameters</h4>
+														<ul class="tsd-parameters">
+															<li>
+																<h5>outputData: <span class="tsd-signature-type">any</span></h5>
+															</li>
+														</ul>
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="onstatechanged" class="tsd-anchor"></a>
-				<h3>on<wbr>State<wbr>Changed</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>State<wbr>Changed<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L215">packages/robot/src/main/job.ts:215</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Subscribes to state change event.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="onstatechanged" class="tsd-anchor"></a>
+						<h3>on<wbr>State<wbr>Changed</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">on<wbr>State<wbr>Changed<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L215">packages/robot/src/main/job.ts:215</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>handler callback, can be either synchronous or asynchronous</p>
+									<div class="lead">
+										<p>Subscribes to state change event.</p>
+									</div>
 								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>state: <a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></h5>
+									<li>
+										<h5>fn: <span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>handler callback, can be either synchronous or asynchronous</p>
+										</div>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-parameters-title">Parameters</h4>
+														<ul class="tsd-parameters">
+															<li>
+																<h5>state: <a href="../enums/jobstate.html" class="tsd-signature-type">JobState</a></h5>
+															</li>
+														</ul>
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 													</li>
 												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 											</li>
 										</ul>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="onsuccess" class="tsd-anchor"></a>
-				<h3>on<wbr>Success</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">on<wbr>Success<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L226">packages/robot/src/main/job.ts:226</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Subscribes to <code>success</code> event.</p>
-							</div>
-							<p>When the job finishes successfully the handler <code>fn</code> is invoked.</p>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="onsuccess" class="tsd-anchor"></a>
+						<h3>on<wbr>Success</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">on<wbr>Success<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L226">packages/robot/src/main/job.ts:226</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>handler callback, can be either synchronous or asynchronous</p>
+									<div class="lead">
+										<p>Subscribes to <code>success</code> event.</p>
+									</div>
+									<p>When the job finishes successfully the handler <code>fn</code> is invoked.</p>
 								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
 								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<li>
+										<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>handler callback, can be either synchronous or asynchronous</p>
+										</div>
+										<ul class="tsd-parameters">
+											<li class="tsd-parameter-signature">
+												<ul class="tsd-signatures tsd-kind-type-literal">
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+												</ul>
+												<ul class="tsd-descriptions">
+													<li class="tsd-description">
+														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+													</li>
+												</ul>
 											</li>
 										</ul>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#jobeventhandler" class="tsd-signature-type">JobEventHandler</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="submitinput" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> submit<wbr>Input</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">submit<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L67">packages/robot/src/main/job.ts:67</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Submits an input with specified <code>key</code> and <code>data</code>.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>key: <span class="tsd-signature-type">string</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="submitinput" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> submit<wbr>Input</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">submit<wbr>Input<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L67">packages/robot/src/main/job.ts:67</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>input key</p>
+									<div class="lead">
+										<p>Submits an input with specified <code>key</code> and <code>data</code>.</p>
+									</div>
 								</div>
-							</li>
-							<li>
-								<h5>data: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>input data</p>
-								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>key: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>input key</p>
+										</div>
+									</li>
+									<li>
+										<h5>data: <span class="tsd-signature-type">any</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>input data</p>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="waitforcompletion" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> wait<wbr>For<wbr>Completion</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">wait<wbr>For<wbr>Completion<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L85">packages/robot/src/main/job.ts:85</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Resolves whenever job finishes successfully. Rejects if job fails.</p>
-							</div>
-							<p>Your code should always <code>await job.waitForCompletion()</code> to avoid dangling promises.</p>
-						</div>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="waitforoutputs" class="tsd-anchor"></a>
-				<h3>wait<wbr>For<wbr>Outputs</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">wait<wbr>For<wbr>Outputs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/ee17007/packages/robot/src/main/job.ts#L118">packages/robot/src/main/job.ts:118</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Resolves when all outputs with specified <code>keys</code> are available.
-								The output data is returned as an array in the same order as specified keys.</p>
-							</div>
-							<p>ProTip™ Use destructuring to access the data:</p>
-							<pre><code><span class="hljs-keyword">const</span> [products, deliveryOptions] = <span class="hljs-function">await job.<span class="hljs-title">waitForOutputs</span><span class="hljs-params">(<span class="hljs-string">&#x27;products&#x27;</span>, <span class="hljs-string">&#x27;deliveryOptions&#x27;</span>)</span></span>;</code></pre>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="waitforcompletion" class="tsd-anchor"></a>
+						<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> wait<wbr>For<wbr>Completion</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">wait<wbr>For<wbr>Completion<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L85">packages/robot/src/main/job.ts:85</a></li>
+									</ul>
+								</aside>
 								<div class="tsd-comment tsd-typography">
-									<p>output keys</p>
+									<div class="lead">
+										<p>Resolves whenever job finishes successfully. Rejects if job fails.</p>
+									</div>
+									<p>Your code should always <code>await job.waitForCompletion()</code> to avoid dangling promises.</p>
 								</div>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-		</section>
-	</main>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+						<a name="waitforoutputs" class="tsd-anchor"></a>
+						<h3>wait<wbr>For<wbr>Outputs</h3>
+						<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+							<li class="tsd-signature tsd-kind-icon">wait<wbr>For<wbr>Outputs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/d9b485d/packages/robot/src/main/job.ts#L118">packages/robot/src/main/job.ts:118</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Resolves when all outputs with specified <code>keys</code> are available.
+										The output data is returned as an array in the same order as specified keys.</p>
+									</div>
+									<p>ProTip™ Use destructuring to access the data:</p>
+									<pre><code><span class="hljs-keyword">const</span> [products, deliveryOptions] = <span class="hljs-function">await job.<span class="hljs-title">waitForOutputs</span><span class="hljs-params">(<span class="hljs-string">&#x27;products&#x27;</span>, <span class="hljs-string">&#x27;deliveryOptions&#x27;</span>)</span></span>;</code></pre>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<p>output keys</p>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</main>
+	</div>
 </div>
 </body>
 </html>

@@ -22,7 +22,7 @@ import { JobInputObject, JobCategory, JobState, Logger, JobError } from '@automa
  * @internal
  */
 export class AcApi {
-    request: Request;
+    protected request: Request;
 
     constructor(
         public params: AcApiParams,
