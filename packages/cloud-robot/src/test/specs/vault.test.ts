@@ -60,4 +60,29 @@ describe('Vault', () => {
         });
     });
 
+    describe('getIframeUrl', () => {
+        it('returns an iframe url', async () => {
+            const robot = mock.createRobot();
+            const otp = await robot.vault.createOtp();
+            const url = robot.vault.getPaymentIframeUrl(otp, {
+                iframeUrl: 'https://example.com',
+                cssUrl: 'https://foo.org/bar.css',
+                brands: ['visa', 'mastercard'],
+                fields: [
+                    'pan',
+                    'expiry-select',
+                    { name: 'cvv', label: 'CVV', placeholder: 'Security Code' },
+                    'name',
+                ],
+                name: 'John Doe Jr.',
+            });
+            const expectedUrl = 'https://example.com' +
+                '?css=https%3A%2F%2Ffoo.org%2Fbar.css' +
+                '&name=John%20Doe%20Jr.' +
+                '&fields=pan%2Cexpiry-select%2Ccvv_CVV_Security%20Code%2Cname' +
+                '&brands=visa%2Cmastercard';
+            assert.strictEqual(url.replace(/otp=(.*?)&/, ''), expectedUrl);
+        });
+    });
+
 });
