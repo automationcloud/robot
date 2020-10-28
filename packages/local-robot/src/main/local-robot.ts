@@ -17,7 +17,7 @@ import { Robot, JobInitParams, Job } from '@automationcloud/robot';
 import { LocalJob } from './local-job';
 
 /**
- * A Robot API instance which is used to execute a particular script
+ * A Robot instance which is used to execute a particular script
  * with embedded Engine using local Chromium instance.
  *
  * @see {@link Robot}

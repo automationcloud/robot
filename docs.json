@@ -1,0 +1,7669 @@
+{
+	"id": 0,
+	"name": "Automation Cloud Robot",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 585,
+			"name": "JobCategory",
+			"kind": 4,
+			"kindString": "Enumeration",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Indicates whether the job is live or test, useful for filtering jobs in dashboard."
+			},
+			"children": [
+				{
+					"id": 586,
+					"name": "LIVE",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 294,
+							"character": 8
+						}
+					],
+					"defaultValue": "\"live\""
+				},
+				{
+					"id": 587,
+					"name": "TEST",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 295,
+							"character": 8
+						}
+					],
+					"defaultValue": "\"test\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Enumeration members",
+					"kind": 16,
+					"children": [
+						586,
+						587
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 293,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 576,
+			"name": "JobState",
+			"kind": 4,
+			"kindString": "Enumeration",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Job can be in one particular state at any given time.",
+				"text": "Note: not all states are necessarily supported by underlying mechanism. For example,\n3-D Secure handling is not supported by `LocalRobot` so local jobs will never be in `AWAITING_TDS` state.\n"
+			},
+			"children": [
+				{
+					"id": 580,
+					"name": "AWAITING_INPUT",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 283,
+							"character": 18
+						}
+					],
+					"defaultValue": "\"awaitingInput\""
+				},
+				{
+					"id": 581,
+					"name": "AWAITING_TDS",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 284,
+							"character": 16
+						}
+					],
+					"defaultValue": "\"awaitingTds\""
+				},
+				{
+					"id": 577,
+					"name": "CREATED",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 280,
+							"character": 11
+						}
+					],
+					"defaultValue": "\"created\""
+				},
+				{
+					"id": 584,
+					"name": "FAIL",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 287,
+							"character": 8
+						}
+					],
+					"defaultValue": "\"fail\""
+				},
+				{
+					"id": 582,
+					"name": "PENDING",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 285,
+							"character": 11
+						}
+					],
+					"defaultValue": "\"pending\""
+				},
+				{
+					"id": 579,
+					"name": "PROCESSING",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 282,
+							"character": 14
+						}
+					],
+					"defaultValue": "\"processing\""
+				},
+				{
+					"id": 578,
+					"name": "SCHEDULED",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 281,
+							"character": 13
+						}
+					],
+					"defaultValue": "\"scheduled\""
+				},
+				{
+					"id": 583,
+					"name": "SUCCESS",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 286,
+							"character": 11
+						}
+					],
+					"defaultValue": "\"success\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Enumeration members",
+					"kind": 16,
+					"children": [
+						580,
+						581,
+						577,
+						584,
+						582,
+						579,
+						578,
+						583
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 279,
+					"character": 20
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "CloudJob",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Cloud job instance reflects the Job created in Automation Cloud.",
+				"text": "When the job is created it is automatically tracked, which results in mirroring the\nstate of the remote jobs and emitting appropriate lifecycle events when outputs are emitted,\ninputs are requested, job finishes successfully, job fails, etc.\n\nThe exact job state is not guaranteed to be precise due to polling delays and network latencies.\n\nNote: cloud jobs are not subject to the concurrency limitations described in `LocalJob` because\nAutomation Cloud will run them in isolated runners.\n\nWith `CloudRobot` it is also possible to resume tracking existing jobs using `robot.getJob` method.\n"
+			},
+			"children": [
+				{
+					"id": 12,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Job constructor should not be used directly; use `robot.createJob()` to run the scripts."
+					},
+					"signatures": [
+						{
+							"id": 14,
+							"name": "new CloudJob",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Job constructor should not be used directly; use `robot.createJob()` to run the scripts."
+							},
+							"parameters": [
+								{
+									"id": 15,
+									"name": "robot",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"id": 163,
+										"name": "CloudRobot"
+									}
+								},
+								{
+									"id": 16,
+									"name": "params",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"shortText": "\n"
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "JobInitParams"
+											}
+										],
+										"name": "Partial"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 1,
+								"name": "CloudJob"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 55,
+							"character": 42
+						}
+					]
+				},
+				{
+					"id": 13,
+					"name": "robot",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isConstructorProperty": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 64,
+							"character": 20
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 163,
+						"name": "CloudRobot"
+					}
+				},
+				{
+					"id": 19,
+					"name": "jobId",
+					"kind": 262144,
+					"kindString": "Accessor",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "The `jobId` of the AutomationCloud job. Can be used to resume tracking of existing job\nusing `const job = await robot.getJob(jobId)`.",
+						"text": "Note: this method is Cloud-only, so the job instance must be cast to `CloudJob` to access `jobId`.\n"
+					},
+					"getSignature": [
+						{
+							"id": 20,
+							"name": "__get",
+							"kind": 524288,
+							"kindString": "Get signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "The `jobId` of the AutomationCloud job. Can be used to resume tracking of existing job\nusing `const job = await robot.getJob(jobId)`.",
+								"text": "Note: this method is Cloud-only, so the job instance must be cast to `CloudJob` to access `jobId`.\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 88,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 51,
+					"name": "cancel",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 52,
+							"name": "cancel",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Cancels the remote Job which results in `JobCancelled` error (if the job was still running)."
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.cancel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 297,
+							"character": 16
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.cancel"
+					}
+				},
+				{
+					"id": 40,
+					"name": "getAwaitingInputKey",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 41,
+							"name": "getAwaitingInputKey",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "null"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getAwaitingInputKey"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 272,
+							"character": 23
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getAwaitingInputKey"
+					}
+				},
+				{
+					"id": 38,
+					"name": "getErrorInfo",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 39,
+							"name": "getErrorInfo",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "null"
+									},
+									{
+										"type": "reference",
+										"name": "JobError"
+									}
+								]
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getErrorInfo"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 268,
+							"character": 16
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getErrorInfo"
+					}
+				},
+				{
+					"id": 46,
+					"name": "getOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 47,
+							"name": "getOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 48,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getOutput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 281,
+							"character": 19
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getOutput"
+					}
+				},
+				{
+					"id": 36,
+					"name": "getState",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 37,
+							"name": "getState",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"id": 576,
+								"name": "JobState"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getState"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 264,
+							"character": 12
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getState"
+					}
+				},
+				{
+					"id": 74,
+					"name": "onAnyOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 75,
+							"name": "onAnyOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `output` event for all output keys.",
+								"text": "When any output is emitted by script, the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 76,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 77,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 78,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 79,
+															"name": "outputKey",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														},
+														{
+															"id": 80,
+															"name": "outputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "any"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 125,
+													"character": 19
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 74,
+								"name": "Job.onAnyOutput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 125,
+							"character": 15
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 74,
+						"name": "Job.onAnyOutput"
+					}
+				},
+				{
+					"id": 60,
+					"name": "onAwaitingInput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 61,
+							"name": "onAwaitingInput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `awaitingInput` event for specified input key and optionally fulfills\nthe input request with data returned by handler funciton.",
+								"text": "When input with specified `key` is requested by script, the supplied `fn` handler is invoked.\n\nUnless the handler returns `undefined`, the result value is sent as input data for that key,\nfulfilling the input request.\n\nUse this to handle deferred inputs.\n"
+							},
+							"parameters": [
+								{
+									"id": 62,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "requested input key, `*` to receive all events."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 63,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous; the return value is\n submitted as input data for specified input `key`\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 64,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 65,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 66,
+															"name": "key",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 108,
+													"character": 36
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 60,
+								"name": "Job.onAwaitingInput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 108,
+							"character": 19
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 60,
+						"name": "Job.onAwaitingInput"
+					}
+				},
+				{
+					"id": 92,
+					"name": "onFail",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 93,
+							"name": "onFail",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `fail` event.",
+								"text": "When the job fails the handler `fn` is invoked with error info passed as a parameter.\n"
+							},
+							"parameters": [
+								{
+									"id": 94,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 95,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 96,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 97,
+															"name": "err",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "reference",
+																"id": 479,
+																"name": "Error"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 147,
+													"character": 14
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 92,
+								"name": "Job.onFail"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 147,
+							"character": 10
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 92,
+						"name": "Job.onFail"
+					}
+				},
+				{
+					"id": 67,
+					"name": "onOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 68,
+							"name": "onOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `output` event for specified output `key`.",
+								"text": "When output with specified `key` is emitted by script, the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 69,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "output key"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 70,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 71,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 72,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 73,
+															"name": "outputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "any"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 117,
+													"character": 29
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 67,
+								"name": "Job.onOutput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 117,
+							"character": 12
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 67,
+						"name": "Job.onOutput"
+					}
+				},
+				{
+					"id": 81,
+					"name": "onStateChanged",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 82,
+							"name": "onStateChanged",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to state change event."
+							},
+							"parameters": [
+								{
+									"id": 83,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 84,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 85,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 86,
+															"name": "state",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "reference",
+																"id": 576,
+																"name": "JobState"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 131,
+													"character": 22
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 81,
+								"name": "Job.onStateChanged"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 131,
+							"character": 18
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 81,
+						"name": "Job.onStateChanged"
+					}
+				},
+				{
+					"id": 87,
+					"name": "onSuccess",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 88,
+							"name": "onSuccess",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `success` event.",
+								"text": "When the job finishes successfully the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 89,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 90,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 91,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 139,
+													"character": 17
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 87,
+								"name": "Job.onSuccess"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 139,
+							"character": 13
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 87,
+						"name": "Job.onSuccess"
+					}
+				},
+				{
+					"id": 42,
+					"name": "submitInput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 43,
+							"name": "submitInput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 44,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 45,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.submitInput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 276,
+							"character": 21
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.submitInput"
+					}
+				},
+				{
+					"id": 49,
+					"name": "waitForCompletion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 50,
+							"name": "waitForCompletion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.waitForCompletion"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+							"line": 290,
+							"character": 27
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.waitForCompletion"
+					}
+				},
+				{
+					"id": 57,
+					"name": "waitForOutputs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 58,
+							"name": "waitForOutputs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Resolves when all outputs with specified `keys` are available.\nThe output data is returned as an array in the same order as specified keys.",
+								"text": "ProTip™ Use destructuring to access the data:\n\n```\nconst [products, deliveryOptions] = await job.waitForOutputs('products', 'deliveryOptions');\n```\n"
+							},
+							"parameters": [
+								{
+									"id": 59,
+									"name": "keys",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isRest": true
+									},
+									"comment": {
+										"text": "output keys"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 57,
+								"name": "Job.waitForOutputs"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 92,
+							"character": 18
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 57,
+						"name": "Job.waitForOutputs"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						12
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						13
+					]
+				},
+				{
+					"title": "Accessors",
+					"kind": 262144,
+					"children": [
+						19
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						51,
+						40,
+						38,
+						46,
+						36,
+						74,
+						60,
+						92,
+						67,
+						81,
+						87,
+						42,
+						49,
+						57
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-job.ts",
+					"line": 33,
+					"character": 21
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "Job"
+				}
+			]
+		},
+		{
+			"id": 163,
+			"name": "CloudRobot",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Robot API used to execute automations remotely on Automation Cloud\nand track their lifecycle events using HTTP polling.",
+				"text": "When the job is created the POST request is send to Automation Cloud,\nwhich results in a new job being created. It is also possible to resume an existing job\nusing `robot.getJob(jobId)`, provided that `jobId` is known.\n\nA `CloudRobot` instance is scoped to a single service (which represents a Script in Automation Cloud)\nand can be used to create multiple jobs with the same configuration.\nFor creating jobs that execute different scripts, separate CloudRobot instances should be created.\n",
+				"tags": [
+					{
+						"tag": "see",
+						"text": "{@link Robot}\n"
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 167,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 168,
+							"name": "new CloudRobot",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 169,
+									"name": "params",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 193,
+										"name": "CloudRobotOptions"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 163,
+								"name": "CloudRobot"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 51,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 164,
+					"name": "config",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Robot instance configuration.",
+						"tags": [
+							{
+								"tag": "see",
+								"text": "{@link CloudRobotConfig}\n"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 41,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 192,
+						"name": "CloudRobotConfig"
+					}
+				},
+				{
+					"id": 180,
+					"name": "logger",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/robot.d.ts",
+							"line": 11,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Logger"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 180,
+						"name": "Robot.logger"
+					}
+				},
+				{
+					"id": 165,
+					"name": "vault",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Provides access to Automation Cloud Vault functionality."
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 46,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 128,
+						"name": "Vault"
+					}
+				},
+				{
+					"id": 181,
+					"name": "createJob",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 182,
+							"name": "createJob",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Creates a new job which conceptually results in starting an automation\nand starts tracking its lifecycle events (i.e. emitted outputs, requested inputs, success,\nfailures, etc.)",
+								"text": "The exact behaviour depends on the underlying mechanism:\n\n- `LocalRobot` will run a provided script using the embedded `Engine`\n  connected to a local Chromium instance;\n- `CloudRobot` submits a new job to Automation Cloud API and starts tracking it\n  by polling its state.\n\nThe job is automatically tracked after creation. The tracking stops after the job\nreaches one of the final states (`success`, `fail`). For this reason it is recommended\nthat `await job.waitForCompletion()` is always included to prevent dangling promises\nand unhandled promise rejections.\n\nPlease refer to specific implementations for more details.\n"
+							},
+							"parameters": [
+								{
+									"id": 183,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Job initilalization parameters (includes `category` and `input`).\n"
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "JobInitParams"
+											}
+										],
+										"name": "Partial"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Job"
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 181,
+								"name": "Robot.createJob"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/robot.d.ts",
+							"line": 33,
+							"character": 13
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 181,
+						"name": "Robot.createJob"
+					}
+				},
+				{
+					"id": 173,
+					"name": "getJob",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 174,
+							"name": "getJob",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Resumes the tracking of the job that was previously created."
+							},
+							"parameters": [
+								{
+									"id": 175,
+									"name": "jobId",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "can be obtained from `CloudJob` instance.\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Job"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 85,
+							"character": 16
+						}
+					]
+				},
+				{
+					"id": 176,
+					"name": "queryPreviousOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 177,
+							"name": "queryPreviousOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Cloud-only API: queries Automation Cloud for outputs that were previously emitted\nfor this service, optionally matching specified `inputs`."
+							},
+							"parameters": [
+								{
+									"id": 178,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "output key"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 179,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "optionally filter the results by matching specified inputs\n"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "AcJobInput"
+										}
+									},
+									"defaultValue": "[]"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "AcPreviousJobOutput"
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 98,
+							"character": 29
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						167
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						164,
+						180,
+						165
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						181,
+						173,
+						176
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+					"line": 34,
+					"character": 23
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "Robot"
+				}
+			]
+		},
+		{
+			"id": 470,
+			"name": "Exception",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "An error with formalized code and optional details."
+			},
+			"children": [
+				{
+					"id": 473,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 474,
+							"name": "new Exception",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 475,
+									"name": "spec",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 465,
+										"name": "ExceptionSpec"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 470,
+								"name": "Exception"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 27,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 471,
+					"name": "code",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 26,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 472,
+					"name": "details",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 27,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				},
+				{
+					"id": 477,
+					"name": "message",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/typescript/lib/lib.es5.d.ts",
+							"line": 974,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 477,
+						"name": "Error.message"
+					}
+				},
+				{
+					"id": 476,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/typescript/lib/lib.es5.d.ts",
+							"line": 973,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 476,
+						"name": "Error.name"
+					}
+				},
+				{
+					"id": 478,
+					"name": "stack",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/typescript/lib/lib.es5.d.ts",
+							"line": 975,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "string"
+							}
+						]
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 478,
+						"name": "Error.stack"
+					}
+				},
+				{
+					"id": 479,
+					"name": "Error",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isStatic": true,
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/typescript/lib/lib.es5.d.ts",
+							"line": 984,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "ErrorConstructor"
+					},
+					"extendedBy": [
+						{
+							"type": "reference",
+							"id": 470,
+							"name": "Exception"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						473
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						471,
+						472,
+						477,
+						476,
+						478,
+						479
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/exception.ts",
+					"line": 25,
+					"character": 22
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"id": 479,
+					"name": "Error"
+				}
+			]
+		},
+		{
+			"id": 480,
+			"name": "Job",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isPublic": true,
+				"isExported": true,
+				"isAbstract": true
+			},
+			"comment": {
+				"shortText": "Unified interface for running Autopilot scripts.",
+				"text": "This class has two standard implementations:\n\n- {@link LocalJob} runs the job using local Autopilot Engine and Chromium browser\n  and tracks its progress by subscribing to script lifecycle events.\n- {@link CloudJob} submits the job to Automation Cloud and tracks its progress\n  Automation Cloud API.\n\nThe job should be created via {@link Robot.createJob}.\n"
+			},
+			"children": [
+				{
+					"id": 497,
+					"name": "cancel",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 498,
+							"name": "cancel",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Instructs the underlying mechanism to cancel the job.\nThis also causes `waitForCompletion` promise to reject with `JobCancelled` error.",
+								"text": "Note: the job is not guaranteed to get interrupted immediately.\n"
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 95,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 486,
+					"name": "getAwaitingInputKey",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 487,
+							"name": "getAwaitingInputKey",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "If job is waiting for input (i.e. due to input request by script and not yet submitted),\nthen this method returns the requested input key, otherwise `null` is returned."
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 58,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 484,
+					"name": "getErrorInfo",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 485,
+							"name": "getErrorInfo",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "If job has failed, returns the information about the error.",
+								"text": "Note: error info is not an `Error` instance — do not `throw` it.\n"
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"id": 588,
+										"name": "JobError"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 50,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 492,
+					"name": "getOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 493,
+							"name": "getOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Retrieves the data of an output with specified `key` if it was already emitted.\nReturns `undefined` if output does not exist."
+							},
+							"parameters": [
+								{
+									"id": 494,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "output key"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											},
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											}
+										]
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 76,
+							"character": 28
+						}
+					]
+				},
+				{
+					"id": 482,
+					"name": "getState",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 483,
+							"name": "getState",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Returns the last known state of the Job.\nSee {@link JobState} for a list of available job states."
+							},
+							"type": {
+								"type": "reference",
+								"id": 576,
+								"name": "JobState"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 41,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 519,
+					"name": "onAnyOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 520,
+							"name": "onAnyOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `output` event for all output keys.",
+								"text": "When any output is emitted by script, the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 521,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 522,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 523,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 524,
+															"name": "outputKey",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														},
+														{
+															"id": 525,
+															"name": "outputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "any"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/src/main/job.ts",
+													"line": 204,
+													"character": 19
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 204,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 505,
+					"name": "onAwaitingInput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 506,
+							"name": "onAwaitingInput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `awaitingInput` event for specified input key and optionally fulfills\nthe input request with data returned by handler funciton.",
+								"text": "When input with specified `key` is requested by script, the supplied `fn` handler is invoked.\n\nUnless the handler returns `undefined`, the result value is sent as input data for that key,\nfulfilling the input request.\n\nUse this to handle deferred inputs.\n"
+							},
+							"parameters": [
+								{
+									"id": 507,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "requested input key, `*` to receive all events."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 508,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous; the return value is\n submitted as input data for specified input `key`\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 509,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 510,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 511,
+															"name": "key",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/src/main/job.ts",
+													"line": 170,
+													"character": 36
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 170,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 537,
+					"name": "onFail",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 538,
+							"name": "onFail",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `fail` event.",
+								"text": "When the job fails the handler `fn` is invoked with error info passed as a parameter.\n"
+							},
+							"parameters": [
+								{
+									"id": 539,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 540,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 541,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 542,
+															"name": "err",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "reference",
+																"id": 479,
+																"name": "Error"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/src/main/job.ts",
+													"line": 237,
+													"character": 14
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 237,
+							"character": 10
+						}
+					]
+				},
+				{
+					"id": 512,
+					"name": "onOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 513,
+							"name": "onOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `output` event for specified output `key`.",
+								"text": "When output with specified `key` is emitted by script, the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 514,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "output key"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 515,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 516,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 517,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 518,
+															"name": "outputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "any"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/src/main/job.ts",
+													"line": 189,
+													"character": 29
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 189,
+							"character": 12
+						}
+					]
+				},
+				{
+					"id": 526,
+					"name": "onStateChanged",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 527,
+							"name": "onStateChanged",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to state change event."
+							},
+							"parameters": [
+								{
+									"id": 528,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 529,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 530,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 531,
+															"name": "state",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "reference",
+																"id": 576,
+																"name": "JobState"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/src/main/job.ts",
+													"line": 215,
+													"character": 22
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 215,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 532,
+					"name": "onSuccess",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 533,
+							"name": "onSuccess",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `success` event.",
+								"text": "When the job finishes successfully the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 534,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 535,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 536,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/src/main/job.ts",
+													"line": 226,
+													"character": 17
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 226,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 488,
+					"name": "submitInput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 489,
+							"name": "submitInput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Submits an input with specified `key` and `data`."
+							},
+							"parameters": [
+								{
+									"id": 490,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "input key"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 491,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "input data"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 67,
+							"character": 30
+						}
+					]
+				},
+				{
+					"id": 495,
+					"name": "waitForCompletion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isAbstract": true
+					},
+					"signatures": [
+						{
+							"id": 496,
+							"name": "waitForCompletion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Resolves whenever job finishes successfully. Rejects if job fails.",
+								"text": "Your code should always `await job.waitForCompletion()` to avoid dangling promises.\n"
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 85,
+							"character": 36
+						}
+					]
+				},
+				{
+					"id": 502,
+					"name": "waitForOutputs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 503,
+							"name": "waitForOutputs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Resolves when all outputs with specified `keys` are available.\nThe output data is returned as an array in the same order as specified keys.",
+								"text": "ProTip™ Use destructuring to access the data:\n\n```\nconst [products, deliveryOptions] = await job.waitForOutputs('products', 'deliveryOptions');\n```\n"
+							},
+							"parameters": [
+								{
+									"id": 504,
+									"name": "keys",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isRest": true
+									},
+									"comment": {
+										"text": "output keys"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 118,
+							"character": 24
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						497,
+						486,
+						484,
+						492,
+						482,
+						519,
+						505,
+						537,
+						512,
+						526,
+						532,
+						488,
+						495,
+						502
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 32,
+					"character": 25
+				}
+			]
+		},
+		{
+			"id": 336,
+			"name": "LocalJob",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "LocalJob represents the state of the locally running automation.",
+				"text": "Each job sets up a new `Engine` instance which manages the connection to Chromium browser,\nalongside all the state associated with running a script.\n\nNote: running multiple jobs in parallel on the same Chromium browser is technically possible,\nbut can be a subject to various limitations:\n\n - scripts gain an access to an entire browser instance, not just some specific tabs,\n   so jobs can interfere with each other, depending on functionality being used by both\n   (for example, it is possible for a script to close all the tabs, therefore preventing other\n   job from executing normally)\n - Chrome can put inactive tabs to background process, which can cause some issues (for example,\n   some users reported not being able to execute JavaScript)\n - when taking screenshots or changing emulation settings the tab needs to be activated; this can also\n   cause problems with adjacent jobs executed in parallel.\n"
+			},
+			"children": [
+				{
+					"id": 344,
+					"name": "params",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isConstructorProperty": true
+					},
+					"comment": {
+						"shortText": "\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 64,
+							"character": 55
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "JobInitParams"
+					}
+				},
+				{
+					"id": 343,
+					"name": "robot",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true,
+						"isExported": true,
+						"isConstructorProperty": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 64,
+							"character": 28
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 267,
+						"name": "LocalRobot"
+					}
+				},
+				{
+					"id": 379,
+					"name": "cancel",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 380,
+							"name": "cancel",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.cancel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 182,
+							"character": 16
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.cancel"
+					}
+				},
+				{
+					"id": 368,
+					"name": "getAwaitingInputKey",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 369,
+							"name": "getAwaitingInputKey",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "null"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getAwaitingInputKey"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 166,
+							"character": 23
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getAwaitingInputKey"
+					}
+				},
+				{
+					"id": 366,
+					"name": "getErrorInfo",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 367,
+							"name": "getErrorInfo",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "null"
+									},
+									{
+										"type": "reference",
+										"name": "JobError"
+									}
+								]
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getErrorInfo"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 162,
+							"character": 16
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getErrorInfo"
+					}
+				},
+				{
+					"id": 374,
+					"name": "getOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 375,
+							"name": "getOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 376,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getOutput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 174,
+							"character": 19
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getOutput"
+					}
+				},
+				{
+					"id": 364,
+					"name": "getState",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 365,
+							"name": "getState",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"id": 576,
+								"name": "JobState"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.getState"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 158,
+							"character": 12
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.getState"
+					}
+				},
+				{
+					"id": 411,
+					"name": "onAnyOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 412,
+							"name": "onAnyOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `output` event for all output keys.",
+								"text": "When any output is emitted by script, the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 413,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 414,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 415,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 416,
+															"name": "outputKey",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														},
+														{
+															"id": 417,
+															"name": "outputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "any"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 125,
+													"character": 19
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 74,
+								"name": "Job.onAnyOutput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 125,
+							"character": 15
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 74,
+						"name": "Job.onAnyOutput"
+					}
+				},
+				{
+					"id": 397,
+					"name": "onAwaitingInput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 398,
+							"name": "onAwaitingInput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `awaitingInput` event for specified input key and optionally fulfills\nthe input request with data returned by handler funciton.",
+								"text": "When input with specified `key` is requested by script, the supplied `fn` handler is invoked.\n\nUnless the handler returns `undefined`, the result value is sent as input data for that key,\nfulfilling the input request.\n\nUse this to handle deferred inputs.\n"
+							},
+							"parameters": [
+								{
+									"id": 399,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "requested input key, `*` to receive all events."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 400,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous; the return value is\n submitted as input data for specified input `key`\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 401,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 402,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 403,
+															"name": "key",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 108,
+													"character": 36
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 60,
+								"name": "Job.onAwaitingInput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 108,
+							"character": 19
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 60,
+						"name": "Job.onAwaitingInput"
+					}
+				},
+				{
+					"id": 429,
+					"name": "onFail",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 430,
+							"name": "onFail",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `fail` event.",
+								"text": "When the job fails the handler `fn` is invoked with error info passed as a parameter.\n"
+							},
+							"parameters": [
+								{
+									"id": 431,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 432,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 433,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 434,
+															"name": "err",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "reference",
+																"id": 479,
+																"name": "Error"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 147,
+													"character": 14
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 92,
+								"name": "Job.onFail"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 147,
+							"character": 10
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 92,
+						"name": "Job.onFail"
+					}
+				},
+				{
+					"id": 404,
+					"name": "onOutput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 405,
+							"name": "onOutput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `output` event for specified output `key`.",
+								"text": "When output with specified `key` is emitted by script, the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 406,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "output key"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 407,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 408,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 409,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 410,
+															"name": "outputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "any"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 117,
+													"character": 29
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 67,
+								"name": "Job.onOutput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 117,
+							"character": 12
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 67,
+						"name": "Job.onOutput"
+					}
+				},
+				{
+					"id": 418,
+					"name": "onStateChanged",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 419,
+							"name": "onStateChanged",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to state change event."
+							},
+							"parameters": [
+								{
+									"id": 420,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 421,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 422,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 423,
+															"name": "state",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "reference",
+																"id": 576,
+																"name": "JobState"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 131,
+													"character": 22
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 81,
+								"name": "Job.onStateChanged"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 131,
+							"character": 18
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 81,
+						"name": "Job.onStateChanged"
+					}
+				},
+				{
+					"id": 424,
+					"name": "onSuccess",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 425,
+							"name": "onSuccess",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Subscribes to `success` event.",
+								"text": "When the job finishes successfully the handler `fn` is invoked.\n"
+							},
+							"parameters": [
+								{
+									"id": 426,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "handler callback, can be either synchronous or asynchronous\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 427,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"signatures": [
+												{
+													"id": 428,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "reference",
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																],
+																"name": "Promise"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "packages/robot/out/main/job.d.ts",
+													"line": 139,
+													"character": 17
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 675,
+								"name": "JobEventHandler"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 87,
+								"name": "Job.onSuccess"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 139,
+							"character": 13
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 87,
+						"name": "Job.onSuccess"
+					}
+				},
+				{
+					"id": 370,
+					"name": "submitInput",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 371,
+							"name": "submitInput",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 372,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 373,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.submitInput"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 170,
+							"character": 21
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.submitInput"
+					}
+				},
+				{
+					"id": 377,
+					"name": "waitForCompletion",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 378,
+							"name": "waitForCompletion",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "Job.waitForCompletion"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-job.ts",
+							"line": 178,
+							"character": 27
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "Job.waitForCompletion"
+					}
+				},
+				{
+					"id": 394,
+					"name": "waitForOutputs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 395,
+							"name": "waitForOutputs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isPublic": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Resolves when all outputs with specified `keys` are available.\nThe output data is returned as an array in the same order as specified keys.",
+								"text": "ProTip™ Use destructuring to access the data:\n\n```\nconst [products, deliveryOptions] = await job.waitForOutputs('products', 'deliveryOptions');\n```\n"
+							},
+							"parameters": [
+								{
+									"id": 396,
+									"name": "keys",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isRest": true
+									},
+									"comment": {
+										"text": "output keys"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 57,
+								"name": "Job.waitForOutputs"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/job.d.ts",
+							"line": 92,
+							"character": 18
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 57,
+						"name": "Job.waitForOutputs"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						344,
+						343
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						379,
+						368,
+						366,
+						374,
+						364,
+						411,
+						397,
+						429,
+						404,
+						418,
+						424,
+						370,
+						377,
+						394
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-job.ts",
+					"line": 40,
+					"character": 21
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "Job"
+				}
+			]
+		},
+		{
+			"id": 267,
+			"name": "LocalRobot",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "A Robot instance which is used to execute a particular script\nwith embedded Engine using local Chromium instance.",
+				"tags": [
+					{
+						"tag": "see",
+						"text": "{@link Robot}\n"
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 270,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 271,
+							"name": "new LocalRobot",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 272,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 294,
+										"name": "LocalRobotOptions"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 267,
+								"name": "LocalRobot"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 27,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 269,
+					"name": "config",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 27,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 293,
+						"name": "LocalRobotConfig"
+					}
+				},
+				{
+					"id": 268,
+					"name": "launcher",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 26,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "ChromeLauncher"
+					}
+				},
+				{
+					"id": 278,
+					"name": "logger",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/robot.d.ts",
+							"line": 11,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Logger"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 180,
+						"name": "Robot.logger"
+					}
+				},
+				{
+					"id": 279,
+					"name": "createJob",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 280,
+							"name": "createJob",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Creates a new job which conceptually results in starting an automation\nand starts tracking its lifecycle events (i.e. emitted outputs, requested inputs, success,\nfailures, etc.)",
+								"text": "The exact behaviour depends on the underlying mechanism:\n\n- `LocalRobot` will run a provided script using the embedded `Engine`\n  connected to a local Chromium instance;\n- `CloudRobot` submits a new job to Automation Cloud API and starts tracking it\n  by polling its state.\n\nThe job is automatically tracked after creation. The tracking stops after the job\nreaches one of the final states (`success`, `fail`). For this reason it is recommended\nthat `await job.waitForCompletion()` is always included to prevent dangling promises\nand unhandled promise rejections.\n\nPlease refer to specific implementations for more details.\n"
+							},
+							"parameters": [
+								{
+									"id": 281,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"comment": {
+										"text": "Job initilalization parameters (includes `category` and `input`).\n"
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "JobInitParams"
+											}
+										],
+										"name": "Partial"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Job"
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 181,
+								"name": "Robot.createJob"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/out/main/robot.d.ts",
+							"line": 33,
+							"character": 13
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"id": 181,
+						"name": "Robot.createJob"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						270
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						269,
+						268,
+						278
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						279
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-robot.ts",
+					"line": 25,
+					"character": 23
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "Robot"
+				}
+			]
+		},
+		{
+			"id": 695,
+			"name": "Robot",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true,
+				"isAbstract": true
+			},
+			"comment": {
+				"shortText": "A Robot instance which is used to execute a particular script.",
+				"text": "Robot instance is scoped to a script or service and can be used\nto create multiple jobs with the same configuration.\nFor creating jobs that execute different scripts, separate Robot instances should be created.\n"
+			},
+			"children": [
+				{
+					"id": 696,
+					"name": "logger",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/robot.ts",
+							"line": 26,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 678,
+						"name": "Logger"
+					},
+					"defaultValue": "console"
+				},
+				{
+					"id": 697,
+					"name": "createJob",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 698,
+							"name": "createJob",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Creates a new job which conceptually results in starting an automation\nand starts tracking its lifecycle events (i.e. emitted outputs, requested inputs, success,\nfailures, etc.)",
+								"text": "The exact behaviour depends on the underlying mechanism:\n\n- `LocalRobot` will run a provided script using the embedded `Engine`\n  connected to a local Chromium instance;\n- `CloudRobot` submits a new job to Automation Cloud API and starts tracking it\n  by polling its state.\n\nThe job is automatically tracked after creation. The tracking stops after the job\nreaches one of the final states (`success`, `fail`). For this reason it is recommended\nthat `await job.waitForCompletion()` is always included to prevent dangling promises\nand unhandled promise rejections.\n\nPlease refer to specific implementations for more details.\n"
+							},
+							"parameters": [
+								{
+									"id": 699,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "Job initilalization parameters (includes `category` and `input`).\n"
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 573,
+												"name": "JobInitParams"
+											}
+										],
+										"name": "Partial"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 480,
+										"name": "Job"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/robot.ts",
+							"line": 49,
+							"character": 19
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						696
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						697
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/robot.ts",
+					"line": 25,
+					"character": 27
+				}
+			]
+		},
+		{
+			"id": 128,
+			"name": "Vault",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Vault is used to store sensitive information like payment card number (PAN).",
+				"text": "The typical usage involves:\n\n- obtaining a one-time password: `const otp = await robot.vault.createOtp()`\n- putting the card number into the vault: `const panToken = await robot.vault.createPanToken(pan, otp)`;\n- using the obtained token as part of Job input\n"
+			},
+			"children": [
+				{
+					"id": 130,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 132,
+							"name": "new Vault",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 133,
+									"name": "robot",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 163,
+										"name": "CloudRobot"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 128,
+								"name": "Vault"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 28,
+							"character": 31
+						}
+					]
+				},
+				{
+					"id": 136,
+					"name": "createOtp",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 137,
+							"name": "createOtp",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Creates one time password (OTP) which can subsequently be used to put data to vault."
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 52,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 138,
+					"name": "createPanToken",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 139,
+							"name": "createPanToken",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Exchanges payment card number (PAN) to a pan token which can be safely passed around\n(i.e. used as part of inputs).",
+								"text": "If `otp` is not provided, it will be automatically created.\n"
+							},
+							"parameters": [
+								{
+									"id": 140,
+									"name": "pan",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 141,
+									"name": "existingOtp",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 63,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 142,
+					"name": "getPaymentIframeUrl",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 143,
+							"name": "getPaymentIframeUrl",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Constructs a payment iframe URL hosted by Automation Cloud Vault.",
+								"text": "See https://docs.automationcloud.net/docs/vaulting-payment-card for more information\n"
+							},
+							"parameters": [
+								{
+									"id": 144,
+									"name": "otp",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "one-time password, must be obtained via `await robot.vault.createOtp()`"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 145,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"text": "iframe customization options, see {@link PaymentIframeOptions} for more info\n"
+									},
+									"type": {
+										"type": "reference",
+										"id": 146,
+										"name": "PaymentIframeOptions"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 79,
+							"character": 23
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						130
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						136,
+						138,
+						142
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 27,
+					"character": 18
+				}
+			]
+		},
+		{
+			"id": 187,
+			"name": "CloudRobotOptionalParams",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Optional CloudRobot configuration parameters."
+			},
+			"children": [
+				{
+					"id": 189,
+					"name": "apiTokenUrl",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 140,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 188,
+					"name": "apiUrl",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 139,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 191,
+					"name": "pollInterval",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Poll interval in milliseconds for job state synchronization. Default: `1000` (1 second)."
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 145,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 190,
+					"name": "vaultUrl",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 141,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						189,
+						188,
+						191,
+						190
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+					"line": 138,
+					"character": 41
+				}
+			]
+		},
+		{
+			"id": 184,
+			"name": "CloudRobotRequiredParams",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Required CloudRobot configuration parameters."
+			},
+			"children": [
+				{
+					"id": 186,
+					"name": "auth",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Automation Cloud authentication parameters."
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 132,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 194,
+						"name": "CloudRobotAuthParams"
+					}
+				},
+				{
+					"id": 185,
+					"name": "serviceId",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "A UUID of the Service to be executed (you can obtain it from Automation Cloud dashboard)."
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+							"line": 127,
+							"character": 13
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						186,
+						185
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+					"line": 123,
+					"character": 41
+				}
+			]
+		},
+		{
+			"id": 465,
+			"name": "ExceptionSpec",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 467,
+					"name": "code",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 17,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "string"
+							}
+						]
+					}
+				},
+				{
+					"id": 469,
+					"name": "details",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 19,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "object"
+							}
+						]
+					}
+				},
+				{
+					"id": 468,
+					"name": "message",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 18,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "string"
+							}
+						]
+					}
+				},
+				{
+					"id": 466,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/exception.ts",
+							"line": 16,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						467,
+						469,
+						468,
+						466
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/exception.ts",
+					"line": 15,
+					"character": 30
+				}
+			]
+		},
+		{
+			"id": 588,
+			"name": "JobError",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Describes the reason of job failure."
+			},
+			"children": [
+				{
+					"id": 590,
+					"name": "category",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "A designation of the root cause of error:",
+						"text": "- `client` indicates the class of errors that involve client actions\n  (e.g. invalid inputs supplied, job cancelled, etc.)\n- `server` indicates platform-related failure (e.g. worker crash, timeout, API unavailable, etc.)\n- `website` indicates a known limitation with the website (e.g. an unsupported feature, flow or layout)\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 315,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "stringLiteral",
+								"value": "client"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "server"
+							},
+							{
+								"type": "stringLiteral",
+								"value": "website"
+							}
+						]
+					}
+				},
+				{
+					"id": 589,
+					"name": "code",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Error code in PascalCase, typically constrained by schema."
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 305,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 592,
+					"name": "details",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Arbitrary details for logging and debugging.",
+						"text": "Note: implementations should never depend on the structure of this object.\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 329,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				},
+				{
+					"id": 591,
+					"name": "message",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "If applicable, human-readable message for logging and debugging.",
+						"text": "Note: implementations should never depend on the structure of this string.\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 322,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						590,
+						589,
+						592,
+						591
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 301,
+					"character": 25
+				}
+			]
+		},
+		{
+			"id": 573,
+			"name": "JobInitParams",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Job initialization parameters, provided when the job is being created using `robot.createJob()`."
+			},
+			"children": [
+				{
+					"id": 575,
+					"name": "category",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Job category, used for filtering jobs in Automation Cloud dashboard."
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 270,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 585,
+						"name": "JobCategory"
+					}
+				},
+				{
+					"id": 574,
+					"name": "input",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Initial job inputs (provided as objects)."
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 266,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 599,
+						"name": "JobInputObject"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						575,
+						574
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 262,
+					"character": 30
+				}
+			]
+		},
+		{
+			"id": 593,
+			"name": "JobInput",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Job inputs are the primary means of supplying data to automations.",
+				"text": "Data is supplied by client in key-value format. Keys must be in camelCase.\n"
+			},
+			"children": [
+				{
+					"id": 595,
+					"name": "data",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 339,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				},
+				{
+					"id": 594,
+					"name": "key",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 338,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						595,
+						594
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 337,
+					"character": 25
+				}
+			]
+		},
+		{
+			"id": 599,
+			"name": "JobInputObject",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Describes initial job inputs in object representation."
+			},
+			"indexSignature": [
+				{
+					"id": 600,
+					"name": "__index",
+					"kind": 8192,
+					"kindString": "Index signature",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Describes initial job inputs in object representation."
+					},
+					"parameters": [
+						{
+							"id": 601,
+							"name": "key",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 355,
+					"character": 31
+				}
+			]
+		},
+		{
+			"id": 596,
+			"name": "JobOutput",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Job outputs are the primary means of receiving data from automations.",
+				"text": "Data is emitted by script in key-value format. Keys must be in camelCase.\n"
+			},
+			"children": [
+				{
+					"id": 598,
+					"name": "data",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 349,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				},
+				{
+					"id": 597,
+					"name": "key",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 348,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						598,
+						597
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 347,
+					"character": 26
+				}
+			]
+		},
+		{
+			"id": 284,
+			"name": "LocalRobotOptionalParams",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Optional configuration parameters for local robot."
+			},
+			"children": [
+				{
+					"id": 289,
+					"name": "autoRunJobs",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Specifies whether the jobs will be run automatically after they are created. Default: `true`."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 125,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 288,
+					"name": "chromeAdditionalArgs",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "An array with additional arguments used to launch Chromium. Default: `[]`."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 121,
+							"character": 24
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				},
+				{
+					"id": 287,
+					"name": "chromeHeadless",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Indicates whether `--headless` command line parameter will be used to launch Chromium.\nDefault: `false`."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 117,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 285,
+					"name": "chromePath",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Local path to Chromium executable.\nDefault is taken from `CHROME_PATH` environment variable."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 107,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 286,
+					"name": "chromePort",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Chrome CDP port, as specified in `--remote-debugging-port` command line parameter.\nDefault: `9123`"
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 112,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 292,
+					"name": "closeActiveTab",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Whether to close the active tab after the job is finished.\nLeaving the tab open can be handy for debugging, but not so much for automating on scale.\nDefault: `true`."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 140,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 291,
+					"name": "closeAllTabs",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Whether to close all existing tabs after the job is finished. Default: `false`."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 134,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 290,
+					"name": "inputTimeout",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "The duration in milliseconds of waiting for the requested input before failing the job\nwith `InputTimeout` error. Default: `60000` (1 minute)."
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 130,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						289,
+						288,
+						287,
+						285,
+						286,
+						292,
+						291,
+						290
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-robot.ts",
+					"line": 102,
+					"character": 41
+				}
+			]
+		},
+		{
+			"id": 282,
+			"name": "LocalRobotRequiredParams",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 283,
+					"name": "script",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/local-robot/src/main/local-robot.ts",
+							"line": 94,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 295,
+						"name": "LocalScriptInit"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						283
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-robot.ts",
+					"line": 93,
+					"character": 41
+				}
+			]
+		},
+		{
+			"id": 678,
+			"name": "Logger",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Standard logging interface, compatible with `console`.",
+				"text": "Use this interface to provide your own logging system to Robot\n(either directly or via an adapter).\n```\n"
+			},
+			"children": [
+				{
+					"id": 691,
+					"name": "debug",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 692,
+							"name": "debug",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 693,
+									"name": "message",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 694,
+									"name": "object",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/logger.ts",
+							"line": 27,
+							"character": 9
+						}
+					]
+				},
+				{
+					"id": 687,
+					"name": "error",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 688,
+							"name": "error",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 689,
+									"name": "message",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 690,
+									"name": "object",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/logger.ts",
+							"line": 26,
+							"character": 9
+						}
+					]
+				},
+				{
+					"id": 679,
+					"name": "info",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 680,
+							"name": "info",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 681,
+									"name": "message",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 682,
+									"name": "object",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/logger.ts",
+							"line": 24,
+							"character": 8
+						}
+					]
+				},
+				{
+					"id": 683,
+					"name": "warn",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 684,
+							"name": "warn",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 685,
+									"name": "message",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 686,
+									"name": "object",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true,
+										"isOptional": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/logger.ts",
+							"line": 25,
+							"character": 8
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						691,
+						687,
+						679,
+						683
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/logger.ts",
+					"line": 23,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 153,
+			"name": "PaymentIframeCustomizedField",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 155,
+					"name": "label",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 144,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 154,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 143,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 158,
+						"name": "PaymentIframeFieldName"
+					}
+				},
+				{
+					"id": 156,
+					"name": "placeholder",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 145,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						155,
+						154,
+						156
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 142,
+					"character": 45
+				}
+			]
+		},
+		{
+			"id": 146,
+			"name": "PaymentIframeOptions",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Additional configuration of secure payment iframe.\nSee https://docs.automationcloud.net/docs/vaulting-payment-card for more info."
+			},
+			"children": [
+				{
+					"id": 150,
+					"name": "brands",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "If specifies, restrict the choice of card brands.",
+						"text": "Default: `['visa', 'mastercard', 'amex', 'discover']`\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 123,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"id": 159,
+							"name": "PaymentIframeBrand"
+						}
+					}
+				},
+				{
+					"id": 148,
+					"name": "cssUrl",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "The CSS to use. Default: `https://vault.automationcloud.net/forms/index.css`"
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 107,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "string"
+							}
+						]
+					}
+				},
+				{
+					"id": 149,
+					"name": "fields",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "If specified, restricts the rendered fields.\nAdditionally, field labels and placeholders can be customized as per\nhttps://docs.automationcloud.net/docs/vaulting-payment-card#customised-label-and-placeholder",
+						"text": "Default: `['pan', 'name', 'expiry-select', 'cvv']`\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 116,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"id": 157,
+							"name": "PaymentIframeField"
+						}
+					}
+				},
+				{
+					"id": 147,
+					"name": "iframeUrl",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "The URL of payment iframe. Default: `https://vault.automationcloud.net/forms/index.html`"
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 102,
+							"character": 13
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "string"
+							}
+						]
+					}
+				},
+				{
+					"id": 151,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "If specified, the \"name\" form field will be pre-filled with specified value."
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 128,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "string"
+							}
+						]
+					}
+				},
+				{
+					"id": 152,
+					"name": "validateOnInput",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "If enabled, the iframe will emit validation events for each field using `vault.validation` messages.\nSee https://docs.automationcloud.net/docs/vaulting-payment-card#validateoninput-optional for more info.",
+						"text": "Default: `false`\n"
+					},
+					"sources": [
+						{
+							"fileName": "packages/cloud-robot/src/main/vault.ts",
+							"line": 136,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "undefined"
+							},
+							{
+								"type": "intrinsic",
+								"name": "false"
+							},
+							{
+								"type": "intrinsic",
+								"name": "true"
+							}
+						]
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						150,
+						148,
+						149,
+						147,
+						151,
+						152
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 98,
+					"character": 37
+				}
+			]
+		},
+		{
+			"id": 194,
+			"name": "CloudRobotAuthParams",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Automation Cloud Authentication. Use `string` form for legacy authentication (aka \"client secret key\"),\notherwise provide the OAuth2 details as an object (you can obtain them by creating a new Application in\nAutomation Cloud dashboard)."
+			},
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+					"line": 115,
+					"character": 32
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "intrinsic",
+						"name": "string"
+					},
+					{
+						"type": "reflection",
+						"declaration": {
+							"id": 195,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 196,
+									"name": "clientId",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+											"line": 116,
+											"character": 12
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 197,
+									"name": "clientSecret",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+											"line": 117,
+											"character": 16
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										196,
+										197
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+									"line": 115,
+									"character": 43
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": 192,
+			"name": "CloudRobotConfig",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Cloud robot configuration, consists of required and optional parameters."
+			},
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+					"line": 107,
+					"character": 28
+				}
+			],
+			"type": {
+				"type": "intersection",
+				"types": [
+					{
+						"type": "reference",
+						"id": 184,
+						"name": "CloudRobotRequiredParams"
+					},
+					{
+						"type": "reference",
+						"id": 187,
+						"name": "CloudRobotOptionalParams"
+					}
+				]
+			}
+		},
+		{
+			"id": 193,
+			"name": "CloudRobotOptions",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/cloud-robot.ts",
+					"line": 108,
+					"character": 29
+				}
+			],
+			"type": {
+				"type": "intersection",
+				"types": [
+					{
+						"type": "reference",
+						"id": 184,
+						"name": "CloudRobotRequiredParams"
+					},
+					{
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"id": 187,
+								"name": "CloudRobotOptionalParams"
+							}
+						],
+						"name": "Partial"
+					}
+				]
+			}
+		},
+		{
+			"id": 675,
+			"name": "JobEventHandler",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Event subscription methods like `onOutput` return handlers which can subsequently be invoked\nwith zero arguments to unsubscribe from the event.",
+				"text": "```ts\nconst unsubscribe = job.onOutput('someKey', async data => { ... });\n// ...\nunsubscribe();\n```\n"
+			},
+			"sources": [
+				{
+					"fileName": "packages/robot/src/main/job.ts",
+					"line": 369,
+					"character": 27
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 676,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 677,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/robot/src/main/job.ts",
+							"line": 369,
+							"character": 29
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 293,
+			"name": "LocalRobotConfig",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Local robot configuration, includes mandatory `script` which can be\neither a path to local file containing a script created an Autopilot, or the JSON object\nrepresenting the serialized script."
+			},
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-robot.ts",
+					"line": 90,
+					"character": 28
+				}
+			],
+			"type": {
+				"type": "intersection",
+				"types": [
+					{
+						"type": "reference",
+						"id": 282,
+						"name": "LocalRobotRequiredParams"
+					},
+					{
+						"type": "reference",
+						"id": 284,
+						"name": "LocalRobotOptionalParams"
+					}
+				]
+			}
+		},
+		{
+			"id": 294,
+			"name": "LocalRobotOptions",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-robot.ts",
+					"line": 91,
+					"character": 29
+				}
+			],
+			"type": {
+				"type": "intersection",
+				"types": [
+					{
+						"type": "reference",
+						"id": 282,
+						"name": "LocalRobotRequiredParams"
+					},
+					{
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"id": 284,
+								"name": "LocalRobotOptionalParams"
+							}
+						],
+						"name": "Partial"
+					}
+				]
+			}
+		},
+		{
+			"id": 295,
+			"name": "LocalScriptInit",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"sources": [
+				{
+					"fileName": "packages/local-robot/src/main/local-robot.ts",
+					"line": 97,
+					"character": 27
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "intrinsic",
+						"name": "string"
+					},
+					{
+						"type": "intrinsic",
+						"name": "object"
+					}
+				]
+			}
+		},
+		{
+			"id": 159,
+			"name": "PaymentIframeBrand",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 141,
+					"character": 30
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "stringLiteral",
+						"value": "visa"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "mastercard"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "amex"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "discover"
+					}
+				]
+			}
+		},
+		{
+			"id": 157,
+			"name": "PaymentIframeField",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 139,
+					"character": 30
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "reference",
+						"id": 158,
+						"name": "PaymentIframeFieldName"
+					},
+					{
+						"type": "reference",
+						"id": 153,
+						"name": "PaymentIframeCustomizedField"
+					}
+				]
+			}
+		},
+		{
+			"id": 158,
+			"name": "PaymentIframeFieldName",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 140,
+					"character": 34
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "stringLiteral",
+						"value": "name"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "pan"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "expiry"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "expiry-yy"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "expiry-select"
+					},
+					{
+						"type": "stringLiteral",
+						"value": "cvv"
+					}
+				]
+			}
+		},
+		{
+			"id": 160,
+			"name": "fieldToString",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true
+			},
+			"signatures": [
+				{
+					"id": 161,
+					"name": "fieldToString",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {
+						"isExported": true
+					},
+					"parameters": [
+						{
+							"id": 162,
+							"name": "field",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isExported": true
+							},
+							"type": {
+								"type": "reference",
+								"id": 157,
+								"name": "PaymentIframeField"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "packages/cloud-robot/src/main/vault.ts",
+					"line": 148,
+					"character": 22
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Enumerations",
+			"kind": 4,
+			"children": [
+				585,
+				576
+			]
+		},
+		{
+			"title": "Classes",
+			"kind": 128,
+			"children": [
+				1,
+				163,
+				470,
+				480,
+				336,
+				267,
+				695,
+				128
+			]
+		},
+		{
+			"title": "Interfaces",
+			"kind": 256,
+			"children": [
+				187,
+				184,
+				465,
+				588,
+				573,
+				593,
+				599,
+				596,
+				284,
+				282,
+				678,
+				153,
+				146
+			]
+		},
+		{
+			"title": "Type aliases",
+			"kind": 4194304,
+			"children": [
+				194,
+				192,
+				193,
+				675,
+				293,
+				294,
+				295,
+				159,
+				157,
+				158
+			]
+		},
+		{
+			"title": "Functions",
+			"kind": 64,
+			"children": [
+				160
+			]
+		}
+	]
+}

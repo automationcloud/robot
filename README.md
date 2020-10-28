@@ -1,4 +1,4 @@
-# Automation Cloud Robot API
+# Automation Cloud Robot
 
 **Status: alpha (public APIs and interfaces are subject to change)**
 
@@ -12,7 +12,7 @@ Principally, there are two different ways of running automations:
 
 Robot provides a unified [Job](#job) interface for running automations both locally and in the cloud. This approach encapsulates the complexity of setting up the Automation Engine, establishing connectivity to Chrome and wiring the code with different script lifecycle events, and allows switching transparently from local to cloud setup without modifying much of the business logic.
 
-![Choosing Robot API Diagram](https://raw.githubusercontent.com/automationcloud/robot/main/resources/diagram.png)
+![Choosing Robot Diagram](https://raw.githubusercontent.com/automationcloud/robot/main/resources/diagram.png)
 
 ## Usage
 
@@ -97,7 +97,7 @@ Note: it is not required to pre-supply all inputs that script expects. Whenever 
 
 ### Waiting for completion
 
-The Robot API tracks job lifecycle events up to the point when the job is either finished successfully or failed with an error. `waitForCompletion` resolves or rejects when the tracking is over.
+The Robot tracks job lifecycle events up to the point when the job is either finished successfully or failed with an error. `waitForCompletion` resolves or rejects when the tracking is over.
 
 ```ts
 await job.waitForCompletion();
@@ -112,7 +112,7 @@ await job.waitForCompletion();
 
 Outputs provide a mechanism to receive the results that script produces. This can be the results of web page scraping, or collected options, or any other information retrieved by the script.
 
-Robot API offers a convenient way of waiting for the outputs you expect from your script:
+Robot offers a convenient way of waiting for the outputs you expect from your script:
 
 ```ts
 // The promise will resolve once all specified outputs are emitted by script

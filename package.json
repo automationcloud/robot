@@ -1,6 +1,6 @@
 {
     "name": "@automationcloud/robot",
-    "description": "APIs for running Automation Cloud scripts",
+    "description": "Node.js libraries for running Automation Cloud scripts",
     "author": "UBIO",
     "license": "Apache-2.0",
     "repository": {

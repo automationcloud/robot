@@ -16,7 +16,7 @@ import { Job, JobCategory, JobInitParams } from './job';
 import { Logger } from './logger';
 
 /**
- * A Robot API instance which is used to execute a particular script.
+ * A Robot instance which is used to execute a particular script.
  *
  * Robot instance is scoped to a script or service and can be used
  * to create multiple jobs with the same configuration.

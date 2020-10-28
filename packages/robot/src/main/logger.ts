@@ -16,7 +16,7 @@
 /**
  * Standard logging interface, compatible with `console`.
  *
- * Use this interface to provide your own logging system to Robot API
+ * Use this interface to provide your own logging system to Robot
  * (either directly or via an adapter).
  * ```
  */

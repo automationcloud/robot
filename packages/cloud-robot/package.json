@@ -1,7 +1,7 @@
 {
     "name": "@automationcloud/cloud-robot",
     "version": "1.0.0-rc.13",
-    "description": "API for running scripts using Automation Cloud API",
+    "description": "Client library for running scripts using Automation Cloud API",
     "main": "out/main/index.js",
     "scripts": {
         "test": "NODE_ENV=test mocha",

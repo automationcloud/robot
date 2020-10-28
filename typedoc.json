@@ -1,7 +1,8 @@
 {
     "mode": "file",
     "out": "docs",
-    "name": "Automation Cloud Robot API Reference",
+    "json": "docs.json",
+    "name": "Automation Cloud Robot",
     "excludeExternals": true,
     "excludeNotExported": true,
     "excludeProtected": true,

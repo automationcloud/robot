@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Automation Cloud Robot API Reference | Automation Cloud Robot API Reference</title>
-	<meta name="description" content="Automation Cloud Robot API Reference">
+	<title>Automation Cloud Robot | Automation Cloud Robot</title>
+	<meta name="description" content="Automation Cloud Robot">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:wght@400;600&display=fallback"
 	rel="stylesheet"/>
@@ -22,7 +22,7 @@
 		role="banner"
 		title="Automation Cloud"/>
 		<a class="tsd-header-link" href="index.html">
-			Robot API Reference
+			Robot Reference
 		</a>
 	</header>
 	<div class="tsd-page">
@@ -135,8 +135,8 @@
 		<main class="tsd-main">
 			<div class="tsd-content-wrap">
 				<div class="tsd-panel tsd-typography">
-					<a href="#automation-cloud-robot-api" id="automation-cloud-robot-api" style="color: inherit; text-decoration: none;">
-						<h1>Automation Cloud Robot API</h1>
+					<a href="#automation-cloud-robot" id="automation-cloud-robot" style="color: inherit; text-decoration: none;">
+						<h1>Automation Cloud Robot</h1>
 					</a>
 					<p><strong>Status: alpha (public APIs and interfaces are subject to change)</strong></p>
 					<p>Robot is a client library for running <a href="https://github.com/automationcloud/autopilot">Autopilot</a> scripts.</p>
@@ -148,7 +148,7 @@
 						</li>
 					</ul>
 					<p>Robot provides a unified <a href="#job">Job</a> interface for running automations both locally and in the cloud. This approach encapsulates the complexity of setting up the Automation Engine, establishing connectivity to Chrome and wiring the code with different script lifecycle events, and allows switching transparently from local to cloud setup without modifying much of the business logic.</p>
-					<p><img src="https://raw.githubusercontent.com/automationcloud/robot/main/resources/diagram.png" alt="Choosing Robot API Diagram"></p>
+					<p><img src="https://raw.githubusercontent.com/automationcloud/robot/main/resources/diagram.png" alt="Choosing Robot Diagram"></p>
 					<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 						<h2>Usage</h2>
 					</a>
@@ -221,7 +221,7 @@
 					<a href="#waiting-for-completion" id="waiting-for-completion" style="color: inherit; text-decoration: none;">
 						<h3>Waiting for completion</h3>
 					</a>
-					<p>The Robot API tracks job lifecycle events up to the point when the job is either finished successfully or failed with an error. <code>waitForCompletion</code> resolves or rejects when the tracking is over.</p>
+					<p>The Robot tracks job lifecycle events up to the point when the job is either finished successfully or failed with an error. <code>waitForCompletion</code> resolves or rejects when the tracking is over.</p>
 					<pre><code class="language-ts"><span class="hljs-keyword">await</span> job.waitForCompletion();
 <span class="hljs-comment">// The promise is resolved once the job reaches a `success` state</span>
 <span class="hljs-comment">// (e.g. a `success` context is reached).</span>
@@ -231,7 +231,7 @@
 						<h3>Waiting for outputs</h3>
 					</a>
 					<p>Outputs provide a mechanism to receive the results that script produces. This can be the results of web page scraping, or collected options, or any other information retrieved by the script.</p>
-					<p>Robot API offers a convenient way of waiting for the outputs you expect from your script:</p>
+					<p>Robot offers a convenient way of waiting for the outputs you expect from your script:</p>
 					<pre><code class="language-ts"><span class="hljs-comment">// The promise will resolve once all specified outputs are emitted by script</span>
 <span class="hljs-keyword">const</span> [products, deliveryOptions] = <span class="hljs-keyword">await</span> job.waitForOutputs(<span class="hljs-string">&#x27;products&#x27;</span>, <span class="hljs-string">&#x27;deliveryOptions&#x27;</span>);</code></pre>
 					<p>In other scenarios it might be more practical to use event-based API to get notified when a particular output is emitted:</p>
@@ -280,7 +280,7 @@ unsubscribe();</code></pre>
 					</a>
 					<p>See <a href="LICENSE.md">LICENSE</a>.</p>
 				</div>
-				<h1>Automation Cloud Robot API Reference</h1>
+				<h1>Automation Cloud Robot</h1>
 				<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 				<section class="tsd-panel-group tsd-index-group">
 					<h2>Index</h2>
@@ -356,7 +356,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Cloud<wbr>Robot<wbr>Auth<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>clientSecret<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/cloud-robot.ts#L115">packages/cloud-robot/src/main/cloud-robot.ts:115</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/cloud-robot.ts#L115">packages/cloud-robot/src/main/cloud-robot.ts:115</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -373,7 +373,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Cloud<wbr>Robot<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/cloudrobotrequiredparams.html" class="tsd-signature-type">CloudRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/cloudrobotoptionalparams.html" class="tsd-signature-type">CloudRobotOptionalParams</a></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/cloud-robot.ts#L107">packages/cloud-robot/src/main/cloud-robot.ts:107</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/cloud-robot.ts#L107">packages/cloud-robot/src/main/cloud-robot.ts:107</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -388,7 +388,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Cloud<wbr>Robot<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="interfaces/cloudrobotrequiredparams.html" class="tsd-signature-type">CloudRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/cloudrobotoptionalparams.html" class="tsd-signature-type">CloudRobotOptionalParams</a><span class="tsd-signature-symbol">&gt;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/cloud-robot.ts#L108">packages/cloud-robot/src/main/cloud-robot.ts:108</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/cloud-robot.ts#L108">packages/cloud-robot/src/main/cloud-robot.ts:108</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -398,7 +398,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Job<wbr>Event<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/robot/src/main/job.ts#L369">packages/robot/src/main/job.ts:369</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/robot/src/main/job.ts#L369">packages/robot/src/main/job.ts:369</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -432,7 +432,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Local<wbr>Robot<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="interfaces/localrobotrequiredparams.html" class="tsd-signature-type">LocalRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/localrobotoptionalparams.html" class="tsd-signature-type">LocalRobotOptionalParams</a></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/local-robot/src/main/local-robot.ts#L90">packages/local-robot/src/main/local-robot.ts:90</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/local-robot/src/main/local-robot.ts#L90">packages/local-robot/src/main/local-robot.ts:90</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -449,7 +449,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Local<wbr>Robot<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="interfaces/localrobotrequiredparams.html" class="tsd-signature-type">LocalRobotRequiredParams</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/localrobotoptionalparams.html" class="tsd-signature-type">LocalRobotOptionalParams</a><span class="tsd-signature-symbol">&gt;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/local-robot/src/main/local-robot.ts#L91">packages/local-robot/src/main/local-robot.ts:91</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/local-robot/src/main/local-robot.ts#L91">packages/local-robot/src/main/local-robot.ts:91</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -459,7 +459,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Local<wbr>Script<wbr>Init<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/local-robot/src/main/local-robot.ts#L97">packages/local-robot/src/main/local-robot.ts:97</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/local-robot/src/main/local-robot.ts#L97">packages/local-robot/src/main/local-robot.ts:97</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -469,7 +469,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Payment<wbr>Iframe<wbr>Brand<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"visa"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"mastercard"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"amex"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"discover"</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L141">packages/cloud-robot/src/main/vault.ts:141</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/vault.ts#L141">packages/cloud-robot/src/main/vault.ts:141</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -479,7 +479,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Payment<wbr>Iframe<wbr>Field<span class="tsd-signature-symbol">:</span> <a href="globals.html#paymentiframefieldname" class="tsd-signature-type">PaymentIframeFieldName</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/paymentiframecustomizedfield.html" class="tsd-signature-type">PaymentIframeCustomizedField</a></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L139">packages/cloud-robot/src/main/vault.ts:139</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/vault.ts#L139">packages/cloud-robot/src/main/vault.ts:139</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -489,7 +489,7 @@ unsubscribe();</code></pre>
 						<div class="tsd-signature tsd-kind-icon">Payment<wbr>Iframe<wbr>Field<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"name"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pan"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"expiry"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"expiry-yy"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"expiry-select"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cvv"</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L140">packages/cloud-robot/src/main/vault.ts:140</a></li>
+								<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/vault.ts#L140">packages/cloud-robot/src/main/vault.ts:140</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -506,7 +506,7 @@ unsubscribe();</code></pre>
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/a81e814/packages/cloud-robot/src/main/vault.ts#L148">packages/cloud-robot/src/main/vault.ts:148</a></li>
+										<li>Defined in <a href="https://github.com/automationcloud/robot/blob/22e622c/packages/cloud-robot/src/main/vault.ts#L148">packages/cloud-robot/src/main/vault.ts:148</a></li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
