@@ -5,7 +5,7 @@
     "main": "out/main/index.js",
     "scripts": {
         "test": "NODE_ENV=test mocha",
-        "build:browser": "NODE_ENV=production webpack",
+        "build:browser": "rm -rf dist && NODE_ENV=production webpack",
         "preversion": "npm run build:browser"
     },
     "author": "UBIO",
