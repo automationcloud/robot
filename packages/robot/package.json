@@ -1,6 +1,6 @@
 {
     "name": "@automationcloud/robot",
-    "version": "1.0.0-rc.13",
+    "version": "1.0.0-rc.14",
     "description": "API for running scripts on Automation Cloud",
     "main": "out/main/index.js",
     "scripts": {},
