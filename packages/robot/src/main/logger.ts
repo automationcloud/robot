@@ -18,7 +18,6 @@
  *
  * Use this interface to provide your own logging system to Robot
  * (either directly or via an adapter).
- * ```
  */
 export interface Logger {
     info(message: string, object?: any): void;
