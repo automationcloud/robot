@@ -1,6 +1,8 @@
-# Automation Cloud Robot
+**Status: discontinued**
 
-**Status: alpha (public APIs and interfaces are subject to change)**
+This project has been replaced with [JavaScript Client Library](https://github.com/automationcloud/client-javascript). Please upgrade your integration accordingly.
+
+---
 
 Robot is a client library for running [Autopilot](https://github.com/automationcloud/autopilot) scripts.
 
